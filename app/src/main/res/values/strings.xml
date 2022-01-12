@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Donation App</string>
+    <string name="navigation_drawer_open">Open Navigation Drawer</string>
+    <string name="navigation_drawer_close">Close Navigation Drawer</string>
+    <string name="past_donations">Past Donations</string>
+    <string name="facts">Facts</string>
+    <string name="blood_banks">Blood Banks</string>
+    <string name="donors">Donors</string>
+    <string name="profile">Profile</string>
+    <string name="sign_out">Sign Out</string>
+</resources>
