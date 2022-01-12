@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:checked="true"
+        android:icon="@drawable/home_new_icon"
+        />
+ <item
+     android:id="@+id/ngo"
+     android:title="NGO"
+     android:icon="@drawable/ngo_icon1"
+     android:iconTint="@color/white"
+     />
+
+  <item
+        android:id="@+id/chat"
+        android:title="Chats"
+        android:icon="@drawable/chat_new_icon"
+      android:iconTint="@color/white"
+        />
+  <item
+        android:id="@+id/my_request"
+        android:title="My Requests"
+        android:icon="@drawable/myrequest1"
+         android:iconTint="@color/white"
+        />
+
+
+</menu>
