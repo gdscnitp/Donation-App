@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DonationApp">
-        <activity android:name=".Activity.FactsActivity"></activity>
+        <activity android:name=".Activity.UserSignupActivity"></activity>
+        <activity android:name=".Activity.FactsActivity" />
         <activity android:name=".Activity.PastDonationActivity" />
         <activity android:name=".Activity.ProfileActivity" />
         <activity android:name=".Activity.DonorActivity" />
