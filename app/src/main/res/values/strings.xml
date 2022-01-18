@@ -6,6 +6,19 @@
     <string name="facts">Facts</string>
     <string name="blood_banks">Blood Banks</string>
     <string name="donors">Donors</string>
-    <string name="profile">Profile</string>
     <string name="sign_out">Sign Out</string>
+    <string name="user_sign_up">User Signup</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="profile">Profile</string>
+    <string name="password">Password</string>
+    <string name="gender">Gender</string>
+    <string name="dob">DOB</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="address">Address</string>
+    <string name="submit">submit</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="do_you_want_to_be_a_donor">Do you want to be a donor?</string>
+    <string name="weight_in_kg">Weight in Kg</string>
 </resources>
