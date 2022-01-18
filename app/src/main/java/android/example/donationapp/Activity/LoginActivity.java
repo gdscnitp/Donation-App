@@ -10,45 +10,61 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
+
 public class LoginActivity extends AppCompatActivity {
 
-    EditText emailEnter, passwordEnter;
-    TextView forgotpassword;
-    Button loginbutton, userSignInbutton, ngoSignInbutton;
+     TextInputLayout emailbox, passwordbox;
+     TextInputEditText emailEntry, passwordEntry;
+     Button loginButton, signUpuser, signUpngo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
 
-        emailEnter = findViewById(R.id.email_user_enter);
-        passwordEnter = findViewById(R.id.password_entry_user);
-        forgotpassword = findViewById(R.id.forget_password);
-        loginbutton = findViewById(R.id.login_button);
-        userSignInbutton = findViewById(R.id.user_signin_button);
-        ngoSignInbutton = findViewById(R.id.ngo_signin_button);
+        emailbox = findViewById(R.id.email_user_enter);
+        passwordbox = findViewById(R.id.password_entry_user);
+        emailEntry = findViewById(R.id.email_entry_box);
+        passwordEntry = findViewById(R.id.password_entry_box);
+        loginButton = findViewById(R.id.login_button);
+        signUpuser = findViewById(R.id.user_signin_button);
+        signUpngo = findViewById(R.id.ngo_signin_button);
 
-        emailEnter.getText().toString();
-        passwordEnter.getText().toString();
-
-        loginbutton.setOnClickListener(new View.OnClickListener() {
+        loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(LoginActivity.this," ",Toast.LENGTH_SHORT).show();
+                if(!emailEntry.getText().toString().isEmpty())
+                {
+                    Toast.makeText(LoginActivity.this,"Email Entered", Toast.LENGTH_SHORT).show();
+                    if(!passwordEntry.getText().toString().isEmpty())
+                    {
+                        Toast.makeText(LoginActivity.this,"Password Entered", Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                    {
+                        passwordEntry.setError("Enter Password");
+                    }
+                }
+                else
+                {
+                    emailEntry.setError("Enter Email");
+                }
             }
         });
 
-        userSignInbutton.setOnClickListener(new View.OnClickListener() {
+        signUpuser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(LoginActivity.this," ",Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this," ", Toast.LENGTH_SHORT).show();
             }
         });
 
-        ngoSignInbutton.setOnClickListener(new View.OnClickListener() {
+        signUpngo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(LoginActivity.this, " ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this," ", Toast.LENGTH_SHORT).show();
             }
         });
     }
