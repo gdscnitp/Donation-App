@@ -68,6 +68,8 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:elevation="10dp"
+        android:hint="Name"
+        android:gravity="top"
         android:background="@drawable/background_ngo_edit_profile">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -75,7 +77,6 @@
             android:layout_height="match_parent"
             android:id="@+id/ngo_name_edit"
             android:background="@color/white"
-            android:hint="Name"
             android:fontFamily="@font/poppins_regular"
             android:inputType="text"
             android:textCursorDrawable="@drawable/cursor_color"
@@ -91,6 +92,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        android:hint="Description"
         android:elevation="10dp"
         android:background="@drawable/background_ngo_edit_profile">
 
@@ -99,7 +101,6 @@
             android:layout_height="match_parent"
             android:id="@+id/ngo_description_edit"
             android:background="@color/white"
-            android:hint="Description"
             android:gravity="top"
             android:fontFamily="@font/poppins_regular"
             android:inputType="textMultiLine"
@@ -117,6 +118,8 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:elevation="10dp"
+        android:hint="Address"
+        android:gravity="top"
         android:background="@drawable/background_ngo_edit_profile">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -124,7 +127,6 @@
             android:layout_height="match_parent"
             android:id="@+id/ngo_address_edit"
             android:background="@color/white"
-            android:hint="Address"
             android:fontFamily="@font/poppins_regular"
             android:inputType="textMultiLine"
             android:textCursorDrawable="@drawable/cursor_color"
@@ -141,6 +143,8 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:elevation="10dp"
+        android:hint="Contact"
+        android:gravity="top"
         android:background="@drawable/background_ngo_edit_profile">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -148,7 +152,6 @@
             android:layout_height="match_parent"
             android:id="@+id/ngo_contact_name_edit"
             android:background="@color/white"
-            android:hint="Contact"
             android:fontFamily="@font/poppins_regular"
             android:inputType="text"
             android:textCursorDrawable="@drawable/cursor_color"
@@ -165,6 +168,8 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:elevation="10dp"
+        android:hint="Email"
+        android:gravity="top"
         android:background="@drawable/background_ngo_edit_profile">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -172,7 +177,6 @@
             android:layout_height="match_parent"
             android:id="@+id/ngo_email_edit"
             android:background="@color/white"
-            android:hint="Email"
             android:fontFamily="@font/poppins_regular"
             android:inputType="text"
             android:textCursorDrawable="@drawable/cursor_color"
@@ -189,6 +193,8 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:elevation="10dp"
+        android:hint="Password"
+        android:gravity="top"
         android:background="@drawable/background_ngo_edit_profile">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -196,7 +202,6 @@
             android:layout_height="match_parent"
             android:id="@+id/ngo_password_edit"
             android:background="@color/white"
-            android:hint="Password"
             android:fontFamily="@font/poppins_regular"
             android:inputType="textPassword"
             android:drawableRight="@drawable/ic_password_logo"
