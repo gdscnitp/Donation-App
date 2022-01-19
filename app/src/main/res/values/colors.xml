@@ -7,8 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="deep_maroon">#8C2F39</color>
-    <color name="light_maroon">#FBE9E7</color>
+    <color name="background">#FBE9E7</color>
     <color name="medium_maroon">#F05645</color>
     <color name="light_orange">#F67E7D</color>
     <color name="primary_red">#FF5959</color>
