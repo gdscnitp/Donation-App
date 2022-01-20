@@ -9,13 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DonationApp">
-        <activity android:name=".Activity.EventsActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <activity android:name=".Activity.EventsActivity">
         </activity>
         <activity
             android:name=".Activity.NGOEditActivity">
@@ -29,7 +23,14 @@
         <activity android:name=".Activity.ProfileActivity" />
         <activity android:name=".Activity.DonorActivity" />
         <activity android:name=".Activity.BloodBankActivity" />
-        <activity android:name=".Activity.MainActivity" />
+        <activity android:name=".Activity.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
