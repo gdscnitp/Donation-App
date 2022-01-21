@@ -12,7 +12,6 @@
         <activity android:name=".Activity.EventsActivity">
         </activity>
         <activity
-
             android:name=".Activity.AddRequestActivity"
             android:exported="true" >
             <intent-filter>
@@ -26,7 +25,6 @@
         </activity>
         <activity
             android:name=".Activity.LoginActivity"
-
             android:exported="false">
         </activity>
             
@@ -37,7 +35,7 @@
         <activity android:name=".Activity.DonorActivity" />
         <activity android:name=".Activity.BloodBankActivity" />
 
-    
+  
         <activity android:name=".Activity.MainActivity"
             android:exported="true">
          
