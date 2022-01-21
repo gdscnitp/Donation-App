@@ -18,6 +18,7 @@ import android.example.donationapp.R;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     View headerView;
     ImageView headerImageView;
     TextView headerTextView;
+    Button headerProfileButton;
 
 
 
@@ -52,14 +54,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         headerView = navigationView.inflateHeaderView(R.layout.navigation_drawer_header_layout);
         headerImageView = (ImageView) headerView.findViewById(R.id.image_navigation_drawer);
         headerTextView = (TextView) headerView.findViewById(R.id.name_navigation_drawer);
+        headerProfileButton = (Button) headerView.findViewById(R.id.profile_button_navigation_drawer);
 
         navigationView.setNavigationItemSelectedListener(this);
 
         ActionBarDrawerToggle toggle =  new ActionBarDrawerToggle(this , drawerLayout ,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
-        drawerLayout.addDrawerListener(toggle);
+        toggle.setDrawerIndicatorEnabled(true);
         toggle.syncState();
+        drawerLayout.addDrawerListener(toggle);
 
-
+        headerProfileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent homeFragmentNavigationDrawer = new Intent(getApplicationContext() , HomeFragment.class);
+                startActivity(homeFragmentNavigationDrawer);
+            }
+        });
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
@@ -105,9 +115,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         switch (item.getItemId()){
 
-                case R.id.profile_menu :
-                Intent NavigationDrawerProfileIntent = new Intent(this , ProfileActivity.class);
-                startActivity(NavigationDrawerProfileIntent);
+                case R.id.home_menu :
+                Intent NavigationDrawerHomeIntent = new Intent(this , HomeFragment.class);
+                startActivity(NavigationDrawerHomeIntent);
                 break;
                 case R.id.blood_banks_menu :
                 Intent NavigationDrawerBloodBankIntent = new Intent(this , BloodBankActivity.class);
@@ -121,11 +131,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Intent NavigationDrawerPastDonationIntent = new Intent(this , PastDonationActivity.class);
                 startActivity(NavigationDrawerPastDonationIntent);
                 break;
-                case R.id.facts_menu :
-                Intent NavigationDrawerFactsIntent = new Intent(this , FactsActivity.class);
-                startActivity(NavigationDrawerFactsIntent);
-                break;
-
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;

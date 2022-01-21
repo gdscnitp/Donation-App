@@ -9,7 +9,6 @@
 
     tools:context=".Activity.NGOSignUpActivity">
 
-
     <ImageView
         android:id="@+id/status_bar"
         android:layout_width="match_parent"
@@ -17,24 +16,19 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="-50dp"
         android:layout_marginRight="-50dp"
-        android:src="@drawable/status_bar"
+        android:src="@drawable/status_bar" />
 
-
-        />
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-android:layout_centerHorizontal="true"
-        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/poppins"
         android:text="NGO Sign-Up"
+        android:textColor="@color/white"
         android:textSize="25dp"
-        android:textStyle="bold"
-        />
-
-
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/ngo_profile_pic"
@@ -46,9 +40,9 @@ android:layout_centerHorizontal="true"
         android:src="@drawable/profile_avatar1" />
 
     <ImageView
+        android:id="@+id/ngo_profile_pic_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/ngo_profile_pic_add"
         android:layout_below="@id/ngo_profile_pic"
         android:layout_marginLeft="-25dp"
         android:layout_marginTop="-24dp"
@@ -56,15 +50,13 @@ android:layout_centerHorizontal="true"
         android:src="@drawable/ic_plus_vector" />
 
 
-
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ngo_signup_namebox"
         android:layout_width="match_parent"
         android:layout_height="60dp"
 
-      android:layout_marginTop="250dp"
         android:layout_marginLeft="25dp"
+        android:layout_marginTop="250dp"
         android:layout_marginRight="25dp"
 
         android:background="@drawable/ngo_signup_background">
@@ -85,8 +77,8 @@ android:layout_centerHorizontal="true"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_below="@+id/ngo_signup_namebox"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="25dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="25dp"
 
         android:background="@drawable/ngo_signup_background">
@@ -101,13 +93,14 @@ android:layout_centerHorizontal="true"
             android:inputType="text"
             android:padding="10dp" />
     </com.google.android.material.textfield.TextInputLayout>
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ngo_signup_addressbox"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_below="@+id/ngo_signup_descriptionbox"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="25dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="25dp"
 
         android:background="@drawable/ngo_signup_background">
@@ -121,13 +114,14 @@ android:layout_centerHorizontal="true"
             android:inputType="text"
             android:padding="10dp" />
     </com.google.android.material.textfield.TextInputLayout>
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ngo_signup_contactbox"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_below="@+id/ngo_signup_addressbox"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="25dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="25dp"
 
         android:background="@drawable/ngo_signup_background">
@@ -141,13 +135,14 @@ android:layout_centerHorizontal="true"
             android:inputType="text"
             android:padding="10dp" />
     </com.google.android.material.textfield.TextInputLayout>
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ngo_signup_emailbox"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_below="@+id/ngo_signup_contactbox"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="25dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="25dp"
 
         android:background="@drawable/ngo_signup_background">
@@ -162,13 +157,14 @@ android:layout_centerHorizontal="true"
             android:padding="10dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ngo_signup_passwordbox"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_below="@+id/ngo_signup_emailbox"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="25dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="25dp"
 
         android:background="@drawable/ngo_signup_background">
@@ -187,18 +183,18 @@ android:layout_centerHorizontal="true"
         android:id="@+id/ngo_signup_submit_button"
         android:layout_width="250dp"
         android:layout_height="60dp"
-        android:layout_marginLeft="150dp"
         android:layout_below="@+id/ngo_signup_passwordbox"
+        android:layout_marginLeft="150dp"
         android:layout_marginTop="25dp"
         android:layout_marginRight="150dp"
         android:background="@drawable/ngo_signup_button"
-        android:fontFamily="@font/poppins"
         android:elevation="1dp"
+        android:fontFamily="@font/poppins"
         android:text="Submit"
         android:textSize="18dp">
 
 
-</Button>
+    </Button>
 
 
 </RelativeLayout>

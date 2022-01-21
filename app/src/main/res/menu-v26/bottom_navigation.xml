@@ -5,26 +5,26 @@
         android:id="@+id/home"
         android:title="Home"
         android:checked="true"
-        android:icon="@drawable/home_new_icon"
+        android:icon="@drawable/home_icon"
         />
- <item
-     android:id="@+id/ngo"
-     android:title="NGO"
-     android:icon="@drawable/ngo_icon1"
-     android:iconTint="@color/white"
-     />
+    <item
+        android:id="@+id/ngo"
+        android:title="NGO"
+        android:icon="@drawable/ngo_icon"
+        android:iconTint="@color/white"
+        />
 
-  <item
+    <item
         android:id="@+id/chat"
         android:title="Chats"
-        android:icon="@drawable/chat_new_icon"
-      android:iconTint="@color/white"
+        android:icon="@drawable/chat_icon"
+        android:iconTint="@color/white"
         />
-  <item
+    <item
         android:id="@+id/my_request"
         android:title="My Requests"
-        android:icon="@drawable/myrequest1"
-         android:iconTint="@color/white"
+        android:icon="@drawable/my_request_icon"
+        android:iconTint="@color/white"
         />
 
 

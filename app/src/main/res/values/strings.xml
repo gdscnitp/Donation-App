@@ -10,7 +10,7 @@
     <string name="user_sign_up">User Signup</string>
     <string name="name">Name</string>
     <string name="email">Email</string>
-    <string name="profile">Profile</string>
+    <string name="profile_underline"><u>Profile</u></string>
     <string name="password">Password</string>
     <string name="gender">Gender</string>
     <string name="dob">DOB</string>
@@ -22,6 +22,11 @@
     <string name="do_you_want_to_be_a_donor">Do you want to be a donor?</string>
     <string name="weight_in_kg">Weight in Kg</string>
     <string name="request_title">Request Title</string>
+    <string name="home">Home</string>
+    <string name="ngo">NGO</string>
+    <string name="chats">Chats</string>
+    <string name="my_requests">My Requests</string>
+    <string name="profile">Profile</string>
 
     <string-array name="blood_groups">
 

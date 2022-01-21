@@ -15,7 +15,7 @@
         <activity android:name=".Activity.ProfileActivity" />
         <activity android:name=".Activity.DonorActivity" />
         <activity android:name=".Activity.BloodBankActivity" />
-        <activity android:name=".Activity.NGOSignUpActivity" >
+        <activity android:name=".Activity.NGOSignUpActivity" />
 
         <activity android:name=".Activity.EventsActivity"></activity>
         <activity
