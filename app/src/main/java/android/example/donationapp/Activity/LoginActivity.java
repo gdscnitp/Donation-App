@@ -2,6 +2,7 @@ package android.example.donationapp.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.example.donationapp.R;
 import android.os.Bundle;
 import android.view.View;
@@ -18,6 +19,7 @@ public class LoginActivity extends AppCompatActivity {
     TextInputLayout emailbox, passwordbox;
     TextInputEditText emailEntry, passwordEntry;
     Button loginButton, signUpuser, signUpngo;
+    TextView loginHeading, loginChangeView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,8 @@ public class LoginActivity extends AppCompatActivity {
         loginButton = findViewById(R.id.login_button);
         signUpuser = findViewById(R.id.user_signin_button);
         signUpngo = findViewById(R.id.ngo_signin_button);
+        loginHeading = findViewById(R.id.user_ngo_heading);
+        loginChangeView = findViewById(R.id.login_as_NGO);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,6 +69,26 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(LoginActivity.this," ", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        loginChangeView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(loginChangeView.getText().toString().equalsIgnoreCase("Login as NGO"))
+                {
+                    emailEntry.setText("");
+                    passwordEntry.setText("");
+                    loginHeading.setText("For NGO");
+                    loginChangeView.setText("Login as User");
+                }
+                else
+                    {
+                    emailEntry.setText("");
+                    passwordEntry.setText("");
+                    loginHeading.setText("For User");
+                    loginChangeView.setText("Login as NGO");
+                }
             }
         });
     }
