@@ -70,8 +70,8 @@
                 android:layout_marginBottom="15dp"
                 android:layout_marginLeft="15dp"
                 android:layout_gravity="bottom"
-                android:tint="@color/dark_grey"
-                android:src="@drawable/sign_out_icon"/>
+                android:src="@drawable/sign_out_icon"
+                app:tint="@color/dark_grey" />
 
             <Button
                 android:id="@+id/sign_out_drawer_layout"
