@@ -7,9 +7,9 @@
     <ImageView
         android:id="@+id/vector_signup_image"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="250dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="30dp"
         android:layout_marginBottom="10dp"
         android:padding="20dp"
@@ -27,10 +27,22 @@
         android:textSize="30sp" />
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/user_ngo_heading"
+        android:text="For User"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="25dp"
+        android:textColor="@color/primary_red"
+        android:layout_below="@id/app_heading"
+        android:layout_marginTop="5dp"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
         android:id="@+id/app_descrip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/app_heading"
+        android:layout_below="@id/user_ngo_heading"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="5dp"
@@ -47,7 +59,7 @@
         android:layout_below="@id/app_descrip"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:elevation="10dp"
         android:layout_marginRight="20dp">
 
@@ -72,7 +84,7 @@
         android:layout_below="@id/email_user_enter"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:elevation="10dp"
         android:layout_marginRight="20dp">
 
@@ -108,10 +120,22 @@
         android:textSize="20dp" />
 
     <TextView
-        android:id="@+id/forget_password"
+        android:id="@+id/login_as_NGO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/login_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Login as NGO"
+        android:textColor="@color/primary_red"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/forget_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login_as_NGO"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/poppins_medium"
@@ -122,10 +146,10 @@
     <Button
         android:id="@+id/user_signin_button"
         android:layout_width="150dp"
-        android:layout_height="65dp"
+        android:layout_height="50dp"
         android:layout_below="@id/forget_password"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:layout_marginRight="40dp"
         android:background="@drawable/background_signup_page_email_password"
         android:text="Sign in as User"
@@ -136,10 +160,10 @@
     <Button
         android:id="@+id/ngo_signin_button"
         android:layout_width="150dp"
-        android:layout_height="65dp"
+        android:layout_height="50dp"
         android:layout_below="@id/forget_password"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:layout_marginRight="20dp"
         android:layout_toRightOf="@id/user_signin_button"
         android:background="@drawable/background_signup_page_email_password"

@@ -17,12 +17,10 @@ import android.widget.Toast;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Locale;
 
-public class EventsActivity extends AppCompatActivity {
+public class AddEventsActivity extends AppCompatActivity {
 
     TextInputLayout editEventTitle, editEventDescription, editEventAddress, editEventTime, editEventDate, editContactDetails, editEmail;
     TextInputEditText title, description, address, contactDetails, email;
@@ -36,7 +34,7 @@ public class EventsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_events);
+        setContentView(R.layout.activity_add_events);
 
         editEventTitle = findViewById(R.id.event_edit_box);
         editEventDescription = findViewById(R.id.description_edit_box);
@@ -72,7 +70,7 @@ public class EventsActivity extends AppCompatActivity {
         date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DatePickerDialog datePickerDialog = new DatePickerDialog(EventsActivity.this, new DatePickerDialog.OnDateSetListener() {
+                DatePickerDialog datePickerDialog = new DatePickerDialog(AddEventsActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int dayofMonth) {
                         date.setText(dayofMonth+ " / "+ (month+1)+ " /"+ year);
@@ -102,7 +100,7 @@ public class EventsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(!title.getText().toString().isEmpty())
                 {
-                    Toast.makeText(EventsActivity.this, " ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddEventsActivity.this, " ", Toast.LENGTH_SHORT).show();
                 }
                 else{
                     title.setError("Enter Event Name.");
@@ -110,7 +108,7 @@ public class EventsActivity extends AppCompatActivity {
 
                 if(!description.getText().toString().isEmpty())
                 {
-                    Toast.makeText(EventsActivity.this, " ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddEventsActivity.this, " ", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
@@ -119,7 +117,7 @@ public class EventsActivity extends AppCompatActivity {
 
                 if(!address.getText().toString().isEmpty())
                 {
-                    Toast.makeText(EventsActivity.this, " ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddEventsActivity.this, " ", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
@@ -128,7 +126,7 @@ public class EventsActivity extends AppCompatActivity {
 
                 if(!time.getText().toString().isEmpty())
                 {
-                    Toast.makeText(EventsActivity.this, time.getText().toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddEventsActivity.this, time.getText().toString(), Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
@@ -137,7 +135,7 @@ public class EventsActivity extends AppCompatActivity {
 
                 if(!date.getText().toString().isEmpty())
                 {
-                    Toast.makeText(EventsActivity.this, date.getText().toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddEventsActivity.this, date.getText().toString(), Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
@@ -146,7 +144,7 @@ public class EventsActivity extends AppCompatActivity {
 
                 if(!contactDetails.getText().toString().isEmpty())
                 {
-                    Toast.makeText(EventsActivity.this, " ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddEventsActivity.this, " ", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
@@ -155,7 +153,7 @@ public class EventsActivity extends AppCompatActivity {
 
                 if(!email.getText().toString().isEmpty())
                 {
-                    Toast.makeText(EventsActivity.this, " ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddEventsActivity.this, " ", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {

@@ -11,6 +11,7 @@
     tools:openDrawer="start"
     android:layout_width="match_parent">
 
+
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -20,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_alignParentTop="true"
-        android:background="#8C2F39"
+        android:background="@color/primary_red"
         android:elevation="4dp"/>
 
     <FrameLayout
@@ -35,24 +36,61 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         app:menu="@menu/bottom_navigation"
-        android:background="#8C2F39"
-        android:backgroundTint="#8C2F39"
+        app:labelVisibilityMode="labeled"
+        android:background="@color/white"
+        android:backgroundTint="@color/white"
         app:itemIconTint="@drawable/homeactivity_navigationbar"
-        app:itemTextColor="#FBE9E7"
+        app:itemTextColor="@color/dark_grey"
         />
 
 </RelativeLayout>
 
     <com.google.android.material.navigation.NavigationView
-        android:id="@+id/navigation_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:background="#8C2F39"
-        app:itemIconTint="@color/white"
-        app:itemTextColor="@color/white"
-        android:theme="@style/text_style"
+        android:id="@+id/navigation_view"
+        android:layout_gravity = "start"
+        android:theme="@style/drawer_layout_style"
+        app:itemIconTint="@color/primary_red"
+        app:itemTextColor="@color/dark_grey"
+        app:itemTextAppearance="@style/drawer_layout_style"
         app:menu="@menu/drawer_layout_menu"
-        />
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="5dp"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/sign_out_drawer_layout_icon"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_gravity="bottom"
+                android:src="@drawable/sign_out_icon"
+                app:tint="@color/dark_grey" />
+
+            <Button
+                android:id="@+id/sign_out_drawer_layout"
+                android:layout_width="80dp"
+                android:layout_height="26dp"
+                android:layout_marginLeft="5dp"
+                android:layout_alignTop="@+id/sign_out_drawer_layout_icon"
+                android:textSize="16sp"
+                android:layout_toRightOf="@+id/sign_out_drawer_layout_icon"
+                android:text="Sign Out"
+                android:textAllCaps="false"
+                android:textColor="@color/dark_grey"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/poppins_regular"
+                />
+        </RelativeLayout>
+    </com.google.android.material.navigation.NavigationView>
+
+
+
 
 </androidx.drawerlayout.widget.DrawerLayout>
