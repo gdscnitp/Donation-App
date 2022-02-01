@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="#FFFFFF"
+
+
+    tools:context=".Activity.EventDetailActivity">
+
+
+    <ImageView
+        android:id="@+id/event_status_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="-50dp"
+        android:layout_marginRight="-50dp"
+        android:src="@drawable/event_status_bar" />
+
+    <ImageView
+        android:id="@+id/event_detail_backarrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:paddingLeft="18dp"
+        android:paddingTop="18dp"
+        android:src="@drawable/ic_arrow_back_black_24dp_1" />
+
+
+    <TextView
+        android:id="@+id/event_heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="173dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginRight="187dp"
+        android:fontFamily="@font/poppins"
+        android:text="Event"
+        android:textSize="18dp" />
+
+    <ImageView
+        android:id="@+id/event_photo"
+        android:layout_width="match_parent"
+        android:layout_height="217dp"
+        android:layout_below="@+id/event_status_bar"
+        android:layout_marginTop="0dp"
+        android:src="@drawable/event_profilepic" />
+
+    <TextView
+        android:id="@+id/ngo_event_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/event_photo"
+        android:layout_marginTop="22dp"
+        android:background="#f4f4f4"
+        android:backgroundTint="#FAFAFA"
+        android:paddingLeft="18dp"
+        android:text="NSS Rakt Daan"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/line_event1"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_below="@+id/ngo_event_name"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="17dp"
+
+        tools:srcCompat="#f4f4f4" />
+
+    <ImageView
+        android:id="@+id/phone_vector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line_event1"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="13dp"
+
+        android:src="@drawable/ic_group_39" />
+    <ImageView
+        android:id="@+id/mail_vector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line_event1"
+        android:layout_marginLeft="65dp"
+        android:layout_marginTop="13dp"
+
+        android:src="@drawable/ic_group_38" />
+
+    <ImageView
+        android:id="@+id/share_vector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line_event1"
+        android:layout_marginLeft="370dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginBottom="18dp"
+        android:src="@drawable/ic_group_37" />
+
+    <ImageView
+        android:id="@+id/line_event2"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_alignTop="@+id/line_event1"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="60dp"
+
+        android:layout_marginEnd="18dp"
+        tools:srcCompat="#f4f4f4" />
+
+    <TextView
+        android:id="@+id/ngo_small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line_event2"
+        android:layout_marginTop="17dp"
+        android:backgroundTint="#F9F9F9"
+        android:fontFamily="@font/poppins"
+        android:paddingLeft="18dp"
+        android:text="NGO:  "
+        android:textColor="#5F5F5F"
+        android:textSize="12dp" />
+
+    <TextView
+        android:id="@+id/ngo_name_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line_event2"
+        android:layout_marginLeft="-20dp"
+        android:layout_marginTop="17dp"
+        android:layout_toRightOf="@+id/ngo_small"
+        android:backgroundTint="#F9F9F9"
+        android:fontFamily="@font/poppins"
+        android:paddingLeft="18dp"
+        android:text="NSS "
+        android:textColor="#5F5F5F"
+        android:textSize="12dp" />
+
+    <TextView
+        android:id="@+id/ngo_schedule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ngo_small"
+        android:layout_marginTop="1dp"
+        android:backgroundTint="#F9F9F9"
+        android:fontFamily="@font/poppins"
+        android:paddingLeft="18dp"
+        android:text="Scheduled:  "
+        android:textColor="#5F5F5F"
+        android:textSize="12dp" />
+
+    <TextView
+        android:id="@+id/ngo_schedule_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line_event2"
+        android:layout_marginLeft="-20dp"
+        android:layout_marginTop="37dp"
+        android:layout_toRightOf="@+id/ngo_schedule"
+        android:backgroundTint="#F9F9F9"
+        android:fontFamily="@font/poppins"
+        android:paddingLeft="18dp"
+        android:text="9:00 AM | 12 Jan 2022"
+        android:textColor="#5F5F5F"
+        android:textSize="12dp" />
+
+    <TextView
+        android:id="@+id/ngo_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ngo_schedule"
+        android:layout_marginTop="-1dp"
+        android:backgroundTint="#F9F9F9"
+        android:fontFamily="@font/poppins"
+        android:paddingLeft="18dp"
+        android:text="Address:  "
+        android:textColor="#5F5F5F"
+        android:textSize="12dp" />
+
+    <TextView
+        android:id="@+id/ngo_address_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line_event2"
+        android:layout_marginLeft="-20dp"
+        android:layout_marginTop="56dp"
+        android:layout_toRightOf="@+id/ngo_address"
+        android:backgroundTint="#F9F9F9"
+        android:fontFamily="@font/poppins"
+        android:paddingLeft="18dp"
+        android:text="NIT Patna Main Gate"
+        android:textColor="#5F5F5F"
+        android:textSize="12dp" />
+
+    <TextView
+        android:id="@+id/ngo_event_description_less"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ngo_event_join_button"
+
+        android:layout_below="@+id/ngo_address"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="42dp"
+        android:backgroundTint="#F9F9F9"
+        android:fontFamily="@font/poppins"
+        android:paddingLeft="18dp"
+        android:text="I am having to search for clinical trials around the world due to COVID-19 restrictions on entering China. I am now seeking this... "
+        android:textColor="#5F5F5F"
+        android:textSize="16dp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="41dp"
+        android:layout_marginBottom="174dp"
+        android:text=" more"
+        android:textStyle="bold"
+        android:textColor="#4f4f4f"/>
+
+    <Button
+        android:id="@+id/ngo_event_join_button"
+        android:layout_width="150dp"
+        android:layout_height="32dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="131dp"
+        android:layout_marginBottom="98dp"
+        android:background="@drawable/ngo_signup_button"
+        android:fontFamily="@font/poppins"
+        android:text="   Join Event   " />
+
+
+</RelativeLayout>
