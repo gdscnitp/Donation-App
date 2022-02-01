@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/ngo_home_drawer"
+        android:title="Home"
+        android:icon="@drawable/home_icon"
+        android:iconTint="@color/primary_red"/>
+
+    <item
+        android:id="@+id/ngo_guidelines"
+        android:title="NGO Facts"
+        android:icon="@drawable/ngo_icon"
+        android:iconTint="@color/primary_red"/>
+
+</menu>

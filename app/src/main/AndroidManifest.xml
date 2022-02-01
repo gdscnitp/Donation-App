@@ -10,19 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DonationApp">
 
-
-
-
         <activity android:name=".Activity.NGOSignUpActivity"
             >
 
         </activity>
+        
 
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
+        <activity android:name=".Activity.AddEventsActivity">
+        </activity>
         <activity
             android:name=".Activity.NGOEditActivity">
         </activity>
@@ -35,6 +35,7 @@
         <activity android:name=".Activity.ProfileActivity" />
         <activity android:name=".Activity.DonorActivity" />
         <activity android:name=".Activity.BloodBankActivity" />
+        <activity android:name=".Activity.NGOHomeActivity" />
         <activity android:name=".Activity.MainActivity"
             android:exported="true">
             <intent-filter>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp">
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:id="@+id/chat_sender_profile_pic"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/profile_avatar1"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/donor_name_chat"
+        android:text="Sujit Kumar Das"
+        android:layout_toRightOf="@id/chat_sender_profile_pic"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="25sp"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/poppins_bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/donor_mssg_preview"
+        android:text="Hello I want to donate."
+        android:layout_below="@id/donor_name_chat"
+        android:layout_toRightOf="@id/chat_sender_profile_pic"
+        android:layout_marginLeft="25sp"
+        android:layout_marginTop="7dp"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:fontFamily="@font/poppins_italic"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/chat_date"
+        android:text="26/01/2020"
+        android:layout_toRightOf="@id/donor_name_chat"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="45dp"
+        android:textColor="@color/black"
+        android:textSize="10sp"
+        android:fontFamily="@font/poppins_italic"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/chat_time"
+        android:text="7:20 pm"
+        android:layout_toRightOf="@id/donor_name_chat"
+        android:layout_below="@id/chat_date"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="45dp"
+        android:textColor="@color/black"
+        android:textSize="10sp"
+        android:fontFamily="@font/poppins_italic"/>
+
+    <View
+        android:id="@+id/border_view"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@id/donor_mssg_preview"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#E5E5E5" />
+
+
+</RelativeLayout>
+
