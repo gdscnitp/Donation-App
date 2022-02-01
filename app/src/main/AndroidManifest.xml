@@ -10,14 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DonationApp">
 
-        
-       
-
         <activity android:name=".Activity.NGOSignUpActivity"
             >
 
         </activity>
         
+
 
         <meta-data
             android:name="preloaded_fonts"
