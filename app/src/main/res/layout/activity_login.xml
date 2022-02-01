@@ -27,16 +27,16 @@
         android:textSize="30sp" />
 
     <TextView
+        android:id="@+id/user_ngo_heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/user_ngo_heading"
-        android:text="For User"
-        android:fontFamily="@font/poppins_medium"
-        android:textSize="25dp"
-        android:textColor="@color/primary_red"
         android:layout_below="@id/app_heading"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
-        android:layout_centerHorizontal="true"/>
+        android:fontFamily="@font/poppins_medium"
+        android:text="For User"
+        android:textColor="@color/primary_red"
+        android:textSize="25dp" />
 
     <TextView
         android:id="@+id/app_descrip"

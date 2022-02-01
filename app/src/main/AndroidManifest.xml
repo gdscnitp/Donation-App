@@ -37,6 +37,7 @@
         <activity android:name=".Activity.ProfileActivity" />
         <activity android:name=".Activity.DonorActivity" />
         <activity android:name=".Activity.BloodBankActivity" />
+        <activity android:name=".Activity.NGOHomeActivity" />
         <activity android:name=".Activity.MainActivity"
             android:exported="true">
             <intent-filter>
