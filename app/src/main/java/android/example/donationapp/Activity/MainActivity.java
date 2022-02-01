@@ -51,6 +51,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         setSupportActionBar(toolbar);
 
+        if(savedInstanceState == null){
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container , new HomeFragment()).commit();
+        }
+
         headerView = navigationView.inflateHeaderView(R.layout.navigation_drawer_header_layout);
         headerImageView = (ImageView) headerView.findViewById(R.id.image_navigation_drawer);
         headerTextView = (TextView) headerView.findViewById(R.id.name_navigation_drawer);
@@ -116,7 +120,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (item.getItemId()){
 
                 case R.id.home_menu :
-                Intent NavigationDrawerHomeIntent = new Intent(this , HomeFragment.class);
+                Intent NavigationDrawerHomeIntent = new Intent(this , MainActivity.class);
                 startActivity(NavigationDrawerHomeIntent);
                 break;
                 case R.id.blood_banks_menu :
