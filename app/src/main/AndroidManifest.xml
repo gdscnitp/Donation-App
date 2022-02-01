@@ -9,6 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DonationApp">
+
+        
+       
+
+        <activity android:name=".Activity.NGOSignUpActivity"
+            >
+
+        </activity>
+        
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
         <activity android:name=".Activity.AddEventsActivity">
         </activity>
         <activity
@@ -31,6 +45,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>
