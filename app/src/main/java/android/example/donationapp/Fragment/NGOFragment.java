@@ -16,6 +16,18 @@ public class NGOFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
 
-        return inflater.inflate(R.layout.fragment_ngo , container ,false);
+        View view = inflater.inflate(R.layout.fragment_ngo , container ,false);
+
+
+
+
+
+
+
+
+
+
+
+        return view;
     }
 }
