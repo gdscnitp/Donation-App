@@ -37,7 +37,6 @@ public class NGOHomeActivity extends AppCompatActivity implements NavigationView
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ngohome);
-
         if(savedInstanceState == null)
         {
             getSupportFragmentManager().beginTransaction().replace(R.id.ngo_fragment_container, new NGOHomeFragment()).commit();
@@ -83,8 +82,6 @@ public class NGOHomeActivity extends AppCompatActivity implements NavigationView
                 return true;
             }
         });
-
-
 
     }
 
