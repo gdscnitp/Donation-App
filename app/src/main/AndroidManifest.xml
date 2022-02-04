@@ -34,6 +34,7 @@
         <activity android:name=".Activity.PastDonationActivity" />
         <activity android:name=".Activity.ProfileActivity" />
         <activity android:name=".Activity.DonorActivity" />
+        <activity android:name=".Activity.EditRequestActivity" />
         <activity android:name=".Activity.BloodBankActivity" />
         <activity android:name=".Activity.NGOHomeActivity" />
         <activity android:name=".Activity.MainActivity"
