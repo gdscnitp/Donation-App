@@ -11,13 +11,6 @@
         android:theme="@style/Theme.DonationApp">
 
         <activity android:name=".Activity.NGOSignUpActivity"></activity>
-
-
-       
-        
-
-
-
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
@@ -26,7 +19,9 @@
         <activity android:name=".Activity.NGOEditActivity"></activity>
         <activity
             android:name=".Activity.LoginActivity"
-            android:exported="false"></activity>
+            android:exported="false">
+
+        </activity>
         <activity android:name=".Activity.UserSignupActivity" />
         <activity android:name=".Activity.FactsActivity" />
         <activity android:name=".Activity.PastDonationActivity" />
