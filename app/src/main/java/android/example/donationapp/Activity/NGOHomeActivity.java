@@ -5,6 +5,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.example.donationapp.Fragment.NGOChatFragment;
 import android.example.donationapp.Fragment.NGOHomeFragment;
 import android.example.donationapp.Fragment.NGOMyEventsFragment;
@@ -82,6 +83,13 @@ public class NGOHomeActivity extends AppCompatActivity implements NavigationView
                 return true;
             }
         });
+
+//        headerProfileButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent profileIntent = new Intent(NGOHomeActivity.this, )
+//            }
+//        });
 
     }
 

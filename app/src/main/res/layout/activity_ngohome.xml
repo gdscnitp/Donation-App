@@ -48,8 +48,7 @@
         android:theme="@style/drawer_layout_style"
         app:itemIconTint="@color/primary_red"
         app:itemTextColor="@color/dark_grey"
-        app:itemTextAppearance="@style/drawer_layout_style"
-        app:menu="@menu/ngo_drawer_layout">
+        app:itemTextAppearance="@style/drawer_layout_style">
 
         <RelativeLayout
             android:layout_width="match_parent"

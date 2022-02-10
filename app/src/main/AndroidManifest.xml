@@ -9,14 +9,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DonationApp">
+        <activity
+            android:name=".Activity.EditEventActivity"
+            android:exported="false" >
 
-        <activity android:name=".Activity.NGOSignUpActivity"></activity>
+        </activity>
+        <activity android:name=".Activity.NGOSignUpActivity" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".Activity.AddEventsActivity"></activity>
-        <activity android:name=".Activity.NGOEditActivity"></activity>
+        <activity android:name=".Activity.AddEventsActivity"
+            >
+
+        </activity>
+        <activity android:name=".Activity.NGOEditActivity" />
         <activity
             android:name=".Activity.LoginActivity"
             android:exported="false">
@@ -29,15 +37,27 @@
         <activity android:name=".Activity.DonorActivity" />
         <activity android:name=".Activity.EditRequestActivity" />
         <activity android:name=".Activity.BloodBankActivity" />
-        <activity android:name=".Activity.NGOHomeActivity" />
+        <activity
+            android:name=".Activity.NGOHomeActivity"
+            android:exported="false">
+
+
+        </activity>
+        <activity android:name=".Activity.AddRequestActivity"
+            android:exported="false">
+
+
+        </activity>
         <activity
             android:name=".Activity.UserEditActivity"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
             android:name=".Activity.MainActivity"
