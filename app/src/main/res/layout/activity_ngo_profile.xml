@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+
+
+    tools:context=".Activity.NGOProfileActivity">
+
+
+    <ImageView
+        android:id="@+id/status_bar_ngo_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="-50dp"
+        android:layout_marginRight="-50dp"
+        android:src="@drawable/status_bar" />
+
+    <TextView
+        android:id="@+id/profile_ngo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/poppins"
+        android:text="Profile"
+
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ngo_profile_pic"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/status_bar_ngo_profile"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/profile_avatar" />
+
+<!--    <ImageView-->
+<!--        android:id="@+id/ngo_profile_pic_add"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/ngo_profile_pic"-->
+<!--        android:layout_marginLeft="-32dp"-->
+<!--        android:layout_marginTop="-31dp"-->
+<!--        android:layout_toRightOf="@id/ngo_profile_pic"-->
+<!--        android:src="@drawable/ic_plus_vector" />-->
+
+    <ImageView
+        android:id="@+id/line_event1"
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:layout_below="@+id/ngo_profile_pic"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="17dp"
+
+        tools:srcCompat="#f4f4f4" />
+
+    <TextView
+        android:id="@+id/name_heading_event_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line_event1"
+        android:layout_marginTop="18dp"
+        android:fontFamily="@font/poppins"
+        android:paddingLeft="50dp"
+        android:text="Name"
+        android:textStyle="bold"
+        android:textColor="#a0a0a0" />
+
+    <TextView
+        android:id="@+id/name_ngo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name_heading_event_profile"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/poppins"
+        android:paddingLeft="50dp"
+        android:text="Ketto.org"
+        android:textColor="#646464"
+        android:textSize="16dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/ngo_profile_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name_ngo"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/poppins"
+        android:paddingLeft="50dp"
+        android:paddingRight="18dp"
+        android:text="Let us assume an individual, unfortunately, meets with an accident on the road. His medical expenses and hospital bills start piling up. Now he needs ₹5 Lakh to pay his expensive medical bills. Fortunately, his best friend signed up on Ketto’s crowdfunding platform, completed the process of submitting valid documents needed for verification."
+        android:textColor="#a0a0a0"
+        android:textSize="13dp" />
+
+    <ImageView
+        android:id="@+id/person_vector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line_event1"
+        android:layout_marginTop="25dp"
+        android:paddingLeft="15dp"
+        android:src="@drawable/ic_person_black_24dp_1" />
+
+    <TextView
+        android:id="@+id/call_heading_event_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ngo_profile_description"
+        android:layout_marginTop="18dp"
+        android:fontFamily="@font/poppins"
+        android:paddingLeft="50dp"
+        android:text="Contact"
+        android:textColor="#a0a0a0"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/call_ngo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/call_heading_event_profile"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/poppins"
+        android:paddingLeft="50dp"
+        android:text="+91 54894 51564"
+        android:textColor="#646464"
+        android:textSize="16dp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/call_vector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ngo_profile_description"
+        android:layout_marginTop="25dp"
+        android:paddingLeft="15dp"
+        android:src="@drawable/ic_call_black_24dp_1" />
+    <TextView
+        android:id="@+id/email_heading_event_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/call_ngo"
+        android:layout_marginTop="18dp"
+        android:fontFamily="@font/poppins"
+        android:paddingLeft="50dp"
+        android:text="Email"
+        android:textColor="#a0a0a0"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/email_heading_ngo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/email_heading_event_profile"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/poppins"
+        android:paddingLeft="50dp"
+        android:text="abcd@yahoo.com"
+        android:textColor="#646464"
+        android:textSize="14dp"
+        android:textStyle="bold" />
+    <ImageView
+        android:id="@+id/email_vector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/call_ngo"
+        android:layout_marginTop="25dp"
+        android:paddingLeft="15dp"
+        android:src="@drawable/ic_email_black_24dp_1" />
+
+
+    <Button
+        android:id="@+id/ngo_detail_edit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ngo_profile_description"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="24dp"
+        android:background=""
+        android:fontFamily="@font/poppins"
+        android:text="Edit"
+        android:textSize="15dp"/>
+
+
+    <ImageView
+        android:id="@+id/ngo_detail_edit_vector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ngo_profile_description"
+        android:layout_marginEnd="-25dp"
+        android:layout_marginBottom="38dp"
+        android:layout_toStartOf="@+id/ngo_detail_edit_button"
+        app:srcCompat="@drawable/ic_edit_black_24dp_1" />
+
+
+</RelativeLayout>
