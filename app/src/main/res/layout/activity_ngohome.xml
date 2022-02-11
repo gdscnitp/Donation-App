@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/ngo_drawer_layout"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start"
+    tools:context=".Activity.NGOHomeActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/ngo_toolbar_container"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_alignParentTop="true"
+            android:background="@color/primary_red"
+            android:elevation="4dp" />
+
+        <FrameLayout
+            android:id="@+id/ngo_fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/ngo_home_bottom_navbar" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ngo_home_bottom_navbar"
+            android:background="@color/white"
+            android:layout_alignParentBottom="true"
+            app:itemIconTint="@drawable/homeactivity_navigationbar"
+            app:itemTextColor="@color/dark_grey"
+            app:labelVisibilityMode="labeled"
+            app:menu="@menu/ngo_bottom_navigation"/>
+
+    </RelativeLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/ngo_navigation_view"
+        android:layout_gravity = "start"
+        android:theme="@style/drawer_layout_style"
+        app:itemIconTint="@color/primary_red"
+        app:itemTextColor="@color/dark_grey"
+        app:itemTextAppearance="@style/drawer_layout_style">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="5dp"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ngo_sign_out_drawer_layout_icon"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_gravity="bottom"
+                android:src="@drawable/sign_out_icon"
+                app:tint="@color/dark_grey" />
+
+            <Button
+                android:id="@+id/ngo_sign_out_drawer_layout"
+                android:layout_width="80dp"
+                android:layout_height="26dp"
+                android:layout_marginLeft="5dp"
+                android:layout_alignTop="@+id/ngo_sign_out_drawer_layout_icon"
+                android:textSize="16sp"
+                android:layout_toRightOf="@+id/ngo_sign_out_drawer_layout_icon"
+                android:text="Sign Out"
+                android:textAllCaps="false"
+                android:textColor="@color/dark_grey"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/poppins_regular" />
+
+        </RelativeLayout>
+
+    </com.google.android.material.navigation.NavigationView>
+
+</androidx.drawerlayout.widget.DrawerLayout>

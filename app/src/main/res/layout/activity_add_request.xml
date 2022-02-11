@@ -14,6 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@drawable/status_bar"
+        android:layout_marginTop="-3dp"
         android:layout_centerHorizontal="true"/>
 
     <LinearLayout
@@ -129,14 +130,15 @@
         android:textSize="15sp"
         android:fontFamily="@font/poppins_regular"/>
 
-        <EditText
+        <TextView
             android:id="@+id/patient_dob_enter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/dob_textview"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="2dp"
-            android:hint="dd-mm-yyyy" />
+            android:layout_marginTop="10dp"
+            android:hint="dd-mm-yyyy"
+            android:textSize="20sp" />
 
     <TextView
         android:layout_width="wrap_content"

@@ -4,8 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.example.donationapp.R;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -21,10 +19,9 @@ import android.widget.Toast;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class AddRequestActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class EditRequestActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     ImageView backbutton, addpic;
     TextInputLayout patientNameBox, patientGenderBox, patientAddressBox, patientContactBox, patientEmailBox, patientTitleBox, patientDescriptiionBox;
@@ -37,29 +34,29 @@ public class AddRequestActivity extends AppCompatActivity implements AdapterView
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_request);
+        setContentView(R.layout.activity_edit_request);
 
-        patientNameBox = findViewById(R.id.patient_name_enter_box);
-        patientGenderBox = findViewById(R.id.patient_gender_enter_box);
-        patientAddressBox = findViewById(R.id.patient_address_enter_box);
-        patientContactBox = findViewById(R.id.patient_contact_enter_box);
-        patientEmailBox = findViewById(R.id.patient_email_enter_box);
-        patientTitleBox = findViewById(R.id.patient_title_enter_box);
-        patientDescriptiionBox = findViewById(R.id.patient_description_enter_box);
+        patientNameBox = findViewById(R.id.patient_name_enter_box1);
+        patientGenderBox = findViewById(R.id.patient_gender_enter_box1);
+        patientAddressBox = findViewById(R.id.patient_address_enter_box1);
+        patientContactBox = findViewById(R.id.patient_contact_enter_box1);
+        patientEmailBox = findViewById(R.id.patient_email_enter_box1);
+        patientTitleBox = findViewById(R.id.patient_title_enter_box1);
+        patientDescriptiionBox = findViewById(R.id.patient_description_enter_box1);
 
-        patientName = findViewById(R.id.patient_name_enter);
-        patientGender = findViewById(R.id.patient_gender_enter);
-        patientAdddress = findViewById(R.id.patient_address_enter);
-        patientContact = findViewById(R.id.patient_contact_enter);
-        patientEmail = findViewById(R.id.patient_email_enter);
-        requestTitle = findViewById(R.id.patient_title_enter);
-        requestDescription = findViewById(R.id.patient_description_enter);
+        patientName = findViewById(R.id.patient_name_enter1);
+        patientGender = findViewById(R.id.patient_gender_enter1);
+        patientAdddress = findViewById(R.id.patient_address_enter1);
+        patientContact = findViewById(R.id.patient_contact_enter1);
+        patientEmail = findViewById(R.id.patient_email_enter1);
+        requestTitle = findViewById(R.id.patient_title_enter1);
+        requestDescription = findViewById(R.id.patient_description_enter1);
 
-        backbutton = findViewById(R.id.back_button);
-        addpic = findViewById(R.id.add_request_pic);
-        submit = findViewById(R.id.request_submit_button);
-        dob = findViewById(R.id.patient_dob_enter);
-        spinner = findViewById(R.id.blood_group_spinner);
+        backbutton = findViewById(R.id.back_button1);
+        addpic = findViewById(R.id.add_request_pic1);
+        submit = findViewById(R.id.request_submit_button1);
+        dob = findViewById(R.id.patient_dob_enter1);
+        spinner = findViewById(R.id.blood_group_spinner1);
 
         final Calendar calendar = Calendar.getInstance();
 
@@ -73,7 +70,7 @@ public class AddRequestActivity extends AppCompatActivity implements AdapterView
         dob.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DatePickerDialog datePickerDialog = new DatePickerDialog(AddRequestActivity.this, new DatePickerDialog.OnDateSetListener() {
+                DatePickerDialog datePickerDialog = new DatePickerDialog(EditRequestActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int dayofMonth) {
                         dob.setText(dayofMonth+ " / "+ (month+1)+ " /"+ year);
@@ -85,12 +82,13 @@ public class AddRequestActivity extends AppCompatActivity implements AdapterView
         });
 
 
+
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.blood_groups, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
         blood_group = spinner.getSelectedItem().toString();
-        Toast.makeText(AddRequestActivity.this, blood_group, Toast.LENGTH_SHORT).show();
+        Toast.makeText(EditRequestActivity.this, blood_group, Toast.LENGTH_SHORT).show();
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,7 +96,7 @@ public class AddRequestActivity extends AppCompatActivity implements AdapterView
 
                 if(!patientName.getText().toString().isEmpty())
                 {
-                    Toast.makeText(AddRequestActivity.this, " ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditRequestActivity.this, " ", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
@@ -106,7 +104,7 @@ public class AddRequestActivity extends AppCompatActivity implements AdapterView
                 }
                 if(!patientEmail.getText().toString().isEmpty())
                 {
-                    Toast.makeText(AddRequestActivity.this, " ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditRequestActivity.this, " ", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
@@ -114,7 +112,7 @@ public class AddRequestActivity extends AppCompatActivity implements AdapterView
                 }
                 if(!patientGender.getText().toString().isEmpty())
                 {
-                    Toast.makeText(AddRequestActivity.this, " ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditRequestActivity.this, " ", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
@@ -122,7 +120,7 @@ public class AddRequestActivity extends AppCompatActivity implements AdapterView
                 }
                 if(!patientAdddress.getText().toString().isEmpty())
                 {
-                    Toast.makeText(AddRequestActivity.this, " ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditRequestActivity.this, " ", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
@@ -130,7 +128,7 @@ public class AddRequestActivity extends AppCompatActivity implements AdapterView
                 }
                 if(!requestTitle.getText().toString().isEmpty())
                 {
-                    Toast.makeText(AddRequestActivity.this, " ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditRequestActivity.this, " ", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
@@ -138,7 +136,7 @@ public class AddRequestActivity extends AppCompatActivity implements AdapterView
                 }
                 if(!requestDescription.getText().toString().isEmpty())
                 {
-                    Toast.makeText(AddRequestActivity.this, " ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditRequestActivity.this, " ", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {

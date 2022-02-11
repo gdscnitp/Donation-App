@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.RequestDetailActivity">
+
+    <ImageView
+        android:id="@+id/request_status_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="-50dp"
+        android:layout_marginRight="-50dp"
+        android:src="@drawable/event_status_bar" />
+
+    <ImageView
+        android:id="@+id/request_detail_backarrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:paddingLeft="18dp"
+        android:paddingTop="18dp"
+        android:src="@drawable/ic_arrow_back_black_24dp_1" />
+
+
+    <TextView
+        android:id="@+id/request_heading"
+        android:layout_width="136dp"
+        android:layout_height="28dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginLeft="173dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="131dp"
+        android:layout_marginRight="187dp"
+        android:fontFamily="@font/poppins"
+        android:text="Request"
+        android:textSize="18dp" />
+
+    <ImageView
+        android:id="@+id/request_photo"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@+id/request_status_bar"
+        android:layout_marginTop="0dp"
+        android:src="@drawable/request_detail_demo" />
+
+    <TextView
+        android:id="@+id/request_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/request_photo"
+        android:layout_marginTop="30dp"
+        android:paddingLeft="18dp"
+        android:text="Emergency! O+ blood required for child of age 12 in critical condition suffering from Leukemia"
+        android:textSize="18dp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/poppins_bold" />
+
+    <ImageView
+        android:id="@+id/border_request1"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_below="@+id/request_name"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="17dp"
+        tools:srcCompat="#f4f4f4" />
+
+    <ImageView
+        android:id="@+id/phone_vector_request"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/border_request1"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="13dp"
+        android:src="@drawable/ic_group_39" />
+
+    <ImageView
+        android:id="@+id/mail_vector_request"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/border_request1"
+        android:layout_marginLeft="65dp"
+        android:layout_marginTop="13dp"
+        android:src="@drawable/ic_group_38" />
+
+    <ImageView
+        android:id="@+id/share_vector_request"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/border_request1"
+        android:layout_marginLeft="370dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginBottom="18dp"
+        android:src="@drawable/ic_group_37" />
+
+    <ImageView
+        android:id="@+id/border_request2"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_alignTop="@+id/border_request1"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="18dp"
+        tools:srcCompat="#f4f4f4" />
+
+    <TextView
+        android:id="@+id/name_view_request"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/border_request2"
+        android:layout_marginTop="17dp"
+        android:backgroundTint="#F9F9F9"
+        android:fontFamily="@font/poppins"
+        android:paddingLeft="18dp"
+        android:text="Patient:  "
+        android:textColor="#5F5F5F"
+        android:textSize="12dp" />
+
+    <TextView
+        android:id="@+id/patient_name_request"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/border_request2"
+        android:layout_marginLeft="-20dp"
+        android:layout_marginTop="17dp"
+        android:layout_toRightOf="@+id/name_view_request"
+        android:fontFamily="@font/poppins"
+        android:paddingLeft="18dp"
+        android:text="Sujit Kumar Das "
+        android:textColor="#5F5F5F"
+        android:textSize="12dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/patient_gender_request"
+        android:layout_below="@id/border_request2"
+        android:layout_toRightOf="@id/patient_name_request"
+        android:layout_marginTop="17dp"
+        android:layout_marginLeft="5dp"
+        android:text="Male"
+        android:textSize="12sp"
+        android:fontFamily="@font/poppins"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/patient_age_request"
+        android:layout_below="@id/border_request2"
+        android:layout_toRightOf="@id/patient_gender_request"
+        android:layout_marginTop="17dp"
+        android:layout_marginLeft="5dp"
+        android:text="20"
+        android:textSize="12sp"
+        android:fontFamily="@font/poppins"/>
+
+    <TextView
+        android:id="@+id/blood_category_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name_view_request"
+        android:layout_marginLeft="-72dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/name_view_request"
+        android:fontFamily="@font/poppins"
+        android:paddingLeft="18dp"
+        android:text="Required Blood Category: "
+        android:textColor="#5F5F5F"
+        android:textSize="12dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/patient_blood_request"
+        android:layout_below="@id/patient_gender_request"
+        android:layout_toRightOf="@id/patient_name_request"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:text="O+"
+        android:textSize="12sp"
+        android:fontFamily="@font/poppins"/>
+
+    <TextView
+        android:id="@+id/request_detail_addressView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/blood_category_view"
+        android:layout_marginTop="5dp"
+        android:backgroundTint="#F9F9F9"
+        android:fontFamily="@font/poppins"
+        android:paddingLeft="18dp"
+        android:text="Address:  "
+        android:textColor="#5F5F5F"
+        android:textSize="12dp" />
+
+    <TextView
+        android:id="@+id/request_detail_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/patient_blood_request"
+        android:layout_marginLeft="-20dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/request_detail_addressView"
+        android:backgroundTint="#F9F9F9"
+        android:fontFamily="@font/poppins"
+        android:paddingLeft="18dp"
+        android:text="Berhampur, Odisha"
+        android:textColor="#5F5F5F"
+        android:textSize="12dp" />
+
+    <TextView
+        android:id="@+id/request_detail_description_less"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/request_detail_address"
+        android:layout_marginTop="18dp"
+        android:backgroundTint="#F9F9F9"
+        android:fontFamily="@font/poppins"
+        android:paddingLeft="18dp"
+        android:text="I am having to search for clinical trials around the world due to COVID-19 restrictions on entering China. I am now seeking this... "
+        android:textColor="#5F5F5F"
+        android:textSize="16dp" />
+
+
+    <TextView
+        android:id="@+id/request_detail_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/request_detail_description_less"
+        android:layout_alignParentRight="true"
+        android:text=" more"
+        android:textStyle="bold"
+        android:layout_marginTop="-25dp"
+        android:layout_marginRight="50dp"
+        android:textColor="#4f4f4f"/>
+
+    <Button
+        android:id="@+id/request_detail_accept"
+        android:layout_width="170dp"
+        android:layout_height="35dp"
+        android:layout_below="@id/request_detail_description_less"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/ngo_signup_button"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Accept Request"
+        android:textColor="@color/white"
+        android:textSize="15sp"/>
+
+
+</RelativeLayout>
