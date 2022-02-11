@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class NGOMyEventAdapter extends RecyclerView.Adapter<NGOMyEventAdapter.MyViewHolder> {
 
-    private ArrayList<NGOHomeAdapterClass> userList;
+    private ArrayList<NGOMyEventAdapterClass> userList;
 
     public NGOMyEventAdapter(ArrayList<NGOMyEventAdapterClass> userList)
     {
@@ -50,7 +50,7 @@ public class NGOMyEventAdapter extends RecyclerView.Adapter<NGOMyEventAdapter.My
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-        int myeventpic = userList.get(position).getImageResourceID();
+        int myeventpic = userList.get(position).getImageID();
         String myeventHeading = userList.get(position).getHeading();
         String myeventLocation = userList.get(position).getLocation();
         String myeventTime = userList.get(position).getTime();

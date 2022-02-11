@@ -14,11 +14,14 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.datepicker.MaterialStyledDatePickerDialog;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+
+import org.w3c.dom.Text;
 
 import java.util.Calendar;
 
@@ -30,7 +33,7 @@ public class UserEditActivity extends AppCompatActivity implements AdapterView.O
     Button save;
     ImageView userEditBackButton, userPicEdit;
     CheckBox userEditDonate;
-    EditText dobuseredit;
+    TextView dobuseredit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +87,6 @@ public class UserEditActivity extends AppCompatActivity implements AdapterView.O
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
         String editedGender = spinner.getSelectedItem().toString();
-        Toast.makeText(UserEditActivity.this, editedGender, Toast.LENGTH_SHORT).show();
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,6 +99,14 @@ public class UserEditActivity extends AppCompatActivity implements AdapterView.O
                 else
                 {
                     nameUserEdit.setError("Enter Name");
+                }
+                if(!editedGender.isEmpty())
+                {
+                    Toast.makeText(UserEditActivity.this, editedGender, Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(UserEditActivity.this, editedGender, Toast.LENGTH_SHORT).show();
                 }
                 if(!phoneUserEdit.getText().toString().isEmpty())
                 {

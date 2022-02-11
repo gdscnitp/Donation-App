@@ -15,6 +15,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
@@ -29,7 +30,7 @@ public class AddRequestActivity extends AppCompatActivity implements AdapterView
     TextInputLayout patientNameBox, patientGenderBox, patientAddressBox, patientContactBox, patientEmailBox, patientTitleBox, patientDescriptiionBox;
     TextInputEditText patientName, patientGender, patientAdddress, patientContact, patientEmail, requestTitle, requestDescription;
     Button submit;
-    EditText dob;
+    TextView dob;
     Spinner spinner;
     String blood_group;
 
