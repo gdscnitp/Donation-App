@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/background_ngo_edit_profile.xml" value="0.325" />
+        <entry key="app/src/main/res/drawable/background_signup_page_email_password.xml" value="0.325" />
         <entry key="app/src/main/res/drawable/event_profilepic.xml" value="0.26517213223511343" />
         <entry key="app/src/main/res/drawable/event_status_bar.xml" value="0.30185185185185187" />
         <entry key="app/src/main/res/drawable/ic_plus_vector.xml" value="0.30185185185185187" />
@@ -11,8 +13,15 @@
         <entry key="app/src/main/res/drawable/ngo_signup_background.xml" value="0.29907407407407405" />
         <entry key="app/src/main/res/drawable/ngo_signup_button.xml" value="0.2064814814814815" />
         <entry key="app/src/main/res/drawable/status_bar.xml" value="0.3" />
-        <entry key="app/src/main/res/layout/activity_events_details.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/activity_add_request.xml" value="0.30885416666666665" />
+        <entry key="app/src/main/res/layout/activity_events.xml" value="0.30885416666666665" />
+        <entry key="app/src/main/res/layout/activity_events_details.xml" value="0.5864406779661017" />
+        <entry key="app/src/main/res/layout/activity_ngo_profile.xml" value="0.30448876603977787" />
         <entry key="app/src/main/res/layout/activity_ngo_signup.xml" value="0.18770183646708644" />
+        <entry key="app/src/main/res/layout/activity_ngoedit.xml" value="0.30885416666666665" />
+        <entry key="app/src/main/res/layout/activity_past_donation.xml" value="0.30885416666666665" />
+        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.30885416666666665" />
+        <entry key="app/src/main/res/layout/activity_user_signup.xml" value="0.30885416666666665" />
       </map>
     </option>
   </component>
