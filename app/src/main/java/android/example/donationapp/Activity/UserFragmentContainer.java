@@ -8,7 +8,6 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.example.donationapp.Fragment.ChatFragment;
 import android.example.donationapp.Fragment.HomeFragment;
@@ -26,7 +25,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class UserFragmentContainer extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     Toolbar toolbar;
     NavigationView navigationView;
@@ -42,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.user_fragment_container);
 
         bottomNavigationView =findViewById(R.id.bottom_navigation);
         toolbar = findViewById(R.id.toolbar_fragment_container);
@@ -120,7 +119,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (item.getItemId()){
 
                 case R.id.home_menu :
-                Intent NavigationDrawerHomeIntent = new Intent(this , MainActivity.class);
+                Intent NavigationDrawerHomeIntent = new Intent(this , UserFragmentContainer.class);
                 startActivity(NavigationDrawerHomeIntent);
                 break;
                 case R.id.blood_banks_menu :
