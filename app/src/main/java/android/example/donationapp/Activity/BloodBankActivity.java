@@ -52,126 +52,126 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 
-public class BloodBankActivity extends AppCompatActivity  {
-// implement onMapCallback
-//    SupportMapFragment supportMapFragment;
-//    GoogleMap map;
-//    FusedLocationProviderClient fusedLocationProviderClient;
-//    double currentLat = 0, currentLong = 0;
+public class BloodBankActivity extends AppCompatActivity  implements  OnMapReadyCallback{
+
+    SupportMapFragment supportMapFragment;
+    GoogleMap map;
+    FusedLocationProviderClient fusedLocationProviderClient;
+    double currentLat = 0, currentLong = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_blood_bank);}
-//
-//        // Assign Variables
-//        supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.google_map);
-//
-//
-//        // Initialize fused location provider client
-//        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
-//
-//        // Check Permission
-//
-//        if (ActivityCompat.checkSelfPermission(BloodBankActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-//            // when permission granted
-//            // call method
-//            getCurrentLocation();
-//        } else {
-//            // When permission denied
-//            // Request Permission
-//            ActivityCompat.requestPermissions(BloodBankActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 44);
-//        }
-//
-//        String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json" +
-//                "?location=" + currentLat + "," + currentLong + "&radius=5000" + "&types=hospital" +
-//                "&sensor=true" +"&key=" + "AIzaSyCPQwyjr02AKO_-XjeM1JSv-DWvI8y32xk";
-//
-//
-//        // Execute place task method to download json data
-////        new PlaceTask().execute(url);
-//
-//
-//    }
-//
-//    private void getCurrentLocation() {
-//        // Initialize task Location
-//
-//        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-//            // TODO: Consider calling
-//            //    ActivityCompat#requestPermissions
-//            // here to request the missing permissions, and then overriding
-//            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-//            //                                          int[] grantResults)
-//            // to handle the case where the user grants the permission. See the documentation
-//            // for ActivityCompat#requestPermissions for more details.
-//            return;
-//        }
-//        Task<Location> task = fusedLocationProviderClient.getLastLocation();
-//        task.addOnSuccessListener(new OnSuccessListener<Location>() {
-//            @Override
-//            public void onSuccess(Location location) {
-//                // When Success
-//                if(location != null){
-//                    //when Location is not equal to null
-//                    // Get current Latitude
-//                    currentLat = location.getLatitude();
-//                    // Get current Longitude
-//                    currentLong = location.getLongitude();
-//                    // Sync map
-//                    supportMapFragment.getMapAsync(new OnMapReadyCallback() {
-//                        @Override
-//                        public void onMapReady(@NonNull GoogleMap googleMap) {
-//                            // When map is ready
-//                            map = googleMap;
-//                            LatLng latLng = new LatLng(currentLat , currentLong);
-//                            MarkerOptions markerOptions = new MarkerOptions();
-//                            markerOptions.position(latLng);
-//                            markerOptions.title("You are here");
-//                            Log.e("Lat: ", String.valueOf(currentLat));
-//                            Log.e("Long: ", String.valueOf(currentLong));
-//                            // zoom current Location on map
-//                            map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(currentLat,currentLong),10));
-//                            map.addMarker(markerOptions);
-//                        }
-//                    });
-//
-//                }
-//            }
-//        }).addOnFailureListener(new OnFailureListener() {
-//            @Override
-//            public void onFailure(@NonNull Exception e) {
-//                Log.d("Exception: ", e.getMessage());
-//            }
-//        });
-//    }
-//
-//    @Override
-//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-//        if (requestCode == 44) {
-//            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//                // When permission Granted
-//                // Call method
-//                getCurrentLocation();
-//            }
-//        }
-//    }
-//
-//    @Override
-//    public void onMapReady(@NonNull GoogleMap googleMap) {
-//        map = googleMap;
-//        LatLng latLng = new LatLng(currentLat , currentLong);
-//        MarkerOptions markerOptions = new MarkerOptions();
-//        markerOptions.position(latLng);
-//        markerOptions.title("You are here");
-//        Log.e("Lat: ", String.valueOf(currentLat));
-//        Log.e("Long: ", String.valueOf(currentLong));
-//        // zoom current Location on map
-//        map.clear();
-//        map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(currentLat,currentLong),10));
-//        map.addMarker(markerOptions);
-//    }
+        setContentView(R.layout.activity_blood_bank);
+
+        // Assign Variables
+        supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.google_map);
+
+
+        // Initialize fused location provider client
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+
+        // Check Permission
+
+        if (ActivityCompat.checkSelfPermission(BloodBankActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            // when permission granted
+            // call method
+            getCurrentLocation();
+        } else {
+            // When permission denied
+            // Request Permission
+            ActivityCompat.requestPermissions(BloodBankActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 44);
+        }
+
+        String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json" +
+                "?location=" + currentLat + "," + currentLong + "&radius=5000" + "&types=hospital" +
+                "&sensor=true" +"&key=" + "AIzaSyCPQwyjr02AKO_-XjeM1JSv-DWvI8y32xk";
+
+
+        // Execute place task method to download json data
+//        new PlaceTask().execute(url);
+
+
+    }
+
+    private void getCurrentLocation() {
+        // Initialize task Location
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        Task<Location> task = fusedLocationProviderClient.getLastLocation();
+        task.addOnSuccessListener(new OnSuccessListener<Location>() {
+            @Override
+            public void onSuccess(Location location) {
+                // When Success
+                if(location != null){
+                    //when Location is not equal to null
+                    // Get current Latitude
+                    currentLat = location.getLatitude();
+                    // Get current Longitude
+                    currentLong = location.getLongitude();
+                    // Sync map
+                    supportMapFragment.getMapAsync(new OnMapReadyCallback() {
+                        @Override
+                        public void onMapReady(@NonNull GoogleMap googleMap) {
+                            // When map is ready
+                            map = googleMap;
+                            LatLng latLng = new LatLng(currentLat , currentLong);
+                            MarkerOptions markerOptions = new MarkerOptions();
+                            markerOptions.position(latLng);
+                            markerOptions.title("You are here");
+                            Log.e("Lat: ", String.valueOf(currentLat));
+                            Log.e("Long: ", String.valueOf(currentLong));
+                            // zoom current Location on map
+                            map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(currentLat,currentLong),10));
+                            map.addMarker(markerOptions);
+                        }
+                    });
+
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.d("Exception: ", e.getMessage());
+            }
+        });
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 44) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // When permission Granted
+                // Call method
+                getCurrentLocation();
+            }
+        }
+    }
+
+    @Override
+    public void onMapReady(@NonNull GoogleMap googleMap) {
+        map = googleMap;
+        LatLng latLng = new LatLng(currentLat , currentLong);
+        MarkerOptions markerOptions = new MarkerOptions();
+        markerOptions.position(latLng);
+        markerOptions.title("You are here");
+        Log.e("Lat: ", String.valueOf(currentLat));
+        Log.e("Long: ", String.valueOf(currentLong));
+        // zoom current Location on map
+        map.clear();
+        map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(currentLat,currentLong),10));
+        map.addMarker(markerOptions);
+    }
 
 //
 //    private class PlaceTask extends AsyncTask<String ,Integer , String> {

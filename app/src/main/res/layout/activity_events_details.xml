@@ -5,8 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:backgroundTint="#FFFFFF"
-
-
     tools:context=".Activity.EventDetailActivity">
 
 
@@ -71,7 +69,6 @@
         android:layout_marginStart="18dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="17dp"
-
         tools:srcCompat="#f4f4f4" />
 
     <ImageView
@@ -81,7 +78,6 @@
         android:layout_below="@+id/line_event1"
         android:layout_marginLeft="18dp"
         android:layout_marginTop="13dp"
-
         android:src="@drawable/ic_group_39" />
     <ImageView
         android:id="@+id/mail_vector"

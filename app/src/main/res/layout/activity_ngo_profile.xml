@@ -178,29 +178,33 @@
         android:src="@drawable/ic_email_black_24dp_1" />
 
 
+
     <Button
         android:id="@+id/ngo_detail_edit_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="30dp"
         android:layout_above="@+id/ngo_profile_description"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="3dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginEnd="12dp"
         android:layout_marginBottom="24dp"
-        android:background=""
+        android:background="@android:color/transparent"
         android:fontFamily="@font/poppins"
+        android:textAllCaps="false"
         android:text="Edit"
-        android:textSize="15dp"/>
-
+        android:textSize="20sp"/>
 
     <ImageView
         android:id="@+id/ngo_detail_edit_vector"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/ngo_profile_description"
-        android:layout_marginEnd="-25dp"
-        android:layout_marginBottom="38dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_toLeftOf="@+id/ngo_detail_edit_button"
+        android:layout_alignTop="@+id/ngo_detail_edit_button"
         android:layout_toStartOf="@+id/ngo_detail_edit_button"
         app:srcCompat="@drawable/ic_edit_black_24dp_1" />
+
 
 
 </RelativeLayout>

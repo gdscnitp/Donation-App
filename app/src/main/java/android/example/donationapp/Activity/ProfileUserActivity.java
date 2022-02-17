@@ -18,7 +18,7 @@ public class ProfileUserActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile_user);
 
         backbuton = findViewById(R.id.back_button_profileuser);
-        profileImage = findViewById(R.id.user_profile_pic);
+        profileImage = findViewById(R.id.ngo_profile_pic1);
         editIcon = findViewById(R.id.edit_icon_userProfile);
         userName = findViewById(R.id.name_userprofile);
         userGender = findViewById(R.id.gender_userprofile);

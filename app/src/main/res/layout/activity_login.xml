@@ -9,9 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginRight="30dp"
-        android:layout_marginBottom="10dp"
         android:padding="20dp"
         android:src="@drawable/vector_signup_background" />
 
@@ -24,7 +23,8 @@
         android:fontFamily="@font/poppins_bold"
         android:text="Welcome to Donee"
         android:textColor="@color/black"
-        android:textSize="30sp" />
+        android:padding="0dp"
+        android:textSize="27sp" />
 
     <TextView
         android:id="@+id/user_ngo_heading"
@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/app_heading"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="0dp"
         android:fontFamily="@font/poppins_medium"
         android:text="For User"
         android:textColor="@color/primary_red"
@@ -45,7 +45,6 @@
         android:layout_below="@id/user_ngo_heading"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="40dp"
-        android:layout_marginTop="5dp"
         android:layout_marginRight="40dp"
         android:fontFamily="@font/poppins_regular"
         android:text="You need a big heart and free mind for blood donation"
@@ -59,7 +58,7 @@
         android:layout_below="@id/app_descrip"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:elevation="10dp"
         android:layout_marginRight="20dp">
 
