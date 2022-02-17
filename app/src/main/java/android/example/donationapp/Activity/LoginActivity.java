@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -20,6 +21,7 @@ public class LoginActivity extends AppCompatActivity {
     TextInputEditText emailEntry, passwordEntry;
     Button loginButton, signUpuser, signUpngo;
     TextView loginHeading, loginChangeView;
+    FirebaseFirestore firebaseFirestore ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         signUpngo = findViewById(R.id.ngo_signin_button);
         loginHeading = findViewById(R.id.user_ngo_heading);
         loginChangeView = findViewById(R.id.login_as_NGO);
+        firebaseFirestore =FirebaseFirestore.getInstance();
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override

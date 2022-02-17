@@ -53,6 +53,7 @@
             android:layout_below="@id/status_bar_userSignUp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
+            android:scaleType="centerCrop"
             android:src="@drawable/profile_avatar1" />
 
         <ImageView
