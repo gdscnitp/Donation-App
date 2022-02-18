@@ -46,7 +46,7 @@
 
         </LinearLayout>
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/userSignUp_profile_pic"
             android:layout_width="100dp"
             android:layout_height="100dp"

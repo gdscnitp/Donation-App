@@ -13,28 +13,28 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-3dp"
+            android:layout_marginTop="-5dp"
             android:src="@drawable/status_bar"
             android:layout_centerHorizontal="true"
-            android:id="@+id/status_bar_useredit"/>
+            android:id="@+id/status_bar_userSignUp"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:orientation="horizontal"
-            android:id="@+id/linear_layout_useredit">
+            android:id="@+id/linear_layout_userSignUp">
 
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="match_parent"
-                android:id="@+id/back_button_useredit"
+                android:id="@+id/back_button_userSignUp"
                 android:src="@drawable/ic_arrow_back"
                 android:layout_marginLeft="20dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="User Edit"
+                android:text="User SignUp"
                 android:textColor="@color/white"
                 android:fontFamily="@font/poppins_medium"
                 android:textAlignment="center"
@@ -47,79 +47,81 @@
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/useredit_profile_pic"
+            android:id="@+id/userSignUp_profile_pic"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_below="@id/status_bar_useredit"
+            android:layout_below="@id/status_bar_userSignUp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
+            android:scaleType="centerCrop"
             android:src="@drawable/profile_avatar1" />
 
         <ImageView
-            android:id="@+id/useredit_profile_pic_add"
+            android:id="@+id/userSignUp_profile_pic_add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/useredit_profile_pic"
+            android:layout_below="@id/userSignUp_profile_pic"
             android:layout_marginLeft="-25dp"
             android:layout_marginTop="-24dp"
-            android:layout_toRightOf="@id/useredit_profile_pic"
+            android:layout_toRightOf="@id/userSignUp_profile_pic"
             android:src="@drawable/ic_pic_add_button" />
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/user_name_box"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:id="@+id/user_name_editbox"
-            android:layout_below="@id/useredit_profile_pic_add"
-            android:layout_marginTop="30dp"
+            android:layout_below="@id/userSignUp_profile_pic_add"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
             android:layout_marginRight="20dp"
-            android:elevation="10dp"
-            android:gravity="top"
             android:background="@drawable/background_ngo_edit_profile"
-            android:backgroundTint="@color/grey">
+            android:backgroundTint="@color/grey"
+            android:elevation="10dp"
+            android:gravity="top">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/user_name_enter"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/user_name_edit"
                 android:background="@color/white"
+                android:backgroundTint="@color/grey"
                 android:fontFamily="@font/poppins_regular"
-                android:inputType="text"
                 android:hint="@string/name"
-                android:textCursorDrawable="@drawable/cursor_color"
+                android:inputType="text"
                 android:textColorHint="@color/primary_red"
-                android:backgroundTint="@color/grey"/>
+                android:textCursorDrawable="@drawable/cursor_color" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/user_dob_editbox"
+            android:id="@+id/user_dob_box"
             android:text="Date of Birth"
             android:textColor="@color/black"
-            android:layout_below="@id/user_name_editbox"
+            android:layout_below="@id/user_name_box"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:textSize="15sp"
             android:fontFamily="@font/poppins_regular"/>
 
         <TextView
-            android:id="@+id/user_dob_edit"
+            android:id="@+id/user_dob_enter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/user_dob_editbox"
+            android:layout_below="@id/user_dob_box"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="2dp"
-            android:hint="dd-mm-yyyy" />
+            android:hint="dd-mm-yyyy"
+            android:textSize="20sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/user_gender_textview"
+            android:id="@+id/user_gender_view"
             android:text="Gender"
-            android:layout_toRightOf="@id/user_dob_editbox"
-            android:layout_below="@id/user_name_editbox"
+            android:layout_toRightOf="@id/user_dob_box"
+            android:layout_below="@id/user_name_box"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="100dp"
             android:textSize="15sp"
@@ -127,19 +129,19 @@
             android:fontFamily="@font/poppins_regular"/>
 
         <Spinner
-            android:id="@+id/user_gender_edit_spinner"
+            android:id="@+id/user_gender_enter_spinner"
             android:layout_width="130dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/user_gender_textview"
+            android:layout_height="20dp"
+            android:layout_below="@id/user_gender_view"
             android:layout_marginLeft="87dp"
             android:layout_marginTop="10dp"
-            android:layout_toRightOf="@id/user_dob_edit" />
+            android:layout_toRightOf="@id/user_dob_enter" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:id="@+id/user_phone_editbox"
-            android:layout_below="@id/user_gender_edit_spinner"
+            android:id="@+id/user_phone_box"
+            android:layout_below="@id/user_gender_enter_spinner"
             android:layout_marginTop="15dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
@@ -151,7 +153,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/user_phone_edit"
+                android:id="@+id/user_phone_enter"
                 android:background="@color/white"
                 android:fontFamily="@font/poppins_regular"
                 android:inputType="text"
@@ -165,8 +167,8 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:id="@+id/user_email_editbox"
-            android:layout_below="@id/user_phone_editbox"
+            android:id="@+id/user_email_box"
+            android:layout_below="@id/user_phone_box"
             android:layout_marginTop="15dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
@@ -178,7 +180,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/user_email_edit"
+                android:id="@+id/user_email_enter"
                 android:background="@color/white"
                 android:fontFamily="@font/poppins_regular"
                 android:inputType="text"
@@ -192,8 +194,8 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:id="@+id/user_password_editbox"
-            android:layout_below="@id/user_email_editbox"
+            android:id="@+id/user_password_box"
+            android:layout_below="@id/user_email_box"
             android:layout_marginTop="15dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
@@ -205,7 +207,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/user_password_edit"
+                android:id="@+id/user_password_enter"
                 android:background="@color/white"
                 android:fontFamily="@font/poppins_regular"
                 android:inputType="text"
@@ -219,8 +221,8 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:id="@+id/user_address_editbox"
-            android:layout_below="@id/user_password_editbox"
+            android:id="@+id/user_address_box"
+            android:layout_below="@id/user_password_box"
             android:layout_marginTop="15dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
@@ -232,7 +234,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/user_address_edit"
+                android:id="@+id/user_address_enter"
                 android:background="@color/white"
                 android:fontFamily="@font/poppins_regular"
                 android:inputType="textMultiLine"
@@ -246,8 +248,8 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:id="@+id/user_weight_editbox"
-            android:layout_below="@id/user_address_editbox"
+            android:id="@+id/user_weight_box"
+            android:layout_below="@id/user_address_box"
             android:layout_marginTop="15dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
@@ -259,7 +261,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/user_weight_edit"
+                android:id="@+id/user_weight_enter"
                 android:background="@color/white"
                 android:fontFamily="@font/poppins_regular"
                 android:inputType="text"
@@ -271,10 +273,10 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <CheckBox
-            android:id="@+id/user_donor_checkbox_edit"
+            android:id="@+id/user_donor_checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/user_weight_editbox"
+            android:layout_below="@id/user_weight_box"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/poppins_regular"
@@ -284,17 +286,17 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/user_edit_save"
+            android:id="@+id/userSignUp_submit"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/user_donor_checkbox_edit"
+            android:layout_below="@id/user_donor_checkbox"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/background_signup_page_email_password"
             android:backgroundTint="@color/primary_red"
             android:fontFamily="@font/poppins_regular"
-            android:text="Save"
+            android:text="Submit"
             android:textColor="@color/white" />
 
     </RelativeLayout>

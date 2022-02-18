@@ -7,7 +7,9 @@ public class UserClass {
     public UserClass() {
     }
 
-    public UserClass(String name, String dob, String gender, String phoneNo, String email, String address, String weight, String donor,String designation, String uId, String imageURL) {
+
+
+    public UserClass(String name, String dob, String gender, String phoneNo, String email, String address, String weight, String donor, String sdesignation, String uId, String imageURL) {
         this.name = name;
         this.dob = dob;
         this.gender = gender;
@@ -18,7 +20,7 @@ public class UserClass {
         this.donor = donor;
         this.uId = uId;
         this.imageURL = imageURL;
-        this.designation = designation;
+        this.designation = sdesignation;
     }
 
     public UserClass(String name, String description, String address, String phoneNo, String email, String designation, String uId, String imageURL) {
@@ -119,5 +121,13 @@ public class UserClass {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getDesignation() {
+        return designation;
+    }
+
+    public void setDesignation(String designation) {
+        this.designation = designation;
     }
 }

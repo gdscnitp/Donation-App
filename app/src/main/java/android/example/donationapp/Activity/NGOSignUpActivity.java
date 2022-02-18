@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class NGOSignUpActivity extends AppCompatActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
