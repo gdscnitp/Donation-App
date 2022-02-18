@@ -121,10 +121,10 @@ public class UserFragmentContainer extends AppCompatActivity implements Navigati
                 case R.id.home_menu :
                 Intent NavigationDrawerHomeIntent = new Intent(this , UserFragmentContainer.class);
                 startActivity(NavigationDrawerHomeIntent);
-                break;
-                case R.id.blood_banks_menu :
-                Intent NavigationDrawerBloodBankIntent = new Intent(this , BloodBankActivity.class);
-                startActivity(NavigationDrawerBloodBankIntent);
+//                break;
+//                case R.id.blood_banks_menu :
+//                Intent NavigationDrawerBloodBankIntent = new Intent(this , BloodBankActivity.class);
+//                startActivity(NavigationDrawerBloodBankIntent);
                 break;
                 case R.id.donor_menu :
                 Intent NavigationDrawerDonorIntent = new Intent(this , DonorActivity.class);

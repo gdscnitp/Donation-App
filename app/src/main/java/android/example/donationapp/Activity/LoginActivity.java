@@ -61,17 +61,33 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+//        signUpuser.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Toast.makeText(LoginActivity.this," ", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//
+//        signUpngo.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Toast.makeText(LoginActivity.this," ", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+
         signUpuser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(LoginActivity.this," ", Toast.LENGTH_SHORT).show();
+                Intent uIntent = new Intent(LoginActivity.this, UserSignupActivity.class);
+                startActivity(uIntent);
             }
         });
 
         signUpngo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(LoginActivity.this," ", Toast.LENGTH_SHORT).show();
+                Intent nIntent = new Intent(LoginActivity.this, NGOSignUpActivity.class);
+                startActivity(nIntent);
             }
         });
 
