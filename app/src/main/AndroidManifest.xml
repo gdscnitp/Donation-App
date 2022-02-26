@@ -41,13 +41,14 @@
         </activity>
         <activity android:name=".Activity.FactsActivity" />
         <activity android:name=".Activity.PastDonationActivity" />
-      <activity android:name=".Activity.NGOProfileActivity"/>
+        <activity android:name=".Activity.NGOProfileActivity"/>
         <activity android:name=".Activity.ProfileActivity" />
         <activity android:name=".Activity.DonorActivity" />
         <activity android:name=".Activity.EditRequestActivity" />
-<!--        <activity android:name=".Activity.BloodBankActivity" >-->
+                <activity android:name=".Activity.BloodBankActivity"
+                    android:hardwareAccelerated="true">
 
-<!--        </activity>-->
+                </activity>
         <activity android:name=".Activity.NGOHomeActivity" />
         <activity
             android:name=".Activity.UserEditActivity"

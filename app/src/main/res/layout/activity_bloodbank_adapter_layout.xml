@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+<RelativeLayout
+    android:id="@+id/blood_bank_grp"
+    android:layout_marginTop="15dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    android:layout_marginBottom="10dp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:background="@drawable/blood_bank_icon_circle"
+    android:layout_width="70dp"
+    android:layout_height="70dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/blood_bank_icon"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/blood_bank_icon" />
+
+</RelativeLayout>
+
+    <TextView
+        android:id="@+id/blood_bank_name"
+        android:layout_width="wrap_content"
+        android:maxWidth="300dp"
+        app:layout_constraintLeft_toRightOf="@id/blood_bank_grp"
+        app:layout_constraintTop_toTopOf="@id/blood_bank_grp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/dark_grey"
+        android:fontFamily="@font/poppins_medium"
+        android:text="NSS NIT Patna"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/blood_bank_address"
+        android:layout_width="wrap_content"
+        android:maxWidth="300dp"
+        android:text="Paras Hospital, Bailey Road, Patna"
+        app:layout_constraintLeft_toLeftOf="@id/blood_bank_name"
+        app:layout_constraintTop_toBottomOf="@id/blood_bank_name"
+        android:textColor="@color/light_grey"
+        android:fontFamily="@font/poppins_medium"
+        android:layout_height="wrap_content"/>
+
+    <View
+        android:layout_marginTop="22dp"
+        android:layout_width="match_parent"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="22dp"
+        android:background="@color/light_grey"
+        app:layout_constraintTop_toBottomOf="@id/blood_bank_address"
+        android:layout_height="2dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
