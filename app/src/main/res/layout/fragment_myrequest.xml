@@ -18,5 +18,14 @@
         android:scrollbarSize="7sp"
         android:scrollbars="vertical" />
 
+    <ImageView
+        android:id="@+id/addRequest"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_pic_add_button"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="15dp"/>
+
 
 </RelativeLayout>

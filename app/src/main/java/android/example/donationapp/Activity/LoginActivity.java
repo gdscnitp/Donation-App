@@ -3,15 +3,12 @@ package android.example.donationapp.Activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
-import android.example.donationapp.Fragment.HomeFragment;
 import android.example.donationapp.Model.UserClass;
 import android.example.donationapp.R;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,7 +22,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.auth.User;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -216,5 +212,36 @@ public class LoginActivity extends AppCompatActivity {
                 });
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(FirebaseAuth.getInstance().getCurrentUser() != null)
+        {
+            Task<DocumentSnapshot> userDetails = firebaseFirestore.collection("UserInformation").document(FirebaseAuth.getInstance().getCurrentUser().getUid()).get();
+            userDetails.addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                @Override
+                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                    UserClass userClass = documentSnapshot.toObject(UserClass.class);
+
+                    ngoOrUser = userClass.getDesignation();
+
+                    if(ngoOrUser.equalsIgnoreCase("User"))
+                    {
+                        Intent intent1 = new Intent(LoginActivity.this, UserFragmentContainer.class);
+                        startActivity(intent1);
+                        finish();
+                    }
+
+                    if(ngoOrUser.equalsIgnoreCase("NGO"))
+                    {
+                        Intent intent1 = new Intent(LoginActivity.this, NGOHomeActivity.class);
+                        startActivity(intent1);
+                        finish();
+                    }
+                }
+            });
+        }
     }
 }
