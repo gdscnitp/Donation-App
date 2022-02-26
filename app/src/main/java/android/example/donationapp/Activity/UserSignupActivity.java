@@ -270,32 +270,37 @@ public class UserSignupActivity extends AppCompatActivity implements AdapterView
                 Intent intent = new Intent();
                 intent.setType("image/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
+try {
+    ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        // There are no request codes
+                        Intent data = result.getData();
+                        selectedImage = Objects.requireNonNull(data).getData();
+                        bitmap = null;
+                        try {
+                            bitmap = MediaStore.Images.Media.getBitmap(getApplicationContext().getContentResolver(), selectedImage);
+                            profilePic.setImageBitmap(bitmap);
+                            picEnter.setVisibility(View.GONE);
 
-                ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
-                        new ActivityResultContracts.StartActivityForResult(),
-                        new ActivityResultCallback<ActivityResult>() {
-                            @Override
-                            public void onActivityResult(ActivityResult result) {
-                                if (result.getResultCode() == Activity.RESULT_OK) {
-                                    // There are no request codes
-                                    Intent data = result.getData();
-                                    selectedImage = Objects.requireNonNull(data).getData();
-                                    bitmap = null;
-                                    try {
-                                        bitmap = MediaStore.Images.Media.getBitmap(getApplicationContext().getContentResolver(), selectedImage);
-                                        profilePic.setImageBitmap(bitmap);
-                                        picEnter.setVisibility(View.GONE);
+                        } catch (FileNotFoundException e) {
+                            e.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            });
 
-                                    } catch (FileNotFoundException e) {
-                                        e.printStackTrace();
-                                    } catch (IOException e) {
-                                        e.printStackTrace();
-                                    }
-                                }
-                            }
-                        });
+    someActivityResultLauncher.launch(intent);
 
-                someActivityResultLauncher.launch(intent);
+}catch (Exception e){
+    Log.e("launching intent", "onClick: " + e.getMessage() );
+
+}
 
             }
         });

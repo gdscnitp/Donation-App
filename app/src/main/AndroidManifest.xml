@@ -15,7 +15,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:requestLegacyExternalStorage="true"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.DonationApp">
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_map_key"/>
@@ -33,11 +35,7 @@
 
         </activity>
         <activity android:name=".Activity.UserSignupActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".Activity.FactsActivity" />
         <activity android:name=".Activity.PastDonationActivity" />
@@ -45,8 +43,13 @@
         <activity android:name=".Activity.ProfileActivity" />
         <activity android:name=".Activity.DonorActivity" />
         <activity android:name=".Activity.EditRequestActivity" />
-        <activity android:name=".Activity.BloodBankActivity" >
+        <activity android:name=".Activity.BloodBankActivity"
+            android:hardwareAccelerated="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".Activity.NGOHomeActivity" />
         <activity
