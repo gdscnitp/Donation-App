@@ -1,71 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="android.example.donationapp">
-
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="com.androidtutorialpoint.mymapsappsdirection.permission.MAPS_RECEIVE" />
-    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:requestLegacyExternalStorage="true"
         android:supportsRtl="true"
         android:theme="@style/Theme.DonationApp">
-        <activity
-            android:name=".Activity.ChatActivity"
-            android:exported="false" />
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_map_key" />
+            android:value="@string/google_map_key"/>
 
-        <activity android:name=".Activity.NGOSignUpActivity" />
-
+        <activity android:name=".Activity.NGOSignUpActivity"></activity>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".Activity.AddEventsActivity" />
-        <activity android:name=".Activity.NGOEditActivity" />
+        <activity android:name=".Activity.AddEventsActivity"></activity>
+        <activity android:name=".Activity.NGOEditActivity"></activity>
         <activity
             android:name=".Activity.LoginActivity"
-            android:exported="false"></activity>
-        <activity android:name=".Activity.UserSignupActivity"
-            android:exported="false">
-
-
-
-        </activity>
-        <activity android:name=".Activity.FactsActivity" />
-        <activity android:name=".Activity.PastDonationActivity" />
-        <activity android:name=".Activity.NGOProfileActivity" />
-        <activity android:name=".Activity.ProfileActivity" />
-        <activity android:name=".Activity.DonorActivity" />
-        <activity android:name=".Activity.EditRequestActivity" /> <!-- <activity android:name=".Activity.BloodBankActivity" > -->
-        <!-- </activity> -->
-        <activity
-            android:name=".Activity.NGOHomeActivity"
-            android:exported="false">
-
-        </activity> <!-- <activity -->
-        <!-- android:name=".Activity.UserEditActivity" -->
-        <!-- android:exported="true"> -->
-        <!-- </activity> -->
-        <activity
-            android:name=".Activity.UserFragmentContainer"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".Activity.UserSignupActivity" >
+
+        </activity>
+        <activity android:name=".Activity.FactsActivity" />
+        <activity android:name=".Activity.PastDonationActivity" />
+        <activity android:name=".Activity.NGOProfileActivity"/>
+        <activity android:name=".Activity.ProfileActivity" />
+        <activity android:name=".Activity.DonorActivity" />
+      <activity
+            android:name=".Activity.ChatActivity"
+            android:exported="false" />
+        <activity android:name=".Activity.EditRequestActivity" />
+                <activity android:name=".Activity.BloodBankActivity"
+                    android:hardwareAccelerated="true">
+
+                </activity>
+        <activity android:name=".Activity.NGOHomeActivity" />
+        <activity
+            android:name=".Activity.UserEditActivity"
+            android:exported="true">
+
+        </activity>
+        <activity
+            android:name=".Activity.UserFragmentContainer"
+            android:exported="false">
 
         </activity>
     </application>
