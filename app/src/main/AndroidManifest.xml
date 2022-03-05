@@ -44,22 +44,23 @@
         <activity android:name=".Activity.NGOProfileActivity"/>
         <activity android:name=".Activity.ProfileActivity" />
         <activity android:name=".Activity.DonorActivity" />
+        <activity android:name=".Activity.AddRequestActivity" />
         <activity android:name=".Activity.EditRequestActivity" />
                 <activity android:name=".Activity.BloodBankActivity"
                     android:hardwareAccelerated="true">
 
                 </activity>
         <activity android:name=".Activity.NGOHomeActivity" />
-        <activity
-            android:name=".Activity.UserEditActivity"
-            android:exported="true">
+        <!--        <activity
+                    android:name=".Activity.UserEditActivity"
+                    android:exported="true">
 
-        </activity>
-        <activity
-            android:name=".Activity.UserFragmentContainer"
-            android:exported="false">
+                </activity>-->
+                <activity
+                    android:name=".Activity.UserFragmentContainer"
+                    android:exported="false">
 
-        </activity>
-    </application>
+                </activity>
+            </application>
 
-</manifest>
+        </manifest>
