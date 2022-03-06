@@ -50,23 +50,28 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.viewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MessageAdapter.viewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull viewHolder holder, int position) {
 
         String message = usersList.get(position).getMessage();
 
-        if(message.equals(""))
-        {
+        Log.e("Message after Retrieve",message );
+
+
+        if (message.equals("")) {
             holder.messageView.setHeight(0);
             holder.messageView.setWidth(0);
             holder.messageView.setVisibility(View.INVISIBLE);
+        } else {
+            if (message != null) {
+                Log.e("Message of MessageAdapter", message.toString());
+//                Log.e()
+                holder.messageView.setText(message);
+                Log.e("Message Updated", message.toString());
+            }
         }
-        else
-        {
-            if(message != null)
-            holder.messageView.setText(message);
         }
 
-    }
+
 
     @Override
     public int getItemCount() {
@@ -81,7 +86,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.viewHold
 
             super(itemView);
 
-            messageView = itemView.findViewById(R.id.senderMessage);
+            messageView = (TextView) itemView.findViewById(R.id.senderMessage);
 
         }
 
@@ -89,9 +94,9 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.viewHold
     }
 
     public int getItemViewType(int position) {
-        MessageClass message = usersList.get(position);
+        MessageClass messages = usersList.get(position);
 
-        if (Objects.requireNonNull(FirebaseAuth.getInstance().getUid()).equalsIgnoreCase(message.getSenderId())) {
+        if (Objects.requireNonNull(FirebaseAuth.getInstance().getUid()).equalsIgnoreCase(messages.getSenderId())) {
             return ITEM_SENT;
         } else {
             return ITEM_RECEIVE;

@@ -69,6 +69,7 @@ public class ChatActivity extends AppCompatActivity {
 
         messageClass = new ArrayList<MessageClass>();
         messageAdapter = new MessageAdapter(messageClass, this);
+        recyclerView.setAdapter(messageAdapter);
 
         senderRoom = senderUid + receiverUid;
         receiverRoom = receiverUid + senderUid;
@@ -87,8 +88,8 @@ public class ChatActivity extends AppCompatActivity {
 
                             MessageClass message = snapshot1.getValue(MessageClass.class);
                             messageClass.add(message);
-                            Log.e("Message is",message.getMessage());
-
+                            Log.e("Message of Chat",message.getMessage());
+                            Log.e("Size of Message Class", Integer.toString(messageClass.size()));
                         }
                         messageAdapter.notifyDataSetChanged();
                     }
@@ -137,13 +138,10 @@ public class ChatActivity extends AppCompatActivity {
                 firebaseDatabase.getReference().child("chats").child(senderRoom).updateChildren(lastMsgObj);
                 firebaseDatabase.getReference().child("chats").child(receiverRoom).updateChildren(lastMsgObj);
 
-                 String randomkey = firebaseDatabase.getReference().push().getKey();
-                 assert randomkey != null;
-
                  firebaseDatabase.getReference().child("chats")
                          .child(senderRoom)
                          .child("messages")
-                         .child(randomkey)
+                         .push()
                          .setValue(message).addOnSuccessListener(new OnSuccessListener<Void>() {
                      @Override
                      public void onSuccess(Void unused) {
@@ -151,7 +149,7 @@ public class ChatActivity extends AppCompatActivity {
                          firebaseDatabase.getReference().child("chats")
                                  .child(receiverRoom)
                                  .child("messages")
-                                 .child(randomkey)
+                                 .push()
                                  .setValue(message).addOnSuccessListener(new OnSuccessListener<Void>() {
                              @Override
                              public void onSuccess(Void unused) {
