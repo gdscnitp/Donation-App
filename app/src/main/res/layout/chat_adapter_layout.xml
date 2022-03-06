@@ -3,72 +3,77 @@
     android:layout_width="match_parent"
     android:layout_height="100dp">
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/chat_sender_profile_pic"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:id="@+id/chat_sender_profile_pic"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="10dp"
-        android:src="@drawable/profile_avatar1"/>
+        android:src="@drawable/profile_avatar1" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/donor_name_chat"
-        android:text="Sujit Kumar Das"
-        android:layout_toRightOf="@id/chat_sender_profile_pic"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="25sp"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        android:fontFamily="@font/poppins_bold"/>
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/donor_mssg_preview"
-        android:text="Hello I want to donate."
-        android:layout_below="@id/donor_name_chat"
+        android:layout_marginLeft="25sp"
+        android:layout_marginTop="10dp"
         android:layout_toRightOf="@id/chat_sender_profile_pic"
+        android:fontFamily="@font/poppins_bold"
+        android:maxWidth="200dp"
+        android:text="Sujit Kumar Das"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/donor_mssg_preview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textFontWeight="1"
+        android:layout_below="@id/donor_name_chat"
         android:layout_marginLeft="25sp"
         android:layout_marginTop="7dp"
+        android:layout_toRightOf="@id/chat_sender_profile_pic"
+        android:fontFamily="@font/poppins_italic"
+        android:maxWidth="150dp"
+        android:text="Hello I want to donate."
         android:textColor="@color/black"
-        android:textSize="12sp"
-        android:fontFamily="@font/poppins_italic"/>
+        android:textSize="12sp" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/chat_date"
-        android:text="26/01/2020"
-        android:layout_toRightOf="@id/donor_name_chat"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="45dp"
-        android:textColor="@color/black"
-        android:textSize="10sp"
-        android:fontFamily="@font/poppins_italic"/>
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/chat_time"
-        android:text="7:20 pm"
-        android:layout_toRightOf="@id/donor_name_chat"
-        android:layout_below="@id/chat_date"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="45dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"
+        android:fontFamily="@font/poppins_italic"
+        android:text="26/01/2020"
         android:textColor="@color/black"
-        android:textSize="10sp"
-        android:fontFamily="@font/poppins_italic"/>
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/chat_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/chat_date"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"
+        android:fontFamily="@font/poppins_italic"
+        android:text="7:20 pm"
+        android:textColor="@color/black"
+        android:textSize="10sp" />
 
     <View
         android:id="@+id/border_view"
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:layout_below="@id/donor_mssg_preview"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginRight="10dp"
         android:background="#E5E5E5" />
 
 
