@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -34,7 +35,8 @@ public class HomeActivityAdapter extends RecyclerView.Adapter<HomeActivityAdapte
     @Override
     public void onBindViewHolder(@NonNull HomeActivityAdapter.viewHolder holder, int position) {
 
-        holder.rimage.setImageResource(userList.get(position).getImageResourceID());
+
+        Glide.with(holder.rimage.getContext()).load(userList.get(position).getImageResourceID()).into(holder.rimage);
         holder.rheading.setText(userList.get(position).getHeading());
         holder.rlocation.setText(userList.get(position).getLocation());
         holder.rtime.setText(userList.get(position).getTime());

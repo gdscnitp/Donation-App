@@ -2,10 +2,12 @@ package android.example.donationapp.Model;
 
 public class MyRequestActivityAdapterClass {
 
-    private int imageResourceID;
+    private String imageResourceID;
     private String heading, location, time;
 
-    public MyRequestActivityAdapterClass(int image, String sHeading, String sLocation, String sTime)
+
+
+    public MyRequestActivityAdapterClass(String image, String sHeading, String sLocation, String sTime)
     {
         this.imageResourceID = image;
         this.heading = sHeading;
@@ -13,11 +15,11 @@ public class MyRequestActivityAdapterClass {
         this.time = sTime;
     }
 
-    public int getImageResourceID() {
+    public String getImageResourceID() {
         return imageResourceID;
     }
 
-    public void setImageResourceID(int imageResourceID) {
+    public void setImageResourceID(String imageResourceID) {
         this.imageResourceID = imageResourceID;
     }
 

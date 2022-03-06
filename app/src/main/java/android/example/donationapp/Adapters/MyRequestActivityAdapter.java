@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 public class MyRequestActivityAdapter extends RecyclerView.Adapter<MyRequestActivityAdapter.viewHolder> {
@@ -33,7 +35,7 @@ public class MyRequestActivityAdapter extends RecyclerView.Adapter<MyRequestActi
     @Override
     public void onBindViewHolder(@NonNull MyRequestActivityAdapter.viewHolder holder, int position) {
 
-        holder.rimage1.setImageResource(UserList.get(position).getImageResourceID());
+        Glide.with(holder.rimage1.getContext()).load(UserList.get(position).getImageResourceID()).into(holder.rimage1);
         holder.rheading1.setText(UserList.get(position).getHeading());
         holder.rlocation1.setText(UserList.get(position).getLocation());
         holder.rtime1.setText(UserList.get(position).getTime());
