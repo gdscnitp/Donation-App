@@ -4,7 +4,7 @@ public class RequestClass {
 
     String random, name, gender, dob, blood, address, contact, email, title, description, image;
 
-    RequestClass() {}
+    public RequestClass() {}
 
 
 

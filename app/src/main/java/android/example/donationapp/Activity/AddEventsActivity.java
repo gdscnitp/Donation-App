@@ -1,11 +1,25 @@
 package android.example.donationapp.Activity;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
+import android.example.donationapp.Model.EventClass;
 import android.example.donationapp.R;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -14,23 +28,74 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Calendar;
 import java.util.Locale;
+import java.util.Objects;
+import java.util.Random;
 
 public class AddEventsActivity extends AppCompatActivity {
 
     TextInputLayout editEventTitle, editEventDescription, editEventAddress, editEventTime, editEventDate, editContactDetails, editEmail;
     TextInputEditText title, description, address, contactDetails, email;
     TextView time, date;
-    ImageView backbutton, imageEditButton;
+    ImageView backbutton, imageEditButton, eventImage;
     Button saveButton;
+    String sImageURL = "null";
+
+    FirebaseUser currentUser;
+    FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+    FirebaseAuth firebaseAuth;
+    EventClass eventClass;
+    Bitmap bitmap;
+    Uri selectedImage;
+    FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
+    StorageReference storageReference;
+    DocumentReference documentReference;
+
 
     int hour;
     int minute;
 
+    ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        // There are no request codes
+                        Intent data = result.getData();
+                        selectedImage = Objects.requireNonNull(data).getData();
+                        bitmap = null;
+                        try {
+                            bitmap = MediaStore.Images.Media.getBitmap(getApplicationContext().getContentResolver(), selectedImage);
+                            eventImage.setImageBitmap(bitmap);
+                            imageEditButton.setVisibility(View.GONE);
+                            Log.e("Inside OnActivity",bitmap.toString());
+
+                        } catch (FileNotFoundException e) {
+                            e.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            });
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +116,7 @@ public class AddEventsActivity extends AppCompatActivity {
         date = findViewById(R.id.date_edit);
         contactDetails = findViewById(R.id.contact_edit);
         email = findViewById(R.id.email_edit);
+        eventImage = findViewById(R.id.profile_pic);
 
         backbutton = findViewById(R.id.back);
         imageEditButton = findViewById(R.id.profile_pic_add);
@@ -62,8 +128,8 @@ public class AddEventsActivity extends AppCompatActivity {
         int month = calendar.get(Calendar.MONTH);
         int day = calendar.get(Calendar.DAY_OF_MONTH);
 
-//        int hour = calendar.get(Calendar.HOUR_OF_DAY);
-//        int minute = calendar.get(Calendar.MINUTE);
+        firebaseAuth = FirebaseAuth.getInstance();
+        currentUser = firebaseAuth.getCurrentUser();
 
 
         date.setOnClickListener(new View.OnClickListener() {
@@ -80,86 +146,168 @@ public class AddEventsActivity extends AppCompatActivity {
             }
         });
 
-        /*time.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                TimePickerDialog timePickerDialog = new TimePickerDialog(EventsActivity.this, new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
-                        time.setText( selectedHour + ":" + selectedMinute);
+        int leftLimit = 48; // numeral '0'
+        int rightLimit = 122; // letter 'z'
+        int targetStringLength = 10;
+        Random random = new Random();
 
-                        SimpleDateFormat f24Hours = new SimpleDateFormat("HH:mm");
-                    }
-                }, hour, minute, true);//Yes 24 hour time
-            }
-        });*/
+        String generatedString = random.ints(leftLimit, rightLimit + 1)
+                .filter(i -> (i <= 57 || i >= 65) && (i <= 90 || i >= 97))
+                .limit(targetStringLength)
+                .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+                .toString();
+
+
 
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!title.getText().toString().isEmpty())
+
+                String stitle = title.getText().toString();
+                String sdescription = description.getText().toString();
+                String saddress = address.getText().toString();
+                String stime = time.getText().toString();
+                String sdate = date.getText().toString();
+                String scontact = contactDetails.getText().toString();
+                String semail = email.getText().toString();
+
+
+                if(stitle.isEmpty())
                 {
-                    Toast.makeText(AddEventsActivity.this, " ", Toast.LENGTH_SHORT).show();
-                }
-                else{
                     title.setError("Enter Event Name.");
                 }
 
-                if(!description.getText().toString().isEmpty())
-                {
-                    Toast.makeText(AddEventsActivity.this, " ", Toast.LENGTH_SHORT).show();
-                }
-                else
+                if(sdescription.isEmpty())
                 {
                     description.setError("Enter Description.");
                 }
 
-                if(!address.getText().toString().isEmpty())
-                {
-                    Toast.makeText(AddEventsActivity.this, " ", Toast.LENGTH_SHORT).show();
-                }
-                else
+                if(saddress.isEmpty())
                 {
                     address.setError("Enter Address.");
                 }
 
-                if(!time.getText().toString().isEmpty())
-                {
-                    Toast.makeText(AddEventsActivity.this, time.getText().toString(), Toast.LENGTH_SHORT).show();
-                }
-                else
+                if(stime.isEmpty())
                 {
                     time.setError("Enter Time.");
                 }
 
-                if(!date.getText().toString().isEmpty())
-                {
-                    Toast.makeText(AddEventsActivity.this, date.getText().toString(), Toast.LENGTH_SHORT).show();
-                }
-                else
+                if(sdate.isEmpty())
                 {
                     date.setError("Enter Date.");
                 }
 
-                if(!contactDetails.getText().toString().isEmpty())
-                {
-                    Toast.makeText(AddEventsActivity.this, " ", Toast.LENGTH_SHORT).show();
-                }
-                else
+                if(scontact.isEmpty())
                 {
                     contactDetails.setError("Enter Contact Details.");
                 }
 
-                if(!email.getText().toString().isEmpty())
-                {
-                    Toast.makeText(AddEventsActivity.this, " ", Toast.LENGTH_SHORT).show();
-                }
-                else
+                if(semail.isEmpty())
                 {
                     email.setError("Enter Email.");
                 }
+
+                eventClass = new EventClass(stitle, sdate, stime, sdescription, sImageURL, saddress, scontact, semail);
+
+
+                if(selectedImage != null)
+                {
+                    Log.e("Inside if condition", selectedImage.toString());
+
+                    storageReference = firebaseStorage.getReference().child("images").child(generatedString);
+                    documentReference = FirebaseFirestore.getInstance().collection("Events").document(currentUser.getUid()).collection("random").document(generatedString);
+
+                    storageReference.putFile(selectedImage).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            Log.e("Image uploaded", "     .");
+                            Toast.makeText(AddEventsActivity.this, "Image Uploaded.", Toast.LENGTH_SHORT).show();
+
+                            storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    String imageURL = uri.toString();
+                                    Toast.makeText(AddEventsActivity.this, "Path is " + sImageURL, Toast.LENGTH_SHORT).show();
+
+                                    Log.e("Path found", imageURL);
+
+
+                                    firebaseFirestore.collection("Events").document(currentUser.getUid()).collection("random").document(generatedString).set(eventClass).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+                                            Log.e("Successfully Updation", "Success");
+
+                                            documentReference.update("eImageUrl", imageURL);
+
+
+                                            Toast.makeText(AddEventsActivity.this, "Event Created.", Toast.LENGTH_SHORT).show();
+
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Toast.makeText(AddEventsActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(AddEventsActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();;
+                                }
+                            });
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(AddEventsActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+                }
+                else
+                {
+                    firebaseFirestore.collection("Events").document(currentUser.getUid()).collection("random").document(generatedString).set(eventClass).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+
+                            Log.e("Successfully Updation", "Success");
+                            Toast.makeText(AddEventsActivity.this, "Event Created.", Toast.LENGTH_SHORT).show();
+
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(AddEventsActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+
+
+
+
+
             }
         });
+
+
+        imageEditButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+
+                someActivityResultLauncher.launch(intent);
+
+                Toast.makeText(AddEventsActivity.this, "Image Recieved", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
 
 
 
