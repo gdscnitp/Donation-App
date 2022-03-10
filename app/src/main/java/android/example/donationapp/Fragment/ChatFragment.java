@@ -34,7 +34,6 @@ import java.util.concurrent.RecursiveAction;
 public class ChatFragment extends Fragment {
 
     String sName, sDob, sPhone, sEmail, sPassword, sAddress, sWeight, sdesignation = "User", sImageUrl = "null", sDonor = "null", sGender, uID;
-    UsersAdapterClass usersAdapterClass;
     UsersAdapter usersAdapter;
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
     CollectionReference collectionReference;
@@ -68,7 +67,6 @@ public class ChatFragment extends Fragment {
                     sDob = documentSnapshot.getString("dob");
                     sPhone = documentSnapshot.getString("phoneNo");
                     sEmail = documentSnapshot.getString("email");
-//                    sPassword = documentSnapshot.getString("sPassword");
                     sAddress = documentSnapshot.getString("address");
                     sWeight = documentSnapshot.getString("weight");
                     sdesignation = documentSnapshot.getString("designation");
@@ -88,7 +86,6 @@ public class ChatFragment extends Fragment {
                     }
 
                     usersList.add(new UserClass(sName, sDob, sGender, sPhone, sEmail, sAddress, sWeight, sDonor, sdesignation, uID, sImageUrl));
-//    public UserClass(String name, String dob, String gender, String phoneNo, String email, String address, String weight, String donor, String sdesignation, String uId, String imageURL) {
 
                 }
 
@@ -102,20 +99,6 @@ public class ChatFragment extends Fragment {
                 Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-
-//        usersList.add(new ChatClass(R.drawable.profile_avatar1,"Sujit Kumar Das", "I want to donate.", "26/01/2020", "7:20 pm"));
-//        usersList.add(new ChatClass(R.drawable.profile_avatar1,"Sujit Kumar Das", "I want to donate.", "26/01/2020", "7:20 pm"));
-//        usersList.add(new ChatClass(R.drawable.profile_avatar1,"Sujit Kumar Das", "I want to donate.", "26/01/2020", "7:20 pm"));
-//        usersList.add(new ChatClass(R.drawable.profile_avatar1,"Sujit Kumar Das", "I want to donate.", "26/01/2020", "7:20 pm"));
-//        usersList.add(new ChatClass(R.drawable.profile_avatar1,"Sujit Kumar Das", "I want to donate.", "26/01/2020", "7:20 pm"));
-//        usersList.add(new ChatClass(R.drawable.profile_avatar1,"Sujit Kumar Das", "I want to donate.", "26/01/2020", "7:20 pm"));
-//        usersList.add(new ChatClass(R.drawable.profile_avatar1,"Sujit Kumar Das", "I want to donate.", "26/01/2020", "7:20 pm"));
-//        usersList.add(new ChatClass(R.drawable.profile_avatar1,"Sujit Kumar Das", "I want to donate.", "26/01/2020", "7:20 pm"));
-//        usersList.add(new ChatClass(R.drawable.profile_avatar1,"Sujit Kumar Das", "I want to donate.", "26/01/2020", "7:20 pm"));
-//        usersList.add(new ChatClass(R.drawable.profile_avatar1,"Sujit Kumar Das", "I want to donate.", "26/01/2020", "7:20 pm"));
-//        usersList.add(new ChatClass(R.drawable.profile_avatar1,"Sujit Kumar Das", "I want to donate.", "26/01/2020", "7:20 pm"));
-//        usersList.add(new ChatClass(R.drawable.profile_avatar1,"Sujit Kumar Das", "I want to donate.", "26/01/2020", "7:20 pm"));
-
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);

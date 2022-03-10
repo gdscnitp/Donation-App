@@ -16,53 +16,29 @@ import java.util.ArrayList;
 
 public class NGOMyEventAdapter extends RecyclerView.Adapter<NGOMyEventAdapter.MyViewHolder> {
 
-    private ArrayList<NGOMyEventAdapterClass> userList;
-
-    public NGOMyEventAdapter(ArrayList<NGOMyEventAdapterClass> userList)
-    {
-        this.userList = userList;
-    }
-
-    public class MyViewHolder extends RecyclerView.ViewHolder
-    {
-        private ImageView me_pic;
-        private TextView me_title, me_location, me_time;
-
-        public MyViewHolder(View view)
-        {
-            super(view);
-
-            me_pic = view.findViewById(R.id.myEvent_image);
-            me_time = view.findViewById(R.id.myEvent_time);
-            me_location = view.findViewById(R.id.myEvent_location);
-            me_title = view.findViewById(R.id.myEvent_heading);
-        }
-    }
-
 
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.ngo_myevent_adapter_layout, parent, false);
-         return new MyViewHolder(view);
+    public NGOMyEventAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return null;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull NGOMyEventAdapter.MyViewHolder holder, int position) {
 
-        int myeventpic = userList.get(position).getImageID();
-        String myeventHeading = userList.get(position).getHeading();
-        String myeventLocation = userList.get(position).getLocation();
-        String myeventTime = userList.get(position).getTime();
-
-        holder.me_pic.setImageResource(myeventpic);
-        holder.me_title.setText(myeventHeading);
-        holder.me_location.setText(myeventLocation);
-        holder.me_time.setText(myeventTime);
     }
 
     @Override
     public int getItemCount() {
-        return userList.size();
+        return 0;
+    }
+
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+
+        public MyViewHolder(@NonNull View itemView) {
+
+            super(itemView);
+
+        }
     }
 }
