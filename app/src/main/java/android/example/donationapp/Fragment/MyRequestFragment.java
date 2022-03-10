@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.example.donationapp.Activity.AddRequestActivity;
 import android.example.donationapp.Activity.LoginActivity;
 import android.example.donationapp.Activity.NGOHomeActivity;
+import android.example.donationapp.Activity.RequestDetailActivity;
 import android.example.donationapp.Adapters.MyRequestActivityAdapter;
 import android.example.donationapp.Model.HomeActivityAdapterClass;
 import android.example.donationapp.Model.MyRequestActivityAdapterClass;
+import android.example.donationapp.Model.RequestClass;
 import android.example.donationapp.R;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -40,11 +42,15 @@ public class MyRequestFragment extends Fragment {
 
     RecyclerView recyclerView;
     MyRequestActivityAdapter myRequestActivityAdapter;
-    ArrayList<MyRequestActivityAdapterClass> data = new ArrayList<>();
+
+    //RequestClass requestDetails;
+
+    ArrayList<RequestClass> data = new ArrayList<>();
 
 
 
-    String image, heading, location, time;
+    String image, heading, location, time, id;
+    String blood, contact, description, dob, email, gender, name;
 
     FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -76,7 +82,17 @@ public class MyRequestFragment extends Fragment {
                     location = documentSnapshots.getString("address");
                     time = "2 mins ago";
 
-                    data.add(new MyRequestActivityAdapterClass(image, heading, location, time));
+                    id = documentSnapshots.getString("random");
+                    blood = documentSnapshots.getString("blood");
+                    contact = documentSnapshots.getString("contact");
+                    description = documentSnapshots.getString("description");
+                    dob = documentSnapshots.getString("dob");
+                    email = documentSnapshots.getString("email");
+                    gender = documentSnapshots.getString("gender");
+                    name = documentSnapshots.getString("name");
+
+
+                    data.add(new RequestClass(id, name, gender, dob, blood, location, contact, email, heading, description, image));
                 }
                 myRequestActivityAdapter.notifyDataSetChanged();
             }
@@ -89,7 +105,7 @@ public class MyRequestFragment extends Fragment {
 
 
 
-        myRequestActivityAdapter = new MyRequestActivityAdapter(data);
+        myRequestActivityAdapter = new MyRequestActivityAdapter(data, getContext());
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -111,4 +127,23 @@ public class MyRequestFragment extends Fragment {
 
         return view;
     }
+
+
+    /*public void sendToDetail(View view) {
+
+        Intent intent1 = new Intent(getContext(), RequestDetailActivity.class);
+        intent1.putExtra("id", id);
+        intent1.putExtra("name", name);
+        intent1.putExtra("gender", gender);
+        intent1.putExtra("dob", dob);
+        intent1.putExtra("blood", blood);
+        intent1.putExtra("address", location);
+        intent1.putExtra("contact", contact);
+        intent1.putExtra("email", email);
+        intent1.putExtra("title", heading);
+        intent1.putExtra("description", description);
+        intent1.putExtra("image", image);
+
+        startActivity(intent1);
+    }*/
 }
