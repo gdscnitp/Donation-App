@@ -144,7 +144,7 @@ public class AddRequestActivity extends AppCompatActivity implements AdapterView
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
-        blood_group = spinner.getSelectedItem().toString();
+
         //Toast.makeText(AddRequestActivity.this, blood_group, Toast.LENGTH_SHORT).show();
 
         submit.setOnClickListener(new View.OnClickListener() {
@@ -218,6 +218,8 @@ public class AddRequestActivity extends AppCompatActivity implements AdapterView
                         .limit(targetStringLength)
                         .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
                         .toString();
+
+                blood_group = spinner.getSelectedItem().toString();
 
 
 

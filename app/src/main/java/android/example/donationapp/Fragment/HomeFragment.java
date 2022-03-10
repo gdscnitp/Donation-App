@@ -2,6 +2,7 @@ package android.example.donationapp.Fragment;
 
 import android.example.donationapp.Adapters.HomeActivityAdapter;
 import android.example.donationapp.Model.HomeActivityAdapterClass;
+import android.example.donationapp.Model.RequestClass;
 import android.example.donationapp.R;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -29,9 +30,10 @@ public class HomeFragment extends Fragment {
 
     RecyclerView recyclerView;
     HomeActivityAdapter homeActivityAdapter;
-    ArrayList<HomeActivityAdapterClass> data = new ArrayList<>();
+    ArrayList<RequestClass> data = new ArrayList<>();
 
     String image, heading, location, time;
+    String id, blood, contact, description, dob, email, gender, name;
 
     private final FirebaseFirestore db = FirebaseFirestore.getInstance();
     private final CollectionReference notebookRef = db.collection("All Request");
@@ -64,7 +66,17 @@ public class HomeFragment extends Fragment {
                     location = documentSnapshots.getString("address");
                     time = "2 mins ago";
 
-                    data.add(new HomeActivityAdapterClass(image, heading, location, time));
+                    id = documentSnapshots.getString("random");
+                    blood = documentSnapshots.getString("blood");
+                    contact = documentSnapshots.getString("contact");
+                    description = documentSnapshots.getString("description");
+                    dob = documentSnapshots.getString("dob");
+                    email = documentSnapshots.getString("email");
+                    gender = documentSnapshots.getString("gender");
+                    name = documentSnapshots.getString("name");
+
+
+                    data.add(new RequestClass(id, name, gender, dob, blood, location, contact, email, heading, description, image));
                 }
                 homeActivityAdapter.notifyDataSetChanged();
             }
@@ -76,7 +88,7 @@ public class HomeFragment extends Fragment {
         });
 
 
-        homeActivityAdapter = new HomeActivityAdapter(data);
+        homeActivityAdapter = new HomeActivityAdapter(data, getContext());
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());

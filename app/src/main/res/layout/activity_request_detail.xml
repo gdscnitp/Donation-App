@@ -52,11 +52,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/request_photo"
         android:layout_marginTop="30dp"
+        android:fontFamily="@font/poppins_bold"
         android:paddingLeft="18dp"
         android:text="Emergency! O+ blood required for child of age 12 in critical condition suffering from Leukemia"
-        android:textSize="18dp"
         android:textColor="@color/black"
-        android:fontFamily="@font/poppins_bold" />
+        android:textSize="18dp" />
 
     <ImageView
         android:id="@+id/border_request1"
@@ -138,28 +138,28 @@
         android:textSize="12dp" />
 
     <TextView
+        android:id="@+id/patient_gender_request"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/patient_gender_request"
         android:layout_below="@id/border_request2"
-        android:layout_toRightOf="@id/patient_name_request"
-        android:layout_marginTop="17dp"
         android:layout_marginLeft="5dp"
+        android:layout_marginTop="17dp"
+        android:layout_toRightOf="@id/patient_name_request"
+        android:fontFamily="@font/poppins"
         android:text="Male"
-        android:textSize="12sp"
-        android:fontFamily="@font/poppins"/>
+        android:textSize="12sp" />
 
     <TextView
+        android:id="@+id/patient_age_request"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/patient_age_request"
         android:layout_below="@id/border_request2"
-        android:layout_toRightOf="@id/patient_gender_request"
-        android:layout_marginTop="17dp"
         android:layout_marginLeft="5dp"
+        android:layout_marginTop="17dp"
+        android:layout_toRightOf="@id/patient_gender_request"
+        android:fontFamily="@font/poppins"
         android:text="20"
-        android:textSize="12sp"
-        android:fontFamily="@font/poppins"/>
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/blood_category_view"
@@ -176,16 +176,16 @@
         android:textSize="12dp" />
 
     <TextView
+        android:id="@+id/patient_blood_request"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/patient_blood_request"
         android:layout_below="@id/patient_gender_request"
-        android:layout_toRightOf="@id/patient_name_request"
-        android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/patient_name_request"
+        android:fontFamily="@font/poppins"
         android:text="O+"
-        android:textSize="12sp"
-        android:fontFamily="@font/poppins"/>
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/request_detail_addressView"
@@ -229,17 +229,17 @@
         android:textSize="16dp" />
 
 
-    <TextView
-        android:id="@+id/request_detail_more"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/request_detail_description_less"
-        android:layout_alignParentRight="true"
-        android:text=" more"
-        android:textStyle="bold"
-        android:layout_marginTop="-25dp"
-        android:layout_marginRight="50dp"
-        android:textColor="#4f4f4f"/>
+<!--    <TextView-->
+<!--        android:id="@+id/request_detail_more"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/request_detail_description_less"-->
+<!--        android:layout_alignParentRight="true"-->
+<!--        android:layout_marginTop="-25dp"-->
+<!--        android:layout_marginRight="50dp"-->
+<!--        android:text=" more"-->
+<!--        android:textColor="#4f4f4f"-->
+<!--        android:textStyle="bold" />-->
 
     <Button
         android:id="@+id/request_detail_accept"
