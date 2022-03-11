@@ -1,6 +1,10 @@
 package android.example.donationapp.Adapters;
 
+import android.content.Context;
+import android.content.Intent;
+import android.example.donationapp.Activity.RequestDetailActivity;
 import android.example.donationapp.Model.MyRequestActivityAdapterClass;
+import android.example.donationapp.Model.RequestClass;
 import android.example.donationapp.R;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,10 +21,12 @@ import java.util.List;
 
 public class MyRequestActivityAdapter extends RecyclerView.Adapter<MyRequestActivityAdapter.viewHolder> {
 
-    private List<MyRequestActivityAdapterClass> UserList;
+    private Context context;
+    private List<RequestClass> UserList;
 
-    public MyRequestActivityAdapter (List<MyRequestActivityAdapterClass> userList)
+    public MyRequestActivityAdapter (List<RequestClass> userList, Context context)
     {
+        this.context = context;
         this.UserList = userList;
     }
 
@@ -35,10 +41,35 @@ public class MyRequestActivityAdapter extends RecyclerView.Adapter<MyRequestActi
     @Override
     public void onBindViewHolder(@NonNull MyRequestActivityAdapter.viewHolder holder, int position) {
 
-        Glide.with(holder.rimage1.getContext()).load(UserList.get(position).getImageResourceID()).into(holder.rimage1);
-        holder.rheading1.setText(UserList.get(position).getHeading());
-        holder.rlocation1.setText(UserList.get(position).getLocation());
-        holder.rtime1.setText(UserList.get(position).getTime());
+
+
+
+        Glide.with(holder.rimage1.getContext()).load(UserList.get(position).getImage()).into(holder.rimage1);
+        holder.rheading1.setText(UserList.get(position).getTitle());
+        holder.rlocation1.setText(UserList.get(position).getAddress());
+        holder.rtime1.setText("5mins ago");
+
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent1 = new Intent(context, RequestDetailActivity.class);
+                intent1.putExtra("id", UserList.get(position).getRandom());
+                intent1.putExtra("name", UserList.get(position).getName());
+                intent1.putExtra("gender", UserList.get(position).getGender());
+                intent1.putExtra("dob", UserList.get(position).getDob());
+                intent1.putExtra("blood", UserList.get(position).getBlood());
+                intent1.putExtra("address", UserList.get(position).getAddress());
+                intent1.putExtra("contact", UserList.get(position).getContact());
+                intent1.putExtra("email", UserList.get(position).getEmail());
+                intent1.putExtra("title", UserList.get(position).getTitle());
+                intent1.putExtra("description", UserList.get(position).getDescription());
+                intent1.putExtra("image", UserList.get(position).getImage());
+
+                context.startActivity(intent1);
+            }
+        });
 
     }
 

@@ -6,8 +6,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView1"
         android:layout_width="match_parent"
@@ -22,10 +20,13 @@
         android:id="@+id/addRequest"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:src="@drawable/ic_pic_add_button"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_margin="15dp"/>
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:src="@drawable/ic_pic_add_button" />
 
 
 </RelativeLayout>
