@@ -46,6 +46,7 @@ public class NGOHomeFragment extends Fragment {
 
     String eventImage, eventDescription, eventTitle, eventLocation, etime, edate, eventTime;
     String econtact = "null", eEmail = "null";
+    String UID;
 
     FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -76,8 +77,9 @@ public class NGOHomeFragment extends Fragment {
                     eventLocation = documentSnapshot.getString("eAddress");
                     etime = documentSnapshot.getString("eTime");
                     edate = documentSnapshot.getString("eDate");
+                    UID = documentSnapshot.getString("uid");
 
-                    userList.add(new EventClass(eventTitle, edate, etime, eventDescription, eventImage, eventLocation, econtact, eEmail));
+                    userList.add(new EventClass(eventTitle, edate, etime, eventDescription, eventImage, eventLocation, econtact, eEmail, UID));
                 }
                 eventAdapter.notifyDataSetChanged();
             }

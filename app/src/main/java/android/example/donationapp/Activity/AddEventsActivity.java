@@ -207,7 +207,7 @@ public class AddEventsActivity extends AppCompatActivity {
                     email.setError("Enter Email.");
                 }
 
-                eventClass = new EventClass(stitle, sdate, stime, sdescription, sImageURL, saddress, scontact, semail);
+                eventClass = new EventClass(stitle, sdate, stime, sdescription, sImageURL, saddress, scontact, semail, currentUser.getUid());
 
 
                 if(selectedImage != null)
