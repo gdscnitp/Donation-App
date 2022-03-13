@@ -63,7 +63,7 @@ public class NGOHomeFragment extends Fragment {
         recyclerView = view.findViewById(R.id.ngo_recyclerView);
         addButton = view.findViewById(R.id.add_activity_button);
         userList = new ArrayList<EventClass>();
-        eventAdapter = new EventAdapter(userList);
+        eventAdapter = new EventAdapter(userList, getContext());
 
         collectionReference.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
@@ -78,8 +78,9 @@ public class NGOHomeFragment extends Fragment {
                     etime = documentSnapshot.getString("eTime");
                     edate = documentSnapshot.getString("eDate");
                     UID = documentSnapshot.getString("uid");
+                    String ngoName = documentSnapshot.getString("ngoName");
 
-                    userList.add(new EventClass(eventTitle, edate, etime, eventDescription, eventImage, eventLocation, econtact, eEmail, UID));
+                    userList.add(new EventClass(eventTitle, edate, etime, eventDescription, eventImage, eventLocation, econtact, eEmail, UID, ngoName));
                 }
                 eventAdapter.notifyDataSetChanged();
             }

@@ -5,6 +5,7 @@ public class EventClass {
     String eTitle, eDescription, eTime, eDate, eAddress, eContact, eEmail;
     String eImageUrl;
     String UID;
+    String ngoName;
 
     public EventClass()
     {
@@ -27,9 +28,18 @@ public class EventClass {
         this.UID = UID;
     }
 
-    public EventClass(String eTitle, String eDate, String eTime, String eDescription, String geteImageUrl, String eAddress, String eContact, String eEmail, String UID)
+    public String getNgoName() {
+        return ngoName;
+    }
+
+    public void setNgoName(String ngoName) {
+        this.ngoName = ngoName;
+    }
+
+    public EventClass(String eTitle, String eDate, String eTime, String eDescription, String geteImageUrl, String eAddress, String eContact, String eEmail, String UID, String ngoName)
     {
         this.eTitle = eTitle;
+        this.ngoName = ngoName;
         this.eDescription = eDescription;
         this.eDate = eDate;
         this.eAddress = eAddress;

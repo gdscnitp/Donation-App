@@ -76,10 +76,11 @@ public class NGOMyEventsFragment extends Fragment {
                     etime = documentSnapshot.getString("eTime");
                     edate = documentSnapshot.getString("eDate");
                     UID = documentSnapshot.getString("uid");
+                    String ngoName = documentSnapshot.getString("ngoName");
 
                     if(firebaseUser.getUid().equalsIgnoreCase(UID))
                     {
-                        userList.add(new EventClass(eventTitle, edate, etime, eventDescription, eventImage, eventLocation, econtact, eEmail, UID));
+                        userList.add(new EventClass(eventTitle, edate, etime, eventDescription, eventImage, eventLocation, econtact, eEmail, UID, ngoName));
                         Log.e("Event Added", "EventTitle"+eventTitle.toString());
                     }
                 }
