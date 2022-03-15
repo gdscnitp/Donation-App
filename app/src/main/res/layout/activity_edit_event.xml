@@ -11,27 +11,28 @@
         android:layout_height="match_parent">
 
 
-    <RelativeLayout
-        android:id="@+id/StatusBar"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/primary_red" >
+        <RelativeLayout
+            android:id="@+id/StatusBar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/primary_red">
 
-        <ImageView
-            android:id="@+id/editEvent_back"
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="15dp"
-            android:src="@drawable/ic_arrow_back" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Edit Event"
-            android:textColor="@color/white"
-            android:textSize="25dp"
-            android:layout_centerInParent="true"
-            android:fontFamily="@font/poppins_medium"/>
-    </RelativeLayout>
+            <ImageView
+                android:id="@+id/editEvent_back"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/ic_arrow_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Edit Event"
+                android:textColor="@color/white"
+                android:textSize="25dp" />
+        </RelativeLayout>
 
 
     <RelativeLayout
