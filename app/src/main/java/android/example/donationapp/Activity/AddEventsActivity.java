@@ -34,8 +34,12 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -65,6 +69,9 @@ public class AddEventsActivity extends AppCompatActivity {
     FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
     StorageReference storageReference;
     DocumentReference documentReference;
+    CollectionReference collectionReference = firebaseFirestore.collection("UserInformation");
+    String ngoName;
+    String nUID;
 
 
     int hour;
@@ -132,6 +139,8 @@ public class AddEventsActivity extends AppCompatActivity {
         currentUser = firebaseAuth.getCurrentUser();
 
 
+
+
         date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -156,6 +165,8 @@ public class AddEventsActivity extends AppCompatActivity {
                 .limit(targetStringLength)
                 .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
                 .toString();
+
+
 
 
 
@@ -207,7 +218,36 @@ public class AddEventsActivity extends AppCompatActivity {
                     email.setError("Enter Email.");
                 }
 
-                eventClass = new EventClass(stitle, sdate, stime, sdescription, sImageURL, saddress, scontact, semail);
+                collectionReference.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+
+                        for(QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots)
+                        {
+
+                                nUID = documentSnapshot.getString("uId");
+                                if (currentUser.getUid().equalsIgnoreCase(nUID)) {
+                                    ngoName = documentSnapshot.getString("name");
+                                    Log.e("Ngo Name in ADDEvent", ngoName.toString());
+                                    Log.e("UID of NGOADD is", nUID);
+                                    eventClass = new EventClass(stitle, sdate, stime, sdescription, sImageURL, saddress, scontact, semail, currentUser.getUid(), ngoName);
+
+                                }
+                            }
+
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+
+                        Toast.makeText(AddEventsActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                eventClass = new EventClass(stitle, sdate, stime, sdescription, sImageURL, saddress, scontact, semail, currentUser.getUid(), ngoName);
+//                Log.e("Ngo Name", ngoName.toString());
+//                Log.e("UID of NGO is", nUID);
 
 
                 if(selectedImage != null)
@@ -239,7 +279,8 @@ public class AddEventsActivity extends AppCompatActivity {
 
                                             documentReference.update("eImageUrl", imageURL);
 
-
+//                                            Log.e("Ngo Name in A", ngoName.toString());
+//                                            Log.e("UID of NGOA is", nUID);
                                             Toast.makeText(AddEventsActivity.this, "Event Created.", Toast.LENGTH_SHORT).show();
 
                                         }

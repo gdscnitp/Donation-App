@@ -1,5 +1,8 @@
 package android.example.donationapp.Adapters;
 
+import android.content.Context;
+import android.content.Intent;
+import android.example.donationapp.Activity.EventDetailActivity;
 import android.example.donationapp.Model.EventClass;
 import android.example.donationapp.R;
 import android.view.LayoutInflater;
@@ -18,12 +21,16 @@ import java.util.ArrayList;
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyViewHolder> {
 
     public ArrayList<EventClass> userlist;
+    private Context context;
 
-    public EventAdapter(ArrayList<EventClass> userlist)
+
+    public EventAdapter(ArrayList<EventClass> userlist, Context context)
     {
         this.userlist = userlist;
+        this.context = context;
 
     }
+
     @NonNull
     @Override
     public EventAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -47,6 +54,21 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyViewHolder
 
         Glide.with(holder.eventPic.getContext()).load(userlist.get(position).geteImageUrl()).into(holder.eventPic);
 
+//        holder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                Intent intent = new Intent(context, EventDetailActivity.class);
+//                intent.putExtra("eventPic",userlist.get(position).geteImageUrl());
+//                intent.putExtra("eventName", userlist.get(position).geteTitle());
+//                intent.putExtra("eventPhone", userlist.get(position).geteContact());
+//                intent.putExtra("eventMail", userlist.get(position).geteEmail());
+//                intent.putExtra("eventTime", userlist.get(position).geteTime());
+//
+//
+//            }
+//        });
+//
     }
 
     @Override
