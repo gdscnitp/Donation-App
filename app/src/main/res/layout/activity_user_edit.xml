@@ -94,16 +94,16 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
+            android:id="@+id/user_dob_box"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/user_dob_box"
-            android:text="Date of Birth"
-            android:textColor="@color/black"
             android:layout_below="@id/user_name_box"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
-            android:textSize="15sp"
-            android:fontFamily="@font/poppins_regular"/>
+            android:fontFamily="@font/poppins_regular"
+            android:text="Date of Birth"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/user_dob_enter"
@@ -116,17 +116,17 @@
             android:textSize="20sp" />
 
         <TextView
+            android:id="@+id/user_gender_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/user_gender_view"
-            android:text="Gender"
-            android:layout_toRightOf="@id/user_dob_box"
             android:layout_below="@id/user_name_box"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="100dp"
-            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/user_dob_box"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Gender"
             android:textColor="@color/black"
-            android:fontFamily="@font/poppins_regular"/>
+            android:textSize="15sp" />
 
         <Spinner
             android:id="@+id/user_gender_enter_spinner"
@@ -165,29 +165,29 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/user_email_box"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:id="@+id/user_email_box"
             android:layout_below="@id/user_phone_box"
-            android:layout_marginTop="15dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
             android:layout_marginRight="20dp"
-            android:elevation="10dp"
-            android:gravity="top"
             android:background="@drawable/background_ngo_edit_profile"
-            android:backgroundTint="@color/grey">
+            android:backgroundTint="@color/grey"
+            android:elevation="10dp"
+            android:gravity="top">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/user_email_enter"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/user_email_enter"
                 android:background="@color/white"
+                android:backgroundTint="@color/grey"
                 android:fontFamily="@font/poppins_regular"
-                android:inputType="text"
                 android:hint="@string/email"
-                android:textCursorDrawable="@drawable/cursor_color"
+                android:inputType="text"
                 android:textColorHint="@color/primary_red"
-                android:backgroundTint="@color/grey"/>
+                android:textCursorDrawable="@drawable/cursor_color" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
