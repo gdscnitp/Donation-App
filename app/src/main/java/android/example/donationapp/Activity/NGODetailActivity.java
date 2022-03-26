@@ -77,7 +77,7 @@ public class NGODetailActivity extends AppCompatActivity {
 
                             NGOname.setText(nName);
                             NGODescription.setText(nDescription);
-                            Glide.with(ngoPic.getContext()).load(nPic).into(ngoPic);
+                            Glide.with(NGODetailActivity.this).load(nPic).placeholder(R.drawable.profile_avatar1).into(ngoPic);
 
                         }
                     }
