@@ -1,13 +1,5 @@
 package android.example.donationapp.Activity;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
@@ -28,6 +20,14 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
@@ -36,7 +36,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -230,7 +229,7 @@ public class AddEventsActivity extends AppCompatActivity {
                                     ngoName = documentSnapshot.getString("name");
                                     Log.e("Ngo Name in ADDEvent", ngoName.toString());
                                     Log.e("UID of NGOADD is", nUID);
-                                    eventClass = new EventClass(stitle, sdate, stime, sdescription, sImageURL, saddress, scontact, semail, currentUser.getUid(), ngoName);
+                                    eventClass = new EventClass(stitle, sdate, stime, sdescription, sImageURL, saddress, scontact, semail, currentUser.getUid(), ngoName, generatedString);
 
                                 }
                             }
@@ -245,7 +244,7 @@ public class AddEventsActivity extends AppCompatActivity {
                     }
                 });
 
-                eventClass = new EventClass(stitle, sdate, stime, sdescription, sImageURL, saddress, scontact, semail, currentUser.getUid(), ngoName);
+                eventClass = new EventClass(stitle, sdate, stime, sdescription, sImageURL, saddress, scontact, semail, currentUser.getUid(), ngoName ,generatedString);
 //                Log.e("Ngo Name", ngoName.toString());
 //                Log.e("UID of NGO is", nUID);
 

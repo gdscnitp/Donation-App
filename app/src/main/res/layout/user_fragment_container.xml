@@ -76,16 +76,15 @@
                 android:id="@+id/sign_out_drawer_layout"
                 android:layout_width="80dp"
                 android:layout_height="26dp"
-                android:layout_marginLeft="5dp"
                 android:layout_alignTop="@+id/sign_out_drawer_layout_icon"
-                android:textSize="16sp"
+                android:layout_marginLeft="5dp"
                 android:layout_toRightOf="@+id/sign_out_drawer_layout_icon"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/poppins_regular"
                 android:text="Sign Out"
                 android:textAllCaps="false"
                 android:textColor="@color/dark_grey"
-                android:background="@android:color/transparent"
-                android:fontFamily="@font/poppins_regular"
-                />
+                android:textSize="16sp" />
         </RelativeLayout>
     </com.google.android.material.navigation.NavigationView>
 

@@ -1,18 +1,11 @@
 package android.example.donationapp.Activity;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
-
 import android.content.Intent;
 import android.example.donationapp.Fragment.ChatFragment;
 import android.example.donationapp.Fragment.HomeFragment;
 import android.example.donationapp.Fragment.MyRequestFragment;
 import android.example.donationapp.Fragment.NGOFragment;
+import android.example.donationapp.Model.UserClass;
 import android.example.donationapp.R;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -21,9 +14,25 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+
+import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class UserFragmentContainer extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -34,7 +43,11 @@ public class UserFragmentContainer extends AppCompatActivity implements Navigati
     View headerView;
     ImageView headerImageView;
     TextView headerTextView;
-    Button headerProfileButton;
+    Button headerProfileButton, signOut;
+    FirebaseAuth firebaseAuth;
+    FirebaseFirestore firebaseFirestore;
+    DocumentReference documentReference;
+    FirebaseUser currentUser;
 
 
 
@@ -47,12 +60,18 @@ public class UserFragmentContainer extends AppCompatActivity implements Navigati
         toolbar = findViewById(R.id.toolbar_fragment_container);
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
+        signOut = findViewById(R.id.sign_out_drawer_layout);
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseFirestore = FirebaseFirestore.getInstance();
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        documentReference = firebaseFirestore.collection("UserInformation").document(currentUser.getUid());
 
         setSupportActionBar(toolbar);
 
         if(savedInstanceState == null){
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container , new HomeFragment()).commit();
         }
+
 
         headerView = navigationView.inflateHeaderView(R.layout.navigation_drawer_header_layout);
         headerImageView = (ImageView) headerView.findViewById(R.id.image_navigation_drawer);
@@ -66,11 +85,41 @@ public class UserFragmentContainer extends AppCompatActivity implements Navigati
         toggle.syncState();
         drawerLayout.addDrawerListener(toggle);
 
+        documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                if(documentSnapshot.exists()){
+                    UserClass userClass =  documentSnapshot.toObject(UserClass.class);
+                   if(userClass != null) {
+                       Glide.with(UserFragmentContainer.this).load(userClass.getImageURL()).placeholder(R.drawable.header_image_navigation_drawer2);
+                       headerTextView.setText(userClass.getName());
+                   }
+                }
+
+
+
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+
+            }
+        });
         headerProfileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent homeFragmentNavigationDrawer = new Intent(getApplicationContext() , HomeFragment.class);
+                Intent homeFragmentNavigationDrawer = new Intent(getApplicationContext() , ProfileUserActivity.class);
                 startActivity(homeFragmentNavigationDrawer);
+            }
+        });
+
+        signOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                firebaseAuth.signOut();
+                Intent login = new Intent(UserFragmentContainer.this, LoginActivity.class);
+                startActivity(login);
             }
         });
 

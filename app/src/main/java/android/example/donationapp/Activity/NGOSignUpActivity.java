@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.example.donationapp.Model.UserClass;
 import android.example.donationapp.R;
 import android.graphics.Bitmap;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -132,8 +131,8 @@ public class NGOSignUpActivity extends AppCompatActivity {
                 sDescription = ngoDescription.getText().toString();
                 sAddress = ngoAddress.getText().toString();
                 sContact = ngoContact.getText().toString();
-                sEmail = ngoEmail.getText().toString();
-                sPassword = ngoPassowrd.getText().toString();
+                sEmail = ngoEmail.getText().toString().trim();
+                sPassword = ngoPassowrd.getText().toString().trim();
 
                 if(sName.isEmpty())
                 {

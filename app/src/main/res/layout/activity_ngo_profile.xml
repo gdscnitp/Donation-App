@@ -85,7 +85,7 @@
         android:layout_marginTop="2dp"
         android:fontFamily="@font/poppins"
         android:paddingLeft="50dp"
-        android:text="Ketto.org"
+        android:text=""
         android:textColor="#646464"
         android:textSize="16dp"
         android:textStyle="bold" />
@@ -99,7 +99,7 @@
         android:fontFamily="@font/poppins"
         android:paddingLeft="50dp"
         android:paddingRight="18dp"
-        android:text="Let us assume an individual, unfortunately, meets with an accident on the road. His medical expenses and hospital bills start piling up. Now he needs ₹5 Lakh to pay his expensive medical bills. Fortunately, his best friend signed up on Ketto’s crowdfunding platform, completed the process of submitting valid documents needed for verification."
+        android:text=" "
         android:textColor="#a0a0a0"
         android:textSize="13dp" />
 
@@ -132,7 +132,7 @@
         android:layout_marginTop="2dp"
         android:fontFamily="@font/poppins"
         android:paddingLeft="50dp"
-        android:text="+91 54894 51564"
+        android:text=""
         android:textColor="#646464"
         android:textSize="16dp"
         android:textStyle="bold" />
@@ -156,6 +156,7 @@
         android:text="Email"
         android:textColor="#a0a0a0"
         android:textStyle="bold" />
+
     <TextView
         android:id="@+id/email_heading_ngo"
         android:layout_width="wrap_content"
@@ -164,7 +165,7 @@
         android:layout_marginTop="2dp"
         android:fontFamily="@font/poppins"
         android:paddingLeft="50dp"
-        android:text="abcd@yahoo.com"
+        android:text=""
         android:textColor="#646464"
         android:textSize="14dp"
         android:textStyle="bold" />
@@ -178,31 +179,30 @@
         android:src="@drawable/ic_email_black_24dp_1" />
 
 
-
     <Button
         android:id="@+id/ngo_detail_edit_button"
         android:layout_width="40dp"
         android:layout_height="30dp"
         android:layout_above="@+id/ngo_profile_description"
         android:layout_alignParentEnd="true"
-        android:layout_marginRight="15dp"
         android:layout_marginEnd="12dp"
+        android:layout_marginRight="15dp"
         android:layout_marginBottom="24dp"
         android:background="@android:color/transparent"
         android:fontFamily="@font/poppins"
-        android:textAllCaps="false"
         android:text="Edit"
-        android:textSize="20sp"/>
+        android:textAllCaps="false"
+        android:textSize="20sp" />
 
     <ImageView
         android:id="@+id/ngo_detail_edit_vector"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_marginRight="4dp"
-        android:layout_marginTop="4dp"
-        android:layout_toLeftOf="@+id/ngo_detail_edit_button"
         android:layout_alignTop="@+id/ngo_detail_edit_button"
+        android:layout_marginTop="4dp"
+        android:layout_marginRight="4dp"
         android:layout_toStartOf="@+id/ngo_detail_edit_button"
+        android:layout_toLeftOf="@+id/ngo_detail_edit_button"
         app:srcCompat="@drawable/ic_edit_black_24dp_1" />
 
 
