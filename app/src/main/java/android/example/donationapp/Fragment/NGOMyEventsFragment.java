@@ -61,7 +61,7 @@ public class NGOMyEventsFragment extends Fragment {
         recyclerView = view.findViewById(R.id.ngo_myEvent_recycler);
         userList = new ArrayList<EventClass>();
         eventCard = view.findViewById(R.id.myEvent_card);
-        NGOMyEventAdapter ngoMyEventAdapter = new NGOMyEventAdapter(userList);
+        NGOMyEventAdapter ngoMyEventAdapter = new NGOMyEventAdapter(userList, getContext());
 
         collectionReference.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override

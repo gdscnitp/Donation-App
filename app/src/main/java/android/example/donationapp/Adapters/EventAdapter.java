@@ -3,6 +3,7 @@ package android.example.donationapp.Adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.example.donationapp.Activity.EventDetailActivity;
+import android.example.donationapp.Activity.NGOEventDetail;
 import android.example.donationapp.Model.EventClass;
 import android.example.donationapp.R;
 import android.view.LayoutInflater;
@@ -54,21 +55,25 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyViewHolder
 
         Glide.with(holder.eventPic.getContext()).load(userlist.get(position).geteImageUrl()).into(holder.eventPic);
 
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                Intent intent = new Intent(context, EventDetailActivity.class);
-//                intent.putExtra("eventPic",userlist.get(position).geteImageUrl());
-//                intent.putExtra("eventName", userlist.get(position).geteTitle());
-//                intent.putExtra("eventPhone", userlist.get(position).geteContact());
-//                intent.putExtra("eventMail", userlist.get(position).geteEmail());
-//                intent.putExtra("eventTime", userlist.get(position).geteTime());
-//
-//
-//            }
-//        });
-//
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(context, EventDetailActivity.class);
+                intent.putExtra("eventPic",userlist.get(position).geteImageUrl());
+                intent.putExtra("eventName", userlist.get(position).geteTitle());
+                intent.putExtra("eventPhone", userlist.get(position).geteContact());
+                intent.putExtra("eventMail", userlist.get(position).geteEmail());
+                intent.putExtra("eventTime", userlist.get(position).geteTime());
+                intent.putExtra("eventDescription",userlist.get(position).geteDescription());
+                intent.putExtra("eventAddress",userlist.get(position).geteAddress());
+                intent.putExtra("ngoName",userlist.get(position).getNgoName());
+                intent.putExtra("ngoDate",userlist.get(position).geteDate());
+                context.startActivity(intent);
+
+            }
+        });
+
     }
 
     @Override
