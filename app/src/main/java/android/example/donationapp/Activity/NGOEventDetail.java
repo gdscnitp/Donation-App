@@ -1,5 +1,7 @@
 package android.example.donationapp.Activity;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.example.donationapp.R;
 import android.net.Uri;
@@ -9,14 +11,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.bumptech.glide.Glide;
 
-public class EventDetailActivity extends AppCompatActivity {
+public class NGOEventDetail extends AppCompatActivity {
 
     ImageView phn, mail, pic;
     TextView ngoName, eventName, eventTime, eventDate, eventDescription, eventAddress;
+    ImageView editbutton;
 
     String phoneNo, emailId, eventPic, nName, eName, eTime, eDate, eDescription, eAddress;
 
@@ -24,23 +25,35 @@ public class EventDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_events_details);
+        setContentView(R.layout.activity_ngoevent_detail);
 
-        phn = findViewById(R.id.phone_vector);
-        mail = findViewById(R.id.mail_vector);
-        pic = findViewById(R.id.event_photo);
-        ngoName = findViewById(R.id.ngo_name_info);
-        eventAddress = findViewById(R.id.ngo_address_info);
-        eventDate = findViewById(R.id.event_date_info);
-        eventDescription = findViewById(R.id.ngo_event_description_less);
-        eventName = findViewById(R.id.ngo_event_name);
-        eventTime = findViewById(R.id.ngo_time_info);
+        phn = findViewById(R.id.ngo_phone_vector);
+        mail = findViewById(R.id.ngo_mail_vector);
+        pic = findViewById(R.id.ngo_event_photo);
+        ngoName = findViewById(R.id.ngo1_name_info);
+        eventAddress = findViewById(R.id.ngo1_address_info);
+        eventDate = findViewById(R.id.ngo_event_date_info);
+        eventDescription = findViewById(R.id.ngo1_event_description_less);
+        eventName = findViewById(R.id.ngo1_event_name);
+        eventTime = findViewById(R.id.ngo1_time_info);
+
+        editbutton = findViewById(R.id.ngo_event_edit);
+
+        editbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(NGOEventDetail.this, EditEventActivity.class);
+                startActivity(intent);
+            }
+        });
 
         Intent i = getIntent();
         Bundle b = i.getExtras();
 
         if(b != null)
         {
+
             phoneNo =(String) b.get("eventPhone");
             emailId =(String) b.get("eventMail");
             eventPic =(String) b.get("eventPic");
@@ -50,6 +63,8 @@ public class EventDetailActivity extends AppCompatActivity {
             eDate = (String) b.get("ngoDate");
             eDescription = (String) b.get("eventDescription");
             eAddress = (String) b.get("eventAddress");
+
+
         }
 
         Glide.with(this).load(eventPic).placeholder(R.drawable.request_detail_demo).into(pic);
@@ -71,7 +86,7 @@ public class EventDetailActivity extends AppCompatActivity {
                     startActivity(callIntent);
                 }
                 catch (android.content.ActivityNotFoundException ex) {
-                    Toast.makeText(EventDetailActivity.this, "Application not found.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(NGOEventDetail.this, "Application not found.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -87,10 +102,11 @@ public class EventDetailActivity extends AppCompatActivity {
                     startActivity(mailIntent);
                 }
                 catch (android.content.ActivityNotFoundException ex) {
-                    Toast.makeText(EventDetailActivity.this, "Application not found.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(NGOEventDetail.this, "Application not found.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
 
 
 
