@@ -37,6 +37,14 @@ public class EventClass {
         this.ngoName = ngoName;
     }
 
+    public String getGeneratedString() {
+        return generatedString;
+    }
+
+    public void setGeneratedString(String generatedString) {
+        this.generatedString = generatedString;
+    }
+
     public EventClass(String eTitle, String eDate, String eTime, String eDescription, String geteImageUrl, String eAddress, String eContact, String eEmail, String UID, String ngoName, String generatedString)
     {
         this.eTitle = eTitle;
