@@ -17,19 +17,30 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.viewHolder> {
 
     String name, uid;
     private ArrayList<UserClass> users;
     private Context context;
+
+    FirebaseFirestore firebaseFirestore;
+    CollectionReference collectionReference;
+    FirebaseUser currentUser;
 
     public UsersAdapter(ArrayList<UserClass> chat, Context context)
     {
@@ -48,6 +59,21 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.viewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull UsersAdapter.viewHolder holder, int position) {
+
+        firebaseFirestore = FirebaseFirestore.getInstance();
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        collectionReference = firebaseFirestore.collection("AcceptedRequest");
+//
+//        collectionReference.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+//            @Override
+//            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+//
+//                for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots)
+//                {
+//                    for(Map.Entry<String,String> e1 : )
+//                }
+//            }
+//        });
 
 
         String senderID = FirebaseAuth.getInstance().getUid();
