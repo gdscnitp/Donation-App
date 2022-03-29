@@ -1,7 +1,5 @@
 package android.example.donationapp.Activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.example.donationapp.R;
@@ -12,10 +10,17 @@ import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.Calendar;
 import java.util.Locale;
@@ -27,7 +32,13 @@ public class EditEventActivity extends AppCompatActivity {
     TextView timeEdit, dateEdit;
     Button save;
     ImageView backbutton, imageedit;
-
+    String title , description, time, date , address ,email , contact;
+    FirebaseFirestore firebaseFirestore;
+    FirebaseStorage firebaseStorage;
+    FirebaseAuth firebaseAuth;
+    FirebaseUser currentUser;
+    DocumentReference documentReference ;
+    StorageReference storageReference;
     int hour;
     int minutes;
 
@@ -56,6 +67,12 @@ public class EditEventActivity extends AppCompatActivity {
         backbutton = findViewById(R.id.editEvent_back);
         imageedit = findViewById(R.id.editEvent_profile_pic_add);
 
+        firebaseFirestore = FirebaseFirestore.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseStorage = FirebaseStorage.getInstance();
+        currentUser = firebaseAuth.getCurrentUser();
+        documentReference = firebaseFirestore.collection("Events").document(currentUser.getUid());
+        storageReference = firebaseStorage.getReference().child("images").child(currentUser.getUid());
 
         final Calendar calendar = Calendar.getInstance();
 
@@ -75,67 +92,60 @@ public class EditEventActivity extends AppCompatActivity {
                 },year, month, day);
                 datePickerDialog.show();
             }
+
+
         });
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!eventTitleEdit.getText().toString().isEmpty())
-                {
-                    Toast.makeText(EditEventActivity.this, " ", Toast.LENGTH_SHORT).show();
-                }
-                else
+
+                    title = eventTitleEdit.getText().toString();
+                    description = eventdescriptionEdit.getText().toString();
+                    time = timeEdit.getText().toString();
+                    address = dateEdit.getText().toString();
+                    contact = eventContactEdit.getText().toString();
+                    email = eventEmailEdit.getText().toString();
+
+
+                if(title.isEmpty())
                 {
                     eventTitleEdit.setError("Enter Event Title");
                 }
-                if(!eventdescriptionEdit.getText().toString().isEmpty())
-                {
-                    Toast.makeText(EditEventActivity.this, " ", Toast.LENGTH_SHORT).show();
-                }
-                else
+
+                if(description.isEmpty())
                 {
                     eventdescriptionEdit.setError("Enter Event Description");
                 }
-                if(!timeEdit.getText().toString().isEmpty())
-                {
-                    Toast.makeText(EditEventActivity.this, " ", Toast.LENGTH_SHORT).show();
-                }
-                else
+
+                if(time.isEmpty())
                 {
                     timeEdit.setError("Select Time");
                 }
-                if(!dateEdit.getText().toString().isEmpty())
-                {
-                    Toast.makeText(EditEventActivity.this, " ", Toast.LENGTH_SHORT).show();
-                }
-                else
+
+                if(date.isEmpty())
                 {
                     dateEdit.setError("Select Date");
                 }
-                if(!eventAddressEdit.getText().toString().isEmpty())
-                {
-                    Toast.makeText(EditEventActivity.this, " ", Toast.LENGTH_SHORT).show();
-                }
-                else
+
+                if(address.isEmpty())
                 {
                     eventAddressEdit.setError("Enter Event Address");
                 }
-                if(!eventContactEdit.getText().toString().isEmpty())
-                {
-                    Toast.makeText(EditEventActivity.this, " ", Toast.LENGTH_SHORT).show();
-                }
-                else
+
+                if(contact.isEmpty())
                 {
                     eventContactEdit.setError("Enter Contact Number");
                 }
-                if(!eventEmailEdit.getText().toString().isEmpty())
-                {
-                    Toast.makeText(EditEventActivity.this, " ", Toast.LENGTH_SHORT).show();
-                }
-                else
+
+                if(email.isEmpty())
                 {
                     eventEmailEdit.setError("Enter Email");
                 }
+
+//                documentReference.collection("random").
+
+
 
             }
 

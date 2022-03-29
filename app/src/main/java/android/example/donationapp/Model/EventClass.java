@@ -5,7 +5,8 @@ public class EventClass {
     String eTitle, eDescription, eTime, eDate, eAddress, eContact, eEmail;
     String eImageUrl;
     String UID;
-    String ngoName;
+    String ngoName , generatedString;
+
 
     public EventClass()
     {
@@ -36,7 +37,15 @@ public class EventClass {
         this.ngoName = ngoName;
     }
 
-    public EventClass(String eTitle, String eDate, String eTime, String eDescription, String geteImageUrl, String eAddress, String eContact, String eEmail, String UID, String ngoName)
+    public String getGeneratedString() {
+        return generatedString;
+    }
+
+    public void setGeneratedString(String generatedString) {
+        this.generatedString = generatedString;
+    }
+
+    public EventClass(String eTitle, String eDate, String eTime, String eDescription, String geteImageUrl, String eAddress, String eContact, String eEmail, String UID, String ngoName, String generatedString)
     {
         this.eTitle = eTitle;
         this.ngoName = ngoName;
@@ -48,6 +57,7 @@ public class EventClass {
         this.eImageUrl = geteImageUrl;
         this.eContact = eContact;
         this.UID = UID;
+        this.generatedString = generatedString;
     }
 
     public String geteTitle() {

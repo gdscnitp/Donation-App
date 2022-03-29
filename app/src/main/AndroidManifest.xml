@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -36,7 +37,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.UserSignupActivity" >
+        <activity android:name=".Activity.UserSignupActivity"
+            android:exported="false" >
 
         </activity>
         <activity android:name=".Activity.FactsActivity" />
@@ -47,6 +49,8 @@
         <activity android:name=".Activity.DonorActivity" />
         <activity android:name=".Activity.AddRequestActivity" />
         <activity android:name=".Activity.EditRequestActivity" />
+        <activity android:name=".Activity.ProfileUserActivity"/>
+        <activity android:name=".Activity.UserEditActivity"/>
 <!--        <activity android:name=".Activity.BloodBankActivity" >-->
 
 <!--        </activity>-->

@@ -5,7 +5,9 @@ import static android.example.donationapp.R.*;
 import android.annotation.SuppressLint;
 import android.content.res.ColorStateList;
 import android.example.donationapp.Adapters.HomeActivityAdapter;
+import android.example.donationapp.Adapters.HomeEventActivityAdapter;
 import android.example.donationapp.Adapters.MyRequestActivityAdapter;
+import android.example.donationapp.Model.EventClass;
 import android.example.donationapp.Model.HomeActivityAdapterClass;
 import android.example.donationapp.Model.MyRequestActivityAdapterClass;
 import android.example.donationapp.Model.RequestClass;
@@ -26,6 +28,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -37,17 +41,22 @@ public class HomeFragment extends Fragment {
 
     RecyclerView recyclerView;
     HomeActivityAdapter homeActivityAdapter;
-    ArrayList<RequestClass> data = new ArrayList<>();
+    HomeEventActivityAdapter homeEventActivityAdapter;
 
-    ArrayList<RequestClass> data1 = new ArrayList<>();
+    ArrayList<RequestClass> data = new ArrayList<>();
+    ArrayList<EventClass> data1 = new ArrayList<>();
 
     String image, heading, location, time;
     String id, blood, contact, description, dob, email, gender, name;
+
+    String title1, ngoName1, description1, date1, address1, email1, time1, imageUrl1, contact1, uid1, generatedString;
 
     Button request, event;
 
     private final FirebaseFirestore db = FirebaseFirestore.getInstance();
     private final CollectionReference notebookRef = db.collection("All Request");
+
+    private final CollectionReference notebookRef1 = db.collection("AllEvents");
 
 
 
@@ -111,6 +120,10 @@ public class HomeFragment extends Fragment {
 
 
 
+
+
+
+
         request.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ResourceAsColor")
             @Override
@@ -122,6 +135,11 @@ public class HomeFragment extends Fragment {
 
                 request.setTextColor(color.white);
                 event.setTextColor(color.black);
+
+
+                data1.clear();
+
+
 
 
 
@@ -136,6 +154,13 @@ public class HomeFragment extends Fragment {
         });
 
 
+
+
+
+
+
+
+
         event.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ResourceAsColor")
             @Override
@@ -147,23 +172,58 @@ public class HomeFragment extends Fragment {
                 event.setTextColor(color.white);
                 request.setTextColor(color.black);
 
-                data1.add(new RequestClass("jaxjkshjsa", "Shreya", "Female", "12 / 08 / 2014", "O+", "Allahabad", "9988797543", "shreya@gmail.com", "jkasjkznxzsilSjnxislNJZxji xzs bewy hsjdskds   iu db di lwei bj xsz ,wibee", "vkeuchenyewmwjiiaxmijw wehmioLZIULWEJ,Lzb bnwxmlz,izuhiQUI WZUILHMLMZL,hziqwh,,zil,wz huzq ZUQ,lliqmLUZ,iuhuu zqw uisnjwjbl xa xkqwiuna  jkzA ZA", "https://images.unsplash.com/photo-1646882172899-8436f0219b71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"));
-                data1.add(new RequestClass("jaxjkshjsa", "Shreya", "Female", "12 / 08 / 2014", "O+", "Allahabad", "9988797543", "shreya@gmail.com", "jkasjkznxzsilSjnxislNJZxji xzs bewy hsjdskds   iu db di lwei bj xsz ,wibee", "vkeuchenyewmwjiiaxmijw wehmioLZIULWEJ,Lzb bnwxmlz,izuhiQUI WZUILHMLMZL,hziqwh,,zil,wz huzq ZUQ,lliqmLUZ,iuhuu zqw uisnjwjbl xa xkqwiuna  jkzA ZA", "https://images.unsplash.com/photo-1646882172899-8436f0219b71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"));
-                data1.add(new RequestClass("jaxjkshjsa", "Shreya", "Female", "12 / 08 / 2014", "O+", "Allahabad", "9988797543", "shreya@gmail.com", "jkasjkznxzsilSjnxislNJZxji xzs bewy hsjdskds   iu db di lwei bj xsz ,wibee", "vkeuchenyewmwjiiaxmijw wehmioLZIULWEJ,Lzb bnwxmlz,izuhiQUI WZUILHMLMZL,hziqwh,,zil,wz huzq ZUQ,lliqmLUZ,iuhuu zqw uisnjwjbl xa xkqwiuna  jkzA ZA", "https://images.unsplash.com/photo-1646882172899-8436f0219b71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"));
-                data1.add(new RequestClass("jaxjkshjsa", "Shreya", "Female", "12 / 08 / 2014", "O+", "Allahabad", "9988797543", "shreya@gmail.com", "jkasjkznxzsilSjnxislNJZxji xzs bewy hsjdskds   iu db di lwei bj xsz ,wibee", "vkeuchenyewmwjiiaxmijw wehmioLZIULWEJ,Lzb bnwxmlz,izuhiQUI WZUILHMLMZL,hziqwh,,zil,wz huzq ZUQ,lliqmLUZ,iuhuu zqw uisnjwjbl xa xkqwiuna  jkzA ZA", "https://images.unsplash.com/photo-1646882172899-8436f0219b71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"));
-                data1.add(new RequestClass("jaxjkshjsa", "Shreya", "Female", "12 / 08 / 2014", "O+", "Allahabad", "9988797543", "shreya@gmail.com", "jkasjkznxzsilSjnxislNJZxji xzs bewy hsjdskds   iu db di lwei bj xsz ,wibee", "vkeuchenyewmwjiiaxmijw wehmioLZIULWEJ,Lzb bnwxmlz,izuhiQUI WZUILHMLMZL,hziqwh,,zil,wz huzq ZUQ,lliqmLUZ,iuhuu zqw uisnjwjbl xa xkqwiuna  jkzA ZA", "https://images.unsplash.com/photo-1646882172899-8436f0219b71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"));
-                data1.add(new RequestClass("jaxjkshjsa", "Shreya", "Female", "12 / 08 / 2014", "O+", "Allahabad", "9988797543", "shreya@gmail.com", "jkasjkznxzsilSjnxislNJZxji xzs bewy hsjdskds   iu db di lwei bj xsz ,wibee", "vkeuchenyewmwjiiaxmijw wehmioLZIULWEJ,Lzb bnwxmlz,izuhiQUI WZUILHMLMZL,hziqwh,,zil,wz huzq ZUQ,lliqmLUZ,iuhuu zqw uisnjwjbl xa xkqwiuna  jkzA ZA", "https://images.unsplash.com/photo-1646882172899-8436f0219b71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"));
-                data1.add(new RequestClass("jaxjkshjsa", "Shreya", "Female", "12 / 08 / 2014", "O+", "Allahabad", "9988797543", "shreya@gmail.com", "jkasjkznxzsilSjnxislNJZxji xzs bewy hsjdskds   iu db di lwei bj xsz ,wibee", "vkeuchenyewmwjiiaxmijw wehmioLZIULWEJ,Lzb bnwxmlz,izuhiQUI WZUILHMLMZL,hziqwh,,zil,wz huzq ZUQ,lliqmLUZ,iuhuu zqw uisnjwjbl xa xkqwiuna  jkzA ZA", "https://images.unsplash.com/photo-1646882172899-8436f0219b71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"));
-                data1.add(new RequestClass("jaxjkshjsa", "Shreya", "Female", "12 / 08 / 2014", "O+", "Allahabad", "9988797543", "shreya@gmail.com", "jkasjkznxzsilSjnxislNJZxji xzs bewy hsjdskds   iu db di lwei bj xsz ,wibee", "vkeuchenyewmwjiiaxmijw wehmioLZIULWEJ,Lzb bnwxmlz,izuhiQUI WZUILHMLMZL,hziqwh,,zil,wz huzq ZUQ,lliqmLUZ,iuhuu zqw uisnjwjbl xa xkqwiuna  jkzA ZA", "https://images.unsplash.com/photo-1646882172899-8436f0219b71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"));
-                data1.add(new RequestClass("jaxjkshjsa", "Shreya", "Female", "12 / 08 / 2014", "O+", "Allahabad", "9988797543", "shreya@gmail.com", "jkasjkznxzsilSjnxislNJZxji xzs bewy hsjdskds   iu db di lwei bj xsz ,wibee", "vkeuchenyewmwjiiaxmijw wehmioLZIULWEJ,Lzb bnwxmlz,izuhiQUI WZUILHMLMZL,hziqwh,,zil,wz huzq ZUQ,lliqmLUZ,iuhuu zqw uisnjwjbl xa xkqwiuna  jkzA ZA", "https://images.unsplash.com/photo-1646882172899-8436f0219b71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"));
-                data1.add(new RequestClass("jaxjkshjsa", "Shreya", "Female", "12 / 08 / 2014", "O+", "Allahabad", "9988797543", "shreya@gmail.com", "jkasjkznxzsilSjnxislNJZxji xzs bewy hsjdskds   iu db di lwei bj xsz ,wibee", "vkeuchenyewmwjiiaxmijw wehmioLZIULWEJ,Lzb bnwxmlz,izuhiQUI WZUILHMLMZL,hziqwh,,zil,wz huzq ZUQ,lliqmLUZ,iuhuu zqw uisnjwjbl xa xkqwiuna  jkzA ZA", "https://images.unsplash.com/photo-1646882172899-8436f0219b71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"));
+//                data1.add(new RequestClass("jaxjkshjsa", "Shreya", "Female", "12 / 08 / 2014", "O+", "Allahabad", "9988797543", "shreya@gmail.com", "jkasjkznxzsilSjnxislNJZxji xzs bewy hsjdskds   iu db di lwei bj xsz ,wibee", "vkeuchenyewmwjiiaxmijw wehmioLZIULWEJ,Lzb bnwxmlz,izuhiQUI WZUILHMLMZL,hziqwh,,zil,wz huzq ZUQ,lliqmLUZ,iuhuu zqw uisnjwjbl xa xkqwiuna  jkzA ZA", "https://images.unsplash.com/photo-1646882172899-8436f0219b71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"));
+//                data1.add(new RequestClass("jaxjkshjsa", "Shreya", "Female", "12 / 08 / 2014", "O+", "Allahabad", "9988797543", "shreya@gmail.com", "jkasjkznxzsilSjnxislNJZxji xzs bewy hsjdskds   iu db di lwei bj xsz ,wibee", "vkeuchenyewmwjiiaxmijw wehmioLZIULWEJ,Lzb bnwxmlz,izuhiQUI WZUILHMLMZL,hziqwh,,zil,wz huzq ZUQ,lliqmLUZ,iuhuu zqw uisnjwjbl xa xkqwiuna  jkzA ZA", "https://images.unsplash.com/photo-1646882172899-8436f0219b71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"));
+//                data1.add(new RequestClass("jaxjkshjsa", "Shreya", "Female", "12 / 08 / 2014", "O+", "Allahabad", "9988797543", "shreya@gmail.com", "jkasjkznxzsilSjnxislNJZxji xzs bewy hsjdskds   iu db di lwei bj xsz ,wibee", "vkeuchenyewmwjiiaxmijw wehmioLZIULWEJ,Lzb bnwxmlz,izuhiQUI WZUILHMLMZL,hziqwh,,zil,wz huzq ZUQ,lliqmLUZ,iuhuu zqw uisnjwjbl xa xkqwiuna  jkzA ZA", "https://images.unsplash.com/photo-1646882172899-8436f0219b71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"));
+//                data1.add(new RequestClass("jaxjkshjsa", "Shreya", "Female", "12 / 08 / 2014", "O+", "Allahabad", "9988797543", "shreya@gmail.com", "jkasjkznxzsilSjnxislNJZxji xzs bewy hsjdskds   iu db di lwei bj xsz ,wibee", "vkeuchenyewmwjiiaxmijw wehmioLZIULWEJ,Lzb bnwxmlz,izuhiQUI WZUILHMLMZL,hziqwh,,zil,wz huzq ZUQ,lliqmLUZ,iuhuu zqw uisnjwjbl xa xkqwiuna  jkzA ZA", "https://images.unsplash.com/photo-1646882172899-8436f0219b71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"));
+//                data1.add(new RequestClass("jaxjkshjsa", "Shreya", "Female", "12 / 08 / 2014", "O+", "Allahabad", "9988797543", "shreya@gmail.com", "jkasjkznxzsilSjnxislNJZxji xzs bewy hsjdskds   iu db di lwei bj xsz ,wibee", "vkeuchenyewmwjiiaxmijw wehmioLZIULWEJ,Lzb bnwxmlz,izuhiQUI WZUILHMLMZL,hziqwh,,zil,wz huzq ZUQ,lliqmLUZ,iuhuu zqw uisnjwjbl xa xkqwiuna  jkzA ZA", "https://images.unsplash.com/photo-1646882172899-8436f0219b71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"));
+//                data1.add(new RequestClass("jaxjkshjsa", "Shreya", "Female", "12 / 08 / 2014", "O+", "Allahabad", "9988797543", "shreya@gmail.com", "jkasjkznxzsilSjnxislNJZxji xzs bewy hsjdskds   iu db di lwei bj xsz ,wibee", "vkeuchenyewmwjiiaxmijw wehmioLZIULWEJ,Lzb bnwxmlz,izuhiQUI WZUILHMLMZL,hziqwh,,zil,wz huzq ZUQ,lliqmLUZ,iuhuu zqw uisnjwjbl xa xkqwiuna  jkzA ZA", "https://images.unsplash.com/photo-1646882172899-8436f0219b71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"));
+//                data1.add(new RequestClass("jaxjkshjsa", "Shreya", "Female", "12 / 08 / 2014", "O+", "Allahabad", "9988797543", "shreya@gmail.com", "jkasjkznxzsilSjnxislNJZxji xzs bewy hsjdskds   iu db di lwei bj xsz ,wibee", "vkeuchenyewmwjiiaxmijw wehmioLZIULWEJ,Lzb bnwxmlz,izuhiQUI WZUILHMLMZL,hziqwh,,zil,wz huzq ZUQ,lliqmLUZ,iuhuu zqw uisnjwjbl xa xkqwiuna  jkzA ZA", "https://images.unsplash.com/photo-1646882172899-8436f0219b71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"));
+//                data1.add(new RequestClass("jaxjkshjsa", "Shreya", "Female", "12 / 08 / 2014", "O+", "Allahabad", "9988797543", "shreya@gmail.com", "jkasjkznxzsilSjnxislNJZxji xzs bewy hsjdskds   iu db di lwei bj xsz ,wibee", "vkeuchenyewmwjiiaxmijw wehmioLZIULWEJ,Lzb bnwxmlz,izuhiQUI WZUILHMLMZL,hziqwh,,zil,wz huzq ZUQ,lliqmLUZ,iuhuu zqw uisnjwjbl xa xkqwiuna  jkzA ZA", "https://images.unsplash.com/photo-1646882172899-8436f0219b71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"));
+//                data1.add(new RequestClass("jaxjkshjsa", "Shreya", "Female", "12 / 08 / 2014", "O+", "Allahabad", "9988797543", "shreya@gmail.com", "jkasjkznxzsilSjnxislNJZxji xzs bewy hsjdskds   iu db di lwei bj xsz ,wibee", "vkeuchenyewmwjiiaxmijw wehmioLZIULWEJ,Lzb bnwxmlz,izuhiQUI WZUILHMLMZL,hziqwh,,zil,wz huzq ZUQ,lliqmLUZ,iuhuu zqw uisnjwjbl xa xkqwiuna  jkzA ZA", "https://images.unsplash.com/photo-1646882172899-8436f0219b71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"));
+//                data1.add(new RequestClass("jaxjkshjsa", "Shreya", "Female", "12 / 08 / 2014", "O+", "Allahabad", "9988797543", "shreya@gmail.com", "jkasjkznxzsilSjnxislNJZxji xzs bewy hsjdskds   iu db di lwei bj xsz ,wibee", "vkeuchenyewmwjiiaxmijw wehmioLZIULWEJ,Lzb bnwxmlz,izuhiQUI WZUILHMLMZL,hziqwh,,zil,wz huzq ZUQ,lliqmLUZ,iuhuu zqw uisnjwjbl xa xkqwiuna  jkzA ZA", "https://images.unsplash.com/photo-1646882172899-8436f0219b71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"));
 
 
-                homeActivityAdapter = new HomeActivityAdapter(data1, getContext());
+
+                notebookRef1.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+
+                        for(QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots)
+                        {
+                            title1 = documentSnapshots.getString("eTitle");
+                            ngoName1 = documentSnapshots.getString("ngoName");
+                            description1 = documentSnapshots.getString("eDescription");
+                            date1 = documentSnapshots.getString("eDate");
+                            address1 = documentSnapshots.getString("eAddress");
+                            email1 = documentSnapshots.getString("eEmail");
+                            time1 = documentSnapshots.getString("eTime");
+                            imageUrl1 = documentSnapshots.getString("eImageUrl");
+                            contact1 = documentSnapshots.getString("eContact");
+                            uid1 = documentSnapshots.getString("uid");
+
+
+
+
+                            data1.add(new EventClass(title1, ngoName1, description1, date1, address1, email1, time1, imageUrl1, contact1, uid1, " "));
+                        }
+                        homeEventActivityAdapter.notifyDataSetChanged();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
+
+
+                homeEventActivityAdapter = new HomeEventActivityAdapter(data1, getContext());
                 RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
                 recyclerView.setLayoutManager(layoutManager);
                 recyclerView.setItemAnimator(new DefaultItemAnimator());
-                recyclerView.setAdapter(homeActivityAdapter);
+                recyclerView.setAdapter(homeEventActivityAdapter);
 
             }
         });
