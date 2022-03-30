@@ -92,6 +92,14 @@ public class EventClass {
         this.eDate = eDate;
     }
 
+    public String getGeneratedString() {
+        return generatedString;
+    }
+
+    public void setGeneratedString(String generatedString) {
+        this.generatedString = generatedString;
+    }
+
     public String geteImageUrl() {
         return eImageUrl;
     }
