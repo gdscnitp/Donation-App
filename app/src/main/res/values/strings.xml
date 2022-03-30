@@ -27,6 +27,13 @@
     <string name="chats">Chats</string>
     <string name="my_requests">My Requests</string>
     <string name="profile">Profile</string>
+    <string name="first_slide_title">Interactive Approach</string>
+    <string name="second_slide_title">Location Information</string>
+    <string name="third_slide_title">NGO Mode</string>
+    <string name="first_slide_desc">A direct interactive platform where a donor would be accessed by the people in need, where they can get in touch to help the people</string>
+    <string name="second_slide_desc">A Geo Location based Integrated Place to get to nearby verified Blood Banks in case of any Emergency</string>
+    <string name="third_slide_desc">Special NGO mode enabled to use and create Events such as Blood Donation camp for the users and people connected through the platform</string>
+
 
     <string-array name="blood_groups">
 

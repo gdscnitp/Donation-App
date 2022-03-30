@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    tools:context=".Activity.Splasscreen">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_centerInParent="false"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@null"
+        android:layout_height="500dp"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-80dp"
+        android:fontFamily="@font/poppins_italic"
+        android:text="Donee"
+        android:textColor="#CD3838"
+        android:textSize="35sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/app_name"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/poppins_italic"
+        android:text="A Platform built to integrate NGO Blood Banks and Needy People wide across and help each other fulfilling the necessity"
+        android:textAlignment="center"
+        android:textColor="@color/primary_red"
+        android:textSize="15sp" />
+
+
+
+</RelativeLayout>
