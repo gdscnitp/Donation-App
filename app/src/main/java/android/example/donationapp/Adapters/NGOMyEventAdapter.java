@@ -2,11 +2,8 @@ package android.example.donationapp.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.example.donationapp.Activity.EventDetailActivity;
-import android.example.donationapp.Activity.NGOEventDetail;
+import android.example.donationapp.Activity.EventDetailNgoModeActivity;
 import android.example.donationapp.Model.EventClass;
-import android.example.donationapp.Model.NGOHomeAdapterClass;
-import android.example.donationapp.Model.NGOMyEventAdapterClass;
 import android.example.donationapp.R;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,14 +20,18 @@ import java.util.ArrayList;
 
 public class NGOMyEventAdapter extends RecyclerView.Adapter<NGOMyEventAdapter.MyViewHolder> {
 
-    ArrayList<EventClass> userList;
+    ArrayList<EventClass> userList = new ArrayList<>();
     Context context;
 
-    public NGOMyEventAdapter(ArrayList<EventClass> userList, Context context) {
+    public NGOMyEventAdapter(ArrayList<EventClass> userList) {
+    }
+
+    public NGOMyEventAdapter(ArrayList<EventClass> userList , Context context) {
 
         this.userList = userList;
         this.context = context;
     }
+
 
     @NonNull
     @Override
@@ -46,6 +47,14 @@ public class NGOMyEventAdapter extends RecyclerView.Adapter<NGOMyEventAdapter.My
         String eLocation = userList.get(position).geteAddress();
         String eTime = userList.get(position).geteTime().toString();
         String eDate = userList.get(position).geteDate().toString();
+        String generatedString = userList.get(position).getGeneratedString();
+        String uid = userList.get(position).getUID();
+        String description = userList.get(position).geteDescription();
+        String phoneNo = userList.get(position).geteContact();
+        String email = userList.get(position).geteEmail();
+        String ngoName = userList.get(position).getNgoName();
+        String address = userList.get(position).geteAddress();
+        String imageUrl = userList.get(position).geteImageUrl();
 
         String eventTime = eTime + " " + eDate;
 
@@ -53,33 +62,36 @@ public class NGOMyEventAdapter extends RecyclerView.Adapter<NGOMyEventAdapter.My
         holder.location.setText(eLocation);
         holder.time.setText(eventTime);
 
-        Glide.with(holder.eventPic.getContext()).load(userList.get(position).geteImageUrl()).into(holder.eventPic);
+        Glide.with(holder.eventPic.getContext()).load(userList.get(position).geteImageUrl()).placeholder(R.drawable.temp_event_image).into(holder.eventPic);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
+                Intent eventDetails = new Intent(context, EventDetailNgoModeActivity.class);
+                eventDetails.putExtra("generatedString",generatedString);
+                eventDetails.putExtra("uid",uid);
+                eventDetails.putExtra("title", eTitle);
+                eventDetails.putExtra("location", eLocation);
+                eventDetails.putExtra("time",eTime);
+                eventDetails.putExtra("date",eDate);
+                eventDetails.putExtra("description",description);
+                eventDetails.putExtra("phoneNo",phoneNo);
+                eventDetails.putExtra("email",email);
+                eventDetails.putExtra("ngoName",ngoName);
+                eventDetails.putExtra("imageUrl",imageUrl);
 
-                Intent intent = new Intent(context, NGOEventDetail.class);
-                intent.putExtra("eventPic",userList.get(position).geteImageUrl());
-                intent.putExtra("eventName", userList.get(position).geteTitle());
-                intent.putExtra("eventPhone", userList.get(position).geteContact());
-                intent.putExtra("eventMail", userList.get(position).geteEmail());
-                intent.putExtra("eventTime", userList.get(position).geteTime());
-                intent.putExtra("eventDescription",userList.get(position).geteDescription());
-                intent.putExtra("eventAddress",userList.get(position).geteAddress());
-                intent.putExtra("ngoName",userList.get(position).getNgoName());
-                intent.putExtra("ngoDate",userList.get(position).geteDate());
-                context.startActivity(intent);
-
+                context.startActivity(eventDetails);
             }
         });
 
 
     }
 
+
     @Override
     public int getItemCount() {
         return userList.size();
+
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
