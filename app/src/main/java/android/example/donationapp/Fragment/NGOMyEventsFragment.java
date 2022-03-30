@@ -32,19 +32,19 @@ import java.util.ArrayList;
 public class NGOMyEventsFragment extends Fragment {
 
     RecyclerView recyclerView;
-    ArrayList<EventClass> userList;
+    ArrayList<EventClass> userList = new ArrayList<>();;
     RelativeLayout eventCard;
 
     String eventImage, eventDescription, eventTitle, eventLocation, etime, edate, eventTime;
     String econtact = "null", eEmail = "null";
     String UID;
 
-    FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+    FirebaseUser firebaseUser ;
 
-    private final FirebaseFirestore db = FirebaseFirestore.getInstance();
+    FirebaseFirestore firebaseFirestore ;
 
-    CollectionReference collectionReference = db.collection("Events").document(firebaseUser.getUid()).collection("random");
-
+    CollectionReference collectionReference ;
+    NGOMyEventAdapter ngoMyEventAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -54,14 +54,18 @@ public class NGOMyEventsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_ngo_my_events, container, false);
 
         recyclerView = view.findViewById(R.id.ngo_myEvent_recycler);
-        userList = new ArrayList<EventClass>();
+
         eventCard = view.findViewById(R.id.myEvent_card);
-        NGOMyEventAdapter ngoMyEventAdapter = new NGOMyEventAdapter(userList);
+        firebaseFirestore = FirebaseFirestore.getInstance();
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        collectionReference  = firebaseFirestore.collection("Events").document(firebaseUser.getUid()).collection("random");
+        ngoMyEventAdapter = new NGOMyEventAdapter(userList , getContext());
 
         collectionReference.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-
+                Log.e("Inside onSuccess", "onSuccess: " );
+                userList.clear();
                 for(QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots)
                 {
                     eventImage = documentSnapshot.getString("eImageUrl");
@@ -72,10 +76,12 @@ public class NGOMyEventsFragment extends Fragment {
                     edate = documentSnapshot.getString("eDate");
                     UID = documentSnapshot.getString("uid");
                     String ngoName = documentSnapshot.getString("ngoName");
+                    String generatedString = documentSnapshot.getString("generatedString");
+                    Log.e("Inside For loop ", "" + ngoName);
 
                     if(firebaseUser.getUid().equalsIgnoreCase(UID))
                     {
-                        userList.add(new EventClass(eventTitle, edate, etime, eventDescription, eventImage, eventLocation, econtact, eEmail, UID, ngoName , "null"));
+                        userList.add(new EventClass(eventTitle, edate, etime, eventDescription, eventImage, eventLocation, econtact, eEmail, UID, ngoName , generatedString));
                         Log.e("Event Added", "EventTitle"+eventTitle.toString());
                     }
                 }
@@ -90,20 +96,6 @@ public class NGOMyEventsFragment extends Fragment {
 
             }
         });
-
-//        userList.add(new NGOMyEventAdapterClass(R.drawable.vector_signup_background, "Emergency! O+ blood required for child of age 12...", "Paras Hospital, Bailey Road, Patna", "2 mins ago"));
-//        userList.add(new NGOMyEventAdapterClass(R.drawable.vector_signup_background, "Emergency! O+ blood required for child of age 12...", "Paras Hospital, Bailey Road, Patna", "2 mins ago"));
-//        userList.add(new NGOMyEventAdapterClass(R.drawable.vector_signup_background, "Emergency! O+ blood required for child of age 12...", "Paras Hospital, Bailey Road, Patna", "2 mins ago"));
-//        userList.add(new NGOMyEventAdapterClass(R.drawable.vector_signup_background, "Emergency! O+ blood required for child of age 12...", "Paras Hospital, Bailey Road, Patna", "2 mins ago"));
-//        userList.add(new NGOMyEventAdapterClass(R.drawable.vector_signup_background, "Emergency! O+ blood required for child of age 12...", "Paras Hospital, Bailey Road, Patna", "2 mins ago"));
-//        userList.add(new NGOMyEventAdapterClass(R.drawable.vector_signup_background, "Emergency! O+ blood required for child of age 12...", "Paras Hospital, Bailey Road, Patna", "2 mins ago"));
-//        userList.add(new NGOMyEventAdapterClass(R.drawable.vector_signup_background, "Emergency! O+ blood required for child of age 12...", "Paras Hospital, Bailey Road, Patna", "2 mins ago"));
-//        userList.add(new NGOMyEventAdapterClass(R.drawable.vector_signup_background, "Emergency! O+ blood required for child of age 12...", "Paras Hospital, Bailey Road, Patna", "2 mins ago"));
-//        userList.add(new NGOMyEventAdapterClass(R.drawable.vector_signup_background, "Emergency! O+ blood required for child of age 12...", "Paras Hospital, Bailey Road, Patna", "2 mins ago"));
-//        userList.add(new NGOMyEventAdapterClass(R.drawable.vector_signup_background, "Emergency! O+ blood required for child of age 12...", "Paras Hospital, Bailey Road, Patna", "2 mins ago"));
-//        userList.add(new NGOMyEventAdapterClass(R.drawable.vector_signup_background, "Emergency! O+ blood required for child of age 12...", "Paras Hospital, Bailey Road, Patna", "2 mins ago"));
-//        userList.add(new NGOMyEventAdapterClass(R.drawable.vector_signup_background, "Emergency! O+ blood required for child of age 12...", "Paras Hospital, Bailey Road, Patna", "2 mins ago"));
-//        userList.add(new NGOMyEventAdapterClass(R.drawable.vector_signup_background, "Emergency! O+ blood required for child of age 12...", "Paras Hospital, Bailey Road, Patna", "2 mins ago"));
 
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());

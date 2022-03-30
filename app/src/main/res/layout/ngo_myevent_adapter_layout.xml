@@ -9,7 +9,6 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp">
 
@@ -20,9 +19,9 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginEnd="15dp"
             android:layout_marginBottom="10dp"
-            android:src="#F4F4F4" />
+            android:src="@drawable/temp_event_image" />
 
         <TextView
             android:id="@+id/myEvent_heading"
@@ -36,7 +35,7 @@
             android:text="Emergency! O+ blood required for child of age 12..."
             android:textColor="#000000"
             android:textFontWeight="700"
-            android:textSize="15dp" />
+            android:textSize="16dp" />
 
         <TextView
             android:id="@+id/myEvent_location"
@@ -48,7 +47,7 @@
             android:layout_toRightOf="@id/myEvent_image"
             android:fontFamily="@font/poppins"
             android:text="Paras Hospital, Bailey Road, Patna"
-            android:textSize="13dp" />
+            android:textSize="16dp" />
 
         <TextView
             android:id="@+id/myEvent_time"
@@ -60,7 +59,7 @@
             android:layout_marginBottom="10dp"
             android:fontFamily="@font/poppins"
             android:text="2 mins ago"
-            android:textSize="10dp" />
+            android:textSize="15sp" />
 
 
     </RelativeLayout>

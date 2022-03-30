@@ -289,6 +289,24 @@ public class AddEventsActivity extends AppCompatActivity {
                                             Toast.makeText(AddEventsActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                                         }
                                     });
+                                    firebaseFirestore.collection("AllEvents").document(generatedString).set(eventClass).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+                                            Log.e("Successfully Updation", "Success");
+
+                                            documentReference.update("eImageUrl", imageURL);
+
+//                                            Log.e("Ngo Name in A", ngoName.toString());
+//                                            Log.e("UID of NGOA is", nUID);
+                                            Toast.makeText(AddEventsActivity.this, "Event Created.", Toast.LENGTH_SHORT).show();
+
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Toast.makeText(AddEventsActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
 
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
@@ -313,6 +331,20 @@ public class AddEventsActivity extends AppCompatActivity {
                         public void onSuccess(Void unused) {
 
                             Log.e("Successfully Updation", "Success");
+                            Toast.makeText(AddEventsActivity.this, "Event Created.", Toast.LENGTH_SHORT).show();
+
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(AddEventsActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    firebaseFirestore.collection("AllEvents").document(generatedString).set(eventClass).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Log.e("Successfully Updation", "Success");
+
                             Toast.makeText(AddEventsActivity.this, "Event Created.", Toast.LENGTH_SHORT).show();
 
                         }

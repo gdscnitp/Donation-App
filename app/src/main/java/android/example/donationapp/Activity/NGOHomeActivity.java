@@ -92,28 +92,27 @@ public class NGOHomeActivity extends AppCompatActivity implements NavigationView
                 startActivity(login);
             }
         });
-
-        documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                if(documentSnapshot.exists()){
-                    UserClass userClass =  documentSnapshot.toObject(UserClass.class);
-                    if(userClass != null) {
-                        Glide.with(NGOHomeActivity.this).load(userClass.getImageURL()).placeholder(R.drawable.header_image_navigation_drawer2);
-                        headerTextView.setText(userClass.getName());
-                    }
+if(documentReference != null) {
+    documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+        @Override
+        public void onSuccess(DocumentSnapshot documentSnapshot) {
+            if (documentSnapshot.exists()) {
+                UserClass userClass = documentSnapshot.toObject(UserClass.class);
+                if (userClass != null) {
+                    Glide.with(NGOHomeActivity.this).load(userClass.getImageURL()).placeholder(R.drawable.header_image_navigation_drawer2);
+                    headerTextView.setText(userClass.getName());
                 }
-
-
-
-
             }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
 
-            }
-        });
+
+        }
+    }).addOnFailureListener(new OnFailureListener() {
+        @Override
+        public void onFailure(@NonNull Exception e) {
+
+        }
+    });
+}
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
