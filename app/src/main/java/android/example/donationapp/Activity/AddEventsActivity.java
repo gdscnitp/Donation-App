@@ -217,32 +217,6 @@ public class AddEventsActivity extends AppCompatActivity {
                     email.setError("Enter Email.");
                 }
 
-                collectionReference.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                    @Override
-                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-
-                        for(QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots)
-                        {
-
-                                nUID = documentSnapshot.getString("uId");
-                                if (currentUser.getUid().equalsIgnoreCase(nUID)) {
-                                    ngoName = documentSnapshot.getString("name");
-                                    Log.e("Ngo Name in ADDEvent", ngoName.toString());
-                                    Log.e("UID of NGOADD is", nUID);
-                                    eventClass = new EventClass(stitle, sdate, stime, sdescription, sImageURL, saddress, scontact, semail, currentUser.getUid(), ngoName, generatedString);
-
-                                }
-                            }
-
-
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-
-                        Toast.makeText(AddEventsActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
 
                 eventClass = new EventClass(stitle, sdate, stime, sdescription, sImageURL, saddress, scontact, semail, currentUser.getUid(), ngoName ,generatedString);
 //                Log.e("Ngo Name", ngoName.toString());
@@ -269,6 +243,34 @@ public class AddEventsActivity extends AppCompatActivity {
                                     Toast.makeText(AddEventsActivity.this, "Path is " + sImageURL, Toast.LENGTH_SHORT).show();
 
                                     Log.e("Path found", imageURL);
+
+                                    collectionReference.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                                        @Override
+                                        public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+
+                                            for(QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots)
+                                            {
+
+                                                nUID = documentSnapshot.getString("uId");
+                                                if (currentUser.getUid().equalsIgnoreCase(nUID)) {
+                                                    ngoName = documentSnapshot.getString("name");
+                                                    Log.e("Ngo Name in ADDEvent", ngoName.toString());
+                                                    Log.e("UID of NGOADD is", nUID);
+                                                    eventClass = new EventClass(stitle, sdate, stime, sdescription, sImageURL, saddress, scontact, semail, currentUser.getUid(), ngoName, generatedString);
+
+                                                }
+                                            }
+
+
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+
+                                            Toast.makeText(AddEventsActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+
 
 
                                     firebaseFirestore.collection("Events").document(currentUser.getUid()).collection("random").document(generatedString).set(eventClass).addOnSuccessListener(new OnSuccessListener<Void>() {
