@@ -1,10 +1,5 @@
 package android.example.donationapp.Activity;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.example.donationapp.Model.RequestClass;
@@ -25,6 +20,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
@@ -38,8 +38,6 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
-import java.nio.charset.Charset;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Random;
 
@@ -152,61 +150,39 @@ public class AddRequestActivity extends AppCompatActivity implements AdapterView
             @Override
             public void onClick(View view) {
 
-                if(!patientName.getText().toString().isEmpty())
-                {
-                    Toast.makeText(AddRequestActivity.this, " ", Toast.LENGTH_SHORT).show();
-                }
-                else
+                if(patientName.getText().toString().isEmpty())
                 {
                     patientName.setError("Enter Name");
                     return;
                 }
-                if(!patientEmail.getText().toString().isEmpty())
-                {
-                    Toast.makeText(AddRequestActivity.this, " ", Toast.LENGTH_SHORT).show();
-                }
-                else
+                if(patientEmail.getText().toString().isEmpty())
                 {
                     patientEmail.setError("Enter Email");
                     return;
                 }
-                if(!patientGender.getText().toString().isEmpty())
-                {
-                    Toast.makeText(AddRequestActivity.this, " ", Toast.LENGTH_SHORT).show();
-                }
-                else
+
+                if(patientGender.getText().toString().isEmpty())
                 {
                     patientGender.setError("Enter Gender");
                     return;
                 }
-                if(!patientAdddress.getText().toString().isEmpty())
-                {
-                    Toast.makeText(AddRequestActivity.this, " ", Toast.LENGTH_SHORT).show();
-                }
-                else
+                if(patientAdddress.getText().toString().isEmpty())
                 {
                     patientAdddress.setError("Enter Address");
                     return;
                 }
-                if(!requestTitle.getText().toString().isEmpty())
-                {
-                    Toast.makeText(AddRequestActivity.this, " ", Toast.LENGTH_SHORT).show();
-                }
-                else
+
+                if(requestTitle.getText().toString().isEmpty())
                 {
                     requestTitle.setError("Enter Title");
                     return;
                 }
-                if(!requestDescription.getText().toString().isEmpty())
-                {
-                    Toast.makeText(AddRequestActivity.this, " ", Toast.LENGTH_SHORT).show();
-                }
-                else
+
+                if(requestDescription.getText().toString().isEmpty())
                 {
                     requestDescription.setError("Enter Description");
                     return;
                 }
-
 
                 int leftLimit = 48; // numeral '0'
                 int rightLimit = 122; // letter 'z'

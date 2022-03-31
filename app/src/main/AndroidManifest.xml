@@ -74,6 +74,9 @@
             android:exported="false"/>
         <activity android:name=".Activity.EditEventActivity"
             android:exported="false"/>
+        <activity android:name=".Activity.BloodBankActivity"
+            android:exported="false"
+            />
     </application>
 
 </manifest>

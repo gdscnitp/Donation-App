@@ -64,7 +64,6 @@ public class UserFragmentContainer extends AppCompatActivity implements Navigati
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        documentReference = firebaseFirestore.collection("UserInformation").document(currentUser.getUid());
 
         setSupportActionBar(toolbar);
 
@@ -84,28 +83,29 @@ public class UserFragmentContainer extends AppCompatActivity implements Navigati
         toggle.setDrawerIndicatorEnabled(true);
         toggle.syncState();
         drawerLayout.addDrawerListener(toggle);
+        if(currentUser != null) {
+            documentReference = firebaseFirestore.collection("UserInformation").document(currentUser.getUid());
 
-        documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                if(documentSnapshot.exists()){
-                    UserClass userClass =  documentSnapshot.toObject(UserClass.class);
-                   if(userClass != null) {
-                       Glide.with(UserFragmentContainer.this).load(userClass.getImageURL()).placeholder(R.drawable.header_image_navigation_drawer2);
-                       headerTextView.setText(userClass.getName());
-                   }
+            documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                @Override
+                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                    if (documentSnapshot.exists()) {
+                        UserClass userClass = documentSnapshot.toObject(UserClass.class);
+                        if (userClass != null) {
+                            Glide.with(UserFragmentContainer.this).load(userClass.getImageURL()).placeholder(R.drawable.header_image_navigation_drawer2);
+                            headerTextView.setText(userClass.getName());
+                        }
+                    }
+
+
                 }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
 
-
-
-
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-
-            }
-        });
+                }
+            });
+        }
         headerProfileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -170,10 +170,10 @@ public class UserFragmentContainer extends AppCompatActivity implements Navigati
                 case R.id.home_menu :
                 Intent NavigationDrawerHomeIntent = new Intent(this , UserFragmentContainer.class);
                 startActivity(NavigationDrawerHomeIntent);
-//                break;
-//                case R.id.blood_banks_menu :
-//                Intent NavigationDrawerBloodBankIntent = new Intent(this , BloodBankActivity.class);
-//                startActivity(NavigationDrawerBloodBankIntent);
+                break;
+                case R.id.blood_banks_menu :
+                Intent NavigationDrawerBloodBankIntent = new Intent(this , BloodBankActivity.class);
+                startActivity(NavigationDrawerBloodBankIntent);
                 break;
                 case R.id.donor_menu :
                 Intent NavigationDrawerDonorIntent = new Intent(this , DonorActivity.class);
