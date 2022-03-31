@@ -179,45 +179,45 @@
         android:textColor="#5F5F5F"
         android:textSize="12dp" />
 
-    <TextView
-        android:id="@+id/patient_blood_request"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/patient_gender_request"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="5dp"
-        android:layout_toRightOf="@id/patient_name_request"
-        android:fontFamily="@font/poppins"
-        android:text="O+"
-        android:textSize="12sp" />
+        <TextView
+            android:id="@+id/patient_blood_request"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/patient_gender_request"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/blood_category_view"
+            android:fontFamily="@font/poppins"
+            android:text="O+"
+            android:textSize="12sp" />
 
-    <TextView
-        android:id="@+id/request_detail_addressView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/blood_category_view"
-        android:layout_marginTop="5dp"
-        android:backgroundTint="#F9F9F9"
-        android:fontFamily="@font/poppins"
-        android:paddingLeft="18dp"
-        android:text="Address:  "
-        android:textColor="#5F5F5F"
-        android:textSize="12dp" />
+        <TextView
+            android:id="@+id/request_detail_addressView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/blood_category_view"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="#F9F9F9"
+            android:fontFamily="@font/poppins"
+            android:paddingLeft="18dp"
+            android:text="Address:  "
+            android:textColor="#5F5F5F"
+            android:textSize="12dp" />
 
-    <TextView
-        android:id="@+id/request_detail_address"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/patient_blood_request"
-        android:layout_marginLeft="-20dp"
-        android:layout_marginTop="5dp"
-        android:layout_toRightOf="@+id/request_detail_addressView"
-        android:backgroundTint="#F9F9F9"
-        android:fontFamily="@font/poppins"
-        android:paddingLeft="18dp"
-        android:text="Berhampur, Odisha"
-        android:textColor="#5F5F5F"
-        android:textSize="12dp" />
+        <TextView
+            android:id="@+id/request_detail_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/blood_category_view"
+            android:layout_marginLeft="-20dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/request_detail_addressView"
+            android:backgroundTint="#F9F9F9"
+            android:fontFamily="@font/poppins"
+            android:paddingLeft="18dp"
+            android:text="Berhampur, Odisha"
+            android:textColor="#5F5F5F"
+            android:textSize="12dp" />
 
     <TextView
         android:id="@+id/request_detail_description_less"
