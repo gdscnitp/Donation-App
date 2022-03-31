@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="110dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/donor_profile_pic"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/profile_avatar1"
+        />
+
+    <TextView
+        android:id="@+id/donor_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/donor_profile_pic"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="2dp"
+        android:layout_toRightOf="@id/donor_profile_pic"
+        android:fontFamily="@font/poppins_medium"
+        android:text="NSS Rakht Daan"
+        android:textColor="@color/dark_grey"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/donor_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/donor_name"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="2dp"
+        android:layout_toRightOf="@id/donor_profile_pic"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Paras Hospital, Bailey Road, Patna"
+        android:textColor="@color/dark_grey"
+        android:textSize="12sp" />
+
+    <View
+        android:id="@+id/line_ngoDetail"
+        android:layout_width="match_parent"
+        android:background="@color/light_grey"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="25dp"
+        android:layout_below="@+id/donor_profile_pic"
+        android:layout_height="1dp"/>
+
+    <ImageView
+        android:id="@+id/donor_call"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="100dp"
+        android:src="@drawable/ic_group_39" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/donor_email"
+        android:src="@drawable/ic_group_38"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="15dp"/>
+
+</RelativeLayout>
+
