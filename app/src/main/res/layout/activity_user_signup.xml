@@ -202,7 +202,8 @@
             android:elevation="10dp"
             android:gravity="top"
             android:background="@drawable/background_ngo_edit_profile"
-            android:backgroundTint="@color/grey">
+            android:backgroundTint="@color/grey"
+            app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"

@@ -170,6 +170,7 @@
         android:layout_marginLeft="25dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="25dp"
+        app:passwordToggleEnabled="true"
 
         android:background="@drawable/ngo_signup_background">
 
@@ -179,7 +180,7 @@
             android:layout_height="match_parent"
             android:background="@drawable/ngo_signup_background"
             android:hint="Password"
-            android:inputType="text"
+            android:inputType="textPassword"
             android:padding="10dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
