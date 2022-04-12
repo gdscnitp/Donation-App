@@ -100,7 +100,7 @@ public class BloodBankActivity extends AppCompatActivity implements OnMapReadyCa
         Log.e("In url Long: ", String.valueOf(currentLong));
         String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json" +
                 "?location=" + currentLat + "," + currentLong + "&radius=5000" + "&type=hospital" +
-                "&sensor=true" + "&key=" + "AIzaSyDQe-13V3dM4IEZqhVeAveNyPTKaifq2Jg";
+                "&sensor=true" + "&key=" + "";
         Log.e("Url:", "onCreate: " + url );
 
 //      //Execute place task method to download json data
